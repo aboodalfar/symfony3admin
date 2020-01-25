@@ -1,0 +1,35 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    database_host: 127.0.0.1
+    database_port: ~
+    database_name: symfony
+    database_user: root
+    database_password: ~
+    # You should uncomment this if you want to use pdo_sqlite
+    #database_path: '%kernel.project_dir%/var/data/data.sqlite'
+
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: ~
+    mailer_password: ~
+    mailer_port: ~
+
+    # A secret key that's used to generate certain security-related tokens
+    secret: ThisTokenIsNotSoSecretChangeIt
+
+
+    langs: 
+        en: English
+
+    #wewebit application configuration
+  
+    wewebit.site.url: http://forex-website.com
+    wewebit.portal.name: 'Forex Trader Room'
+    wewebit.company.name: 'Forex Company'
+    sonata.admin.logo: /logo.png
+    wewebit.portal.logo: /logo.png
+    wewebit.powered.logo: /logo-powered.png
+    mailtemplate_sender_email: info@forexcompany.com
+    mailtemplate_sender_name:  'Forex Company'

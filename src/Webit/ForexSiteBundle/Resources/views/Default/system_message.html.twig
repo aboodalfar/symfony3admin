@@ -1,0 +1,16 @@
+<div class="wrap-text message-outer-wrapper">
+		{# todo: handle error, notification messages #}
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="check_container">
+                    <i class="fa fa-check general-back-color" aria-hidden="true"></i>
+                </div>
+                <div class="data-message-green">
+                    <p>{%trans%}Success-label{%endtrans%}</p>
+                    <span>{{message|trans}}</span>
+                </div>
+                <a href="#" class="close_success_popup general-back-color">{%trans%}form-close-lbl{%endtrans%}</a>
+            </div>
+        </div>
+</div>
+

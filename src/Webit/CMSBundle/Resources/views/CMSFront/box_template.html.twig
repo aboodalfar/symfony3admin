@@ -1,0 +1,26 @@
+<div class="aboutBlock">
+    <div class="whyBaxia">
+    <div class="title">{{page.getTranslationByLang(_locale).getTitle()}}</div>
+
+    {% for content in page.getContentsTemplate() %}
+        <div class="whyBaxia-box col-lg-6 col-md-6">
+            <div class="whyBaxia-title">
+                {{content.getTitle()}}
+            </div>
+            <div class="description">{{content.getBody()}}</div>
+            <div class="readMore"><a class="btn-on-yellow-dark" href="{{content.getLink()}}">{%trans%}read_more{%endtrans%}</a></div>
+            <div class="whyBaxia-title">{{content['templateTitle']}}</div>
+            <div class="description">{{content['templateBody']}}</div>
+            <div class="readMore"><a href="{{content['templateLink']}}">{%trans%}read_more{%endtrans%}</a></div>
+
+            <div class="clear"></div>
+         </div>
+    {%endfor%} 
+
+    </div>
+</div>
+ <div class="clear"></div>
+ <div class="yellow_Line"></div>
+ <div class="aboutDescription">
+     {{page.getTranslationByLang(_locale).getBody()|raw}}
+ </div>

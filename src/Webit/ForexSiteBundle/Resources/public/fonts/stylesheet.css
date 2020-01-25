@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Px Grotesk';
+    src: url('PxGrotesk-Bold.eot');
+    src: url('PxGrotesk-Bold.eot?#iefix') format('embedded-opentype'),
+        url('PxGrotesk-Bold.woff2') format('woff2'),
+        url('PxGrotesk-Bold.woff') format('woff'),
+        url('PxGrotesk-Bold.ttf') format('truetype'),
+        url('PxGrotesk-Bold.svg#PxGrotesk-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Px Grotesk';
+    src: url('PxGrotesk-Light.eot');
+    src: url('PxGrotesk-Light.eot?#iefix') format('embedded-opentype'),
+        url('PxGrotesk-Light.woff2') format('woff2'),
+        url('PxGrotesk-Light.woff') format('woff'),
+        url('PxGrotesk-Light.ttf') format('truetype'),
+        url('PxGrotesk-Light.svg#PxGrotesk-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+

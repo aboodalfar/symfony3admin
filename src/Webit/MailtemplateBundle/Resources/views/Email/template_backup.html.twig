@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html><head>
+  <meta charset="UTF-8">
+  <title>{{"SITE_NAME"|trans}}</title>
+  
+  <style>
+      .table-data-custom{width: 100%;max-width: 100%;margin-bottom: 1rem;}
+      .table-data-custom tr td , .table-data-custom  tr th {padding: .75rem;vertical-align: top;border-bottom: 1px solid #eceeef;    text-align: left;}
+  </style>
+  
+  
+  
+</head>
+
+<body style="margin: 0px; padding: 0px; line-height: 1; background-color: rgb(233, 233, 233); zoom: 1;">
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+  
+  
+    <!-- Wrapper Table (replaces body element which some email clients remove) -->
+    <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="600" style="width:600px; font-family: Helvetica,arial, sans-serif; line-height:1;">
+      <tbody>
+      <tr style="line-height:1;">
+        <td style="line-height:1; font-family:Helvetica,arial,sans-serif; border-collapse:collapse;">
+          <!-- Inner Table (needs width and min-width to prevent Gmail in Android from wrapping layout) -->
+          <!-- Background Image -->
+          <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="min-width:600px; margin:0 auto; line-height:1; background-color:#fff;">
+            <tbody style="line-height:1; background-color: #ffffff;">
+              {#<tr style="line-height:1;">
+                <td style="font-family:Helvetica,arial,sans-serif; line-height:1; border-collapse:collapse;">
+                  <a href="{{app.request.getSchemeAndHttpHost()}}"><img src="{{ app.request.getSchemeAndHttpHost() ~ asset('bundles/webittradersarea/images/bg-img-3.png') }}"></a>
+                </td>
+                <!-- <a href="http://aclfest.redbull.tv/#!/" style="display:inline-block; height:50px; padding:0 20px; font-size:16px; color:#000001; line-height:50px; text-decoration:none; background-color:#c58d21; border-radius:3px;">Get Tickets</a> -->
+              </tr>#}
+              <tr>
+                <td style="padding: 25px 50px">
+                  <p style="color: #212121; line-height:1.2; text-transform:capitalize; font-weight:bold; font-size: 19px; text-align:center;    margin-bottom: 0px;font-family: Helvetica,arial">{{subject|raw}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0 35px;">
+                  <hr style="height: 1px; background-color: #cccccc; border: none; margin: 0;">
+                </td>
+              </tr>
+              {#<tr>
+               <td style="padding-top: 45px; text-align:center;">
+                   <p style="font-weight: bold; margin:0; color: #141414; font-size: 17px;text-transform: capitalize;">Welcome,<span>lena abu-hatab</span> </p>
+               </td>
+              </tr>#}
+                <tr>
+                <td>
+                  <table align="center" border="0" cellpadding="0" cellspacing="0" width="640" style="min-width:640px; margin:0 auto; line-height:1; background-color:rgba(255,255,255,0.87); background-position:center top; background-repeat:no-repeat; padding: 15px 50px 60px;">
+                    <tbody><tr>
+                      <td style="text-align:center; padding-bottom: 20px; padding-top: 14px;font-family: Helvetica,arial,sans-serif;">
+                        {{body|raw}}
+                      </td>
+                    </tr>
+                  </tbody></table>
+                </td>
+              </tr>
+            </tbody>
+          {#  <tfoot align="center" bgcolor="#1a1a1a">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="640" style="min-width:640px; margin:0 auto; line-height:1; font-size:11px; line-height:1; text-align:center; background-color:#1a1a1a;display: table;">
+              <tr style="line-height:1;">
+                <td style="padding:40px 0; font-family:Helvetica,arial, sans-serif; line-height:1; border-top:1px solid #444443; border-collapse:collapse;">
+                  <img src="{{ app.request.getSchemeAndHttpHost() ~ asset('bundles/webittradersarea/images/logo.png') }}" width="50" height="50" style="line-height:1; border:0; outline:none;">
+                  <div style="margin-top:16px; color:#fffffe; font-weight:500; line-height:1;font-size: 17px;">{{companyname}}</div>
+                    <div style="color:#666667; line-height:1;margin:  0px 30px;margin-top:17px; ">Trading foreign exchange on margin carries a high level of risk, and may not be suitable for all investors. Before deciding to trade foreign exchange, you should carefully consider your investment objectives, level of experience, and risk appetite. There is a possibility that you may sustain a loss of some or all of your investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with foreign exchange trading, and seek advice from an independent financial advisor if you have any doubts.</div>
+                  <div style="margin-top:17px; line-height:1;">
+                    <span style="margin-right:7px; line-height:1;">
+                      <a href="#" style="color:#c58d21; line-height:1; text-decoration:none;" target="_blank">PINTEREST</a>
+                    </span>
+                    <a href="#" style="color:#c58d21; line-height:1; text-decoration:none;" target="_blank">TWITTER</a>
+                    <span style="margin:0 7px; line-height:1;">
+                      <a href="#" style="color:#c58d21; line-height:1; text-decoration:none;" target="_blank">FACEBOOK</a>
+                    </span>
+                    <a href="#" style="color:#c58d21; line-height:1; text-decoration:none;" target="_blank">GOOGLE+</a>
+                  </div>
+                  <div style="margin-top:18px; line-height:1;">
+                    <span style="margin:0 10px; line-height:1;">
+                      <a href="#" style="color:#666667; line-height:1; text-decoration: none;" target="_blank">Terms &amp; Conditions</a>
+                    </span>
+                    <a href="#" style="color:#666667; line-height:1; text-decoration:none;" target="_blank">Privacy</a>
+                    <span style="margin:0 10px; line-height:1;">
+                      <a href="#" style="color:#666667; line-height:1; text-decoration:none;" target="_blank">Support</a>
+                    </span>
+                    <a href="#" style="color:#666667; line-height:1; text-decoration:none;" target="_blank">Update Subscription</a>
+                  </div>
+                </td>
+              </tr>
+                </table>
+            </tfoot>#}
+          </table>
+        </td>
+      </tr>
+    </tbody></table>
+    
+  
+
+
+  
+  
+
+
+</body></html>

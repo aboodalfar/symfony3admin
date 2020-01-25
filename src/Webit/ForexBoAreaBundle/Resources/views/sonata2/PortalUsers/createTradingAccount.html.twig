@@ -1,0 +1,91 @@
+{% extends base_template %}
+
+
+{% block title %}
+    Please Select mt5 group to continue
+{% endblock%}
+
+{% block actions %}
+    <div class="sonata-actions">
+        <ul>
+            {% if admin.hasroute('create') and admin.isGranted('CREATE') and admin.id(object)%}
+                <li class="btn sonata-action-element"><a href="{{ admin.generateUrl('create') }}">{% trans from 'SonataAdminBundle' %}link_action_create{% endtrans %}</a></li>
+                {% endif %}
+                {% if admin.hasroute('list') and admin.isGranted('LIST')%}
+                <li class="btn sonata-action-element"><a href="{{ admin.generateUrl('list') }}">{% trans from 'SonataAdminBundle' %}link_action_list{% endtrans %}</a></li>
+                {% endif %}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block side_menu %}{{ knp_menu_render(admin.sidemenu(action), {}, 'list') }}{% endblock %}
+
+
+
+{% block form %}
+    
+    <div class="box box-success">
+        <div class="box-header">
+            <h4 class="box-title">"{{object.getPortalUser().getUsername()}}" Trading Account Details</h4>
+        </div>
+        <div class="box-body">
+            <form id="register" action="{{ admin.generateObjectUrl('approve_application', object) }}" method="post">
+                {% form_theme form admin.getTemplate('filter') %}
+                {{form_errors(form)}}
+
+                {{ form_widget(form._token) }}
+                {{ form_row(form['Platform'])}}
+                <div class='clear'>&nbsp;</div>                     
+                {{ form_row(form['trading_account_type'])}}
+                <div class='clear'>&nbsp;</div>
+                {{ form_row(form['TradingCurrency'])}}
+                <div class='clear'>&nbsp;</div>
+                {{ form_row(form['login'])}}
+                <div class='clear'>&nbsp;</div>
+                {{ form_row(form['leverage'])}}
+                <div class='clear'>&nbsp;</div>
+                {{ form_row(form['comment'])}}
+                <div class='clear'>&nbsp;</div>
+                {{ form_row(form['agent_account'])}}
+                <div class='clear'>&nbsp;</div>                
+                <div style="clear: both">&nbsp;</div>
+                
+                <div class="manual_create_cont">
+                    {{ form_row(form['manual_create'])}}
+                </div>
+                <div id="manual_form" style="display: none">
+                    {{ form_row(form['ro_password'])}}
+                    {{ form_row(form['online_password'])}}
+                </div>
+
+                <div style="clear: both"></div>
+                <div class="actions">
+                    <input class='btn btn-success' type="submit" value="{% trans from 'messages' %}Create Account{%endtrans%}" name="btn_update_and_edit" />
+                    <a href="#" class="btn btn-danger"><i class="fa fa-minus-circle"></i> {%trans%}Cancel{%endtrans%}</a>
+                </div>
+            </form>
+
+            <div style="float: right">
+                <div class="sonata-actions">
+                    <ul>
+                        {% if admin.hasroute('edit') and admin.isGranted('EDIT')%}
+                            <li class="btn sonata-action-element"><a href="{{ admin.generateObjectUrl('edit', object) }}">{% trans from 'SonataAdminBundle' %}Back to Edit{% endtrans %}</a></li>
+                            {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#tradingaccountstype_manual_create").click(function () {
+                if ($("#tradingaccountstype_manual_create:checked").length > 0) {
+                    $("#manual_form").show();
+                } else {
+                    $("#manual_form").hide();
+                }
+            });
+        });
+    </script>
+{% endblock %}

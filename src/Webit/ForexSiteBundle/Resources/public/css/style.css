@@ -1,0 +1,4259 @@
+@font-face {
+  font-family: "PxGrotesk-Regular";
+  src: url("../fonts/PxGrotesk-Regular.eot");
+  src: local("☺"),
+    url("../fonts/PxGrotesk-Regular.woff") format("woff"),
+    url("../fonts/PxGrotesk-Regular.otf") format("opentype"),
+    url("../fonts/PxGrotesk-Regular.svg#filename") format("svg");
+  }
+
+  @font-face {
+  font-family: "PxGrotesk-Light";
+  src: url("../fonts/PxGrotesk-Light.eot");
+  src: local("☺"),
+    url("../fonts/PxGrotesk-Light.woff") format("woff"),
+    url("../fonts/PxGrotesk-Light.otf") format("opentype"),
+    url("../fonts/PxGrotesk-Light.svg#filename") format("svg");
+  }
+
+  @font-face {
+  font-family: "PxGrotesk-Bold";
+  src: url("../fonts/PxGrotesk-Bold.eot");
+  src: local("☺"),
+    url("../fonts/PxGrotesk-Bold.woff") format("woff"),
+    url("../fonts/PxGrotesk-Bold.otf") format("opentype"),
+    url("../fonts/PxGrotesk-Bold.svg#filename") format("svg");
+  }
+
+
+a {
+  outline: none;
+}
+
+li {
+	list-style: none;
+}
+
+body {
+  font-family: "PxGrotesk-Regular";
+}
+
+.clear {clear: both;}
+
+.noPadding {
+	padding: 0;
+}
+
+.topHeader {
+	background-color: #9f968c;
+	/*padding: 6px 0;*/
+}
+
+.logo {
+  padding-left: 0;
+  z-index: 9;
+}
+
+.leftSide-part {
+	float: left;
+}
+
+.rightSide-part {
+	float: right;
+}
+
+.listItems ul li {
+  display: inline-block;
+  padding-right: 33px;
+}
+
+.listItems ul li a {
+	color: #fff;
+	text-transform: capitalize;
+	font-size: 13px;
+}
+
+.listItems ul li a:hover {
+	text-decoration: none;
+}
+
+.listItems ul li a.liveChat {
+  background-image: url("../images/liveChat.jpg");
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  outline: none;
+}
+
+.listItems ul li a.loginIcon {
+  background-image: url("../images/login.jpg");
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  outline: none;
+}
+
+.listItems ul li a.callUs {
+  background-image: url("../images/callUs.jpg");
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  outline: none;
+}
+
+.listItems ul {
+  margin-bottom: 0;
+  margin-top: 8px;
+  padding: 0;
+}
+
+.serchBlock {
+  float: right;
+  height: 35px;
+  position: relative;
+  width: 52px;
+}
+
+.languageBlock {
+  float: right;
+  margin-top: 0;
+}
+
+.languageBlock select.selectpicker {
+  background: none;
+  border: 0;
+  margin-right: 6px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.languageBlock ul.nav.navbar-nav li.dropdown a {
+  padding-bottom: 0;
+  padding-top: 0;
+  padding: 8px 10px;
+  background-color: transparent;
+}
+
+/*************************************************/
+/*#wrap {
+  margin: 50px 100px;
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  float: right;
+  padding: 0;
+  position: relative;
+}*/
+
+.serchBlock input[type="text"] {
+  height: 60px;
+  font-size: 55px;
+  display: inline-block;
+  font-weight: 100;
+  border: none;
+  outline: none;
+  color: #555;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+  cursor: pointer;
+}
+
+
+.serchBlock input[type="text"]:focus:hover {
+  border-bottom: 1px solid #BBB;
+}
+
+.serchBlock input[type="text"]:focus {
+  width: 700px;
+  z-index: 1;
+  border-bottom: 1px solid #BBB;
+  cursor: text;
+}
+.serchBlock input[type="submit"] {
+  background-image: url("../images/search-icon.jpg");
+  background-repeat: no-repeat;
+  border: medium none;
+  color: red;
+  cursor: pointer;
+  display: inline-block;
+  height: 36px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  text-indent: -10000px;
+  top: 0;
+  transition: opacity 0.4s ease 0s;
+  width: 46px;
+  z-index: 2;
+}
+
+.serchBlock input[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+/********************* End Of seach Block ****************************/
+
+.bottomMain-header {
+  background-image: url("../images/header-BG.png");
+  background-repeat: repeat;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+.mainSlider {
+  overflow-x: hidden;
+}
+
+.mainHeader {
+  position: relative;
+}
+
+.logo a {
+  display: block;
+  margin-top: 12px;
+  padding-bottom: 8px;
+  outline: none;
+}
+
+
+
+/**************************************************************/
+
+/* Navbar container */
+ .navbar {
+  overflow: hidden;
+  background-color: transparent;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px; 
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Mega Menu header, if needed */
+.dropdown-content .header {
+  background: red;
+  padding: 16px;
+  color: white;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  background-color: #ccc;
+  height: 250px;
+}
+
+/* Style links inside the columns */
+.column a {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a background color on hover */
+.column a:hover {
+  background-color: #ddd;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.numAnd-textBlock .leftBlock {
+	float: left;
+	font-size: 29px;
+	color: #8b69d3;
+	padding-right: 20px;
+}
+
+.numAnd-textBlock .rightBlock {
+	float: left;
+	color: #8b69d3;
+	width: 63px;
+	font-size: 14px;
+}
+
+.numAnd-textCont {
+  border-right: 2px solid #c5b4e9;
+  overflow: auto;
+}
+
+.numAnd-textCont.last {
+	border: 0;
+}
+
+    .icon-small
+{
+    height:18px;
+    margin:0;
+	padding:0;
+}
+
+.icon-medium
+{
+    height:22px;
+	margin:0;
+	padding:0;
+}
+
+.sliderBlock {
+	position: relative;
+}
+
+.descriptionBlock {
+  left: 15px;
+  overflow: auto;
+  position: absolute;
+  top: 100px;
+  width: 320px;
+}
+
+.sliderBlock .descriptionBlock div.title {
+  border-bottom: 3px solid #ffd700;
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 9px;
+  padding-bottom: 9px;
+}
+
+.sliderBlock .descriptionBlock .description {
+	color: #ffffff
+}
+
+.descriptionBlock .readMore a {
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  color: #fff;
+  float: left;
+  padding: 9px 26px;
+  text-align: center;
+  border:1px solid #ffd700;
+}
+
+.descriptionBlock .readMore a:hover {
+	text-decoration: none;
+	border: 1px solid #fed809;
+}
+
+.readMore {
+  margin-top: 19px;
+}
+
+.mainSlider .baxiaMain-slider .slick-dots {
+  bottom: 78px;
+  left: 0;
+  margin: 0 auto;
+  position: relative;
+  width: 1170px;
+  padding: 0 15px;
+}
+
+.mainSlider .baxiaMain-slider ul.slick-dots li {
+	float: left;
+}
+
+.mainSlider .slick-dots li button {
+  background-image: url("../images/dots-slider.png");
+  background-repeat: no-repeat;
+  border-radius: 0;
+  height: 28px;
+  opacity: 1;
+  width: 21px;
+}
+
+.mainSlider .slick-dots li button::before {
+	content: "";
+}
+
+.mainSlider .slick-dots li button:hover {
+	background-image: url(../images/dots.png);
+	background-repeat: no-repeat;
+	width: 21px;
+	height: 21px;
+	background-color: transparent;
+}
+
+.mainSlider ul.slick-dots .slick-active button {
+	background-image: url(../images/dots.png);
+	background-repeat: no-repeat;
+	width: 21px;
+	height: 21px;
+}
+
+/*.mainSlider ul.slick-dots .slick-active button {
+  border: 1px solid #ffd700 !important;
+  border-radius: 22px;
+}*/
+
+
+.mainSlider .slick-dots li button::before {
+  height: 15px;
+  padding: 25px;
+  width: 15px;
+}
+
+.baxiaMain-slider .rightSide-Bar {
+  background-image: url("../images/Trade-BG.png");
+  padding: 25px 20px;
+  position: absolute;
+  right: 15px;
+  top: 83px;
+  width: 228px;
+}
+
+
+.baxiaMain-slider .rightSide-Bar .title	{
+	color: #ffd700;
+	text-transform: uppercase;
+	font-size: 22px;
+}
+
+.baxiaMain-slider .rightSide-Bar .description {
+	color: #fff;
+	margin-bottom: 6px;
+}
+
+.mega-dropdown-menu a.demoAccount-link .demoAccount {
+	background-image: url("../images/purple-arrow.jpg") !important;
+}
+
+.mega-dropdown-menu a.demoAccount-link .demoAccount,
+.baxiaMain-slider .rightSide-Bar .demoAccount {
+  background-color: #8669bc;
+  background-image: url("../images/purple-arrow.jpg");
+  background-position: 167px center;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  padding: 10px 10px 11px 12px;
+  margin-top: 10px;
+}
+
+.mega-dropdown-menu a.liveAccount-link .liveAccount,
+.baxiaMain-slider .rightSide-Bar .liveAccount {
+  background-color: #debd13;
+  background-image: url("../images/yellow-arrow.jpg");
+  background-position: 167px center;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  padding: 10px 10px 11px 12px;
+}
+
+.mega-dropdown-menu a.liveAccount-link .liveAccount, 
+.mega-dropdown-menu a.demoAccount-link .demoAccount {
+  float: left;
+  margin: 0;
+  padding: 10px 10px 11px 12px;
+  width: 156px;
+  text-align: left;
+}
+
+.mega-dropdown-menu a.liveAccount-link,
+.mega-dropdown-menu a.demoAccount-link {
+	padding: 0;
+	width:162px;
+}
+
+.demoAccount-title {
+   color: #ffd700;
+   font-size: 17px;	
+}
+
+.demoAccount-description {
+	color: #ffffff;
+  	font-size: 11px;	
+}
+
+.trading-Platforms-menu .description {
+	color: #ffffff;
+}
+
+a.demoAccount-link:hover {
+	text-decoration: none;
+}
+
+.liveAccount-title {
+  color: #8b69d3;
+  font-size: 17px;
+}
+
+.liveAccount-description {
+  color: #8b69d3;
+  font-size: 11px;	
+}
+
+a.liveAccount-link:hover {
+	text-decoration: none;
+}
+
+.aboutBaxia-Block {
+  margin-bottom: 28px;
+  overflow: auto;
+  padding: 30px 0;
+  padding-bottom: 0;
+}
+
+section.aboutBaxia {
+  margin-top: 15px;
+  background-color: #f4f3f2;
+}
+
+.yellow-line {
+  background: #ffd700 none repeat scroll 0 0;
+  height: 2px;
+  width: 60px;
+}
+
+.aboutBaxia-left .title {
+  color: #8b69d3;
+  font-size: 26px;
+}
+
+.aboutBaxia-left .description {
+  color: #333333;
+  font-size: 14px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.aboutBaxia-list ul {
+  padding: 0;
+}
+
+.aboutBaxia-list ul li {
+  color: #333333;
+  font-size: 13px;
+}
+
+.aboutBaxia-list ul li {
+  background-image: url("../images/right-purple-arrow.jpg");
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding: 5px 0 5px 14px;
+}
+
+.aboutBaxia-left .readMore a:hover {
+	text-decoration: none;
+	/*background-color: #fed809;*/
+  outline: medium none;
+  border-color: #fed809;
+}
+
+.aboutBaxia-Block .aboutBaxia-left .description a.readMore,
+.aboutBaxia-left .readMore a {
+  border: 2px solid #ffd700;
+  border-radius: 4px;
+  color: #8b69d3;
+  float: left;
+  padding: 9px 26px;
+  text-align: center;
+  outline: medium none;
+}
+
+.aboutBaxia-Block .aboutBaxia-left .description a.readMore {
+  margin-top: 15px;
+}
+
+.aboutBaxia-Block .aboutBaxia-left .description a.readMore:hover {
+  border-color: #fdd700;
+}
+
+.fundingMeythods-slider .title {
+  font-size: 18px !important;
+  margin-top: 20px;
+  margin-bottom: 11px;
+}
+
+.fundingMeythods .slick-arrow {
+  width: 12px;
+  height: 19px;
+}
+
+ .fundingMeythods .slick-prev {
+ 	background-image: url(../images/left-black-arrow.jpg);
+ 	background-repeat: no-repeat;
+ 	left: -15px;
+ 	z-index: 9;
+ }
+
+.fundingMeythods .slick-next::before,
+ .fundingMeythods .slick-prev::before {
+ 	content: "";
+ }
+
+  .fundingMeythods .slick-next {
+ 	background-image: url(../images/right-black-arrow.jpg);
+ 	background-repeat: no-repeat;
+ 	right: -15px;
+ }
+
+.fundingMeythods .slick-slide img {
+  margin: 0 auto;
+}
+
+.aboutBaxia-tabs ul.nav.nav-tabs {
+  border-bottom-color: #8b69d3;
+  width: 100%;
+}
+
+.aboutBaxia-tabs ul.nav.nav-tabs li.active a {
+  background: #8b69d3;
+  color: #ffd700;
+  border: 1px solid #8b69d3;
+  outline: medium none;
+}
+
+.aboutBaxia-tabs ul.nav.nav-tabs li a {
+  background: #d1cbc4 none repeat scroll 0 0;
+  color: #fff;
+  padding: 5px 10px;
+  outline: medium none;
+}
+
+.odd {
+	background-color: #ffffff;
+}
+
+.tablesBlock table tr th {
+  color: #8b69d3;
+  padding: 4px 10px;
+}
+
+.tablesBlock table tr td {
+	color: #8b69d3;
+	padding: 4px 10px;	
+	border:0;
+}
+
+.technologyExecution-block .title {
+	color: #8b69d3;
+	font-size: 26px;
+	margin-top: 30px;
+}
+
+.featureBlock1 .image {
+	padding-left: 0;
+}
+
+.featureBlock2 .image {
+	padding-right: 0;
+}
+
+/*.technologyExecution-block {
+	padding: 0 15px;
+}*/
+
+.technologyExecution-block .description {
+  color: #000;
+  margin: 10px 0 22px;
+}
+
+.featureBlock .title {
+  font-size: 20px !important;
+}
+
+.featureBlock .title {
+  background-image: url("../images/Feature-icon.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+  height: 33px;
+  margin-bottom: 7px;
+  padding-left: 52px;
+}
+
+.featureBlock .descrition {
+	color: #000;
+}
+
+.featureBlock .featureList ul {
+  padding: 0;
+  margin-top: 11px;
+}
+
+.featureBlock .featureList ul li {
+  list-style: outside none disc;
+  margin-bottom: 6px;
+  margin-left: 15px;
+}
+
+.featureBlock .readMore a {
+	border: 2px solid #ffd700;
+	border-radius: 4px;
+	color: #8b69d3;
+	float: left;
+	padding: 9px 26px;
+	text-align: center;
+}
+
+.featureBlock .readMore a:hover {
+	text-decoration: none;
+	background-color: #fed809;
+}
+
+.featureBlock2 {
+  margin-top: 28px;
+  overflow: auto;
+}
+
+.baxiaPartnership-block {
+	background-image: url(../images/partnership-backg.png);
+    /* Set a specific height */
+    min-height: 300px; 
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 30px 173px;
+}
+
+/*section.baxia-Partnership {
+	margin: 30px 0;
+}*/
+
+.mainSlider .slick-slide img {
+  width: 100%;
+}
+
+.baxiaPartnership-Cont {
+	background-image: url(../images/Partnership-BG.png);
+	/*height: 245px;*/	
+	padding: 40px 50px;
+}
+
+.baxiaPartnership-Cont .title {
+	color: #ffffff;
+	font-size: 26px;
+}
+
+.baxiaPartnership-Cont .description {
+  color: #ffffff;
+  margin-bottom: 6px;
+  margin-top: 9px;
+}
+
+a.partnership-link {
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  color: #ffffff;
+  display: block;
+  padding: 9px 9px;
+  text-align: center;
+  width: 100%;
+  font-size: 13px;
+  outline: none;
+}
+
+.Partnership-buttons {
+  margin-top: 24px;
+  overflow: auto;
+}
+
+.partnership-butt {
+	padding: 0 15px 0 0;
+	margin-bottom: 8px;
+}
+
+section.trading-Platforms {
+	background-color: #f4f3f2;
+}
+
+.tradingPlatforms-block {
+  background-image: url("../images/Trading-Platforms.jpg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  height: 365px;
+  overflow: auto;
+  margin-bottom: 15px;
+}
+
+.tradingPlatforms-Cont .title {
+	color: #8b69d3;
+	font-size: 26px;
+	margin-top: 20px;
+}
+
+.tradingPlatforms-Cont .description {
+	color: #000;
+	margin: 10px 0 13px;
+	width: 80%;
+}
+
+.tradingPlatforms-butt a {
+  border: 2px solid #9f968c;
+  border-radius: 4px;
+  color: #9f968c;
+  display: block;
+  float: left;
+  margin-right: 8px;
+  padding: 9px 26px;
+  text-align: center;
+  outline: none;
+}
+
+/*.tradingPlatforms-butt a.hvr-sweep-to-right {
+  margin: 0;
+  margin-right: 8px;
+  background-color: transparent;
+transition: background-position 0.4s ease-in-out 0s, color 0.5s ease-out 0s, border-color 0.5s ease 0s;
+}
+
+.tradingPlatforms-butt a.hvr-sweep-to-right::before {
+  background: #ffd700;
+}
+
+.tradingPlatforms-butt a.hvr-sweep-to-right:hover {
+  color: #8b69d3;
+}*/
+
+/*.tradingPlatforms-butt a.live-Account-butt {
+  background-position: -500px -200px;
+color: #00c5eb;
+transition: background-position 0.4s ease-in-out 0s, color 0.5s ease-out 0s, border-color 0.5s ease 0s;
+
+background-image: url("../images/button-bg.png");
+background-repeat: no-repeat;
+transition: background-position 0.5s ease 0s, color 0.8s ease 0s, border-color 0.8s ease 0s;
+}
+
+.tradingPlatforms-butt a.live-Account-butt:hover {
+  background-position: -300px -200px;
+}
+
+.tradingPlatforms-butt a.live-Account-butt:focus::after, 
+.tradingPlatforms-butt a.live-Account-butt:hover::after {
+  transform: translate(0px, -5%);
+}
+
+.tradingPlatforms-butt a:hover {
+	text-decoration: none;
+	border: 2px solid #ffd700;
+	color: #fff;
+  background-position: -300px -200px;
+  background-image: url(../images/button-bg.png);
+  background-repeat: no-repeat;
+  transition: background-position 0.4s ease-in-out 0s, color 0.5s ease-out 0s, border-color 0.5s ease 0s;
+}*/
+
+
+/*
+.tradingPlatforms-butt a.demoAccount.hvr-sweep-to-right::before{
+  background:#8b69d3;
+}
+
+.tradingPlatforms-butt a.demoAccount.hvr-sweep-to-right:hover {
+  border: 2px solid #8b69d3;
+  color: #ffd700;
+}*/
+
+.btn-on-gray-dark {
+    background-image: url("../images/button-bg5.png") !important;
+    background-repeat: no-repeat;
+    transition: background-position 0.5s ease 0s, color 0.8s ease 0s, border-color 0.8s ease 0s;
+}
+
+.btn-on-gray-dark:hover {
+    border-color: #cbc5be !important;
+    color: gold !important;
+}
+
+.btn-on-yellow-dark2 {
+  background-image: url("../images/button-bg2.png") !important;
+    background-repeat: no-repeat;
+    transition: background-position 0.5s ease 0s, color 0.8s ease 0s, border-color 0.8s ease 0s;
+}
+
+
+.btn-on-yellow-dark {
+    background-image: url("../images/button-bg2.png");
+    background-repeat: no-repeat;
+    transition: background-position 0.5s ease 0s, color 0.8s ease 0s, border-color 0.8s ease 0s;
+}
+
+.btn-on-purple-dark {
+    background-image: url("../images/button-bg3.png");
+    background-repeat: no-repeat;
+    transition: background-position 0.5s ease 0s, color 0.8s ease 0s, border-color 0.8s ease 0s;
+}
+
+a.partnership-link {
+   background-image: url("../images/button-bg4.png");
+   background-repeat: no-repeat;
+   transition: background-position 0.5s ease 0s, color 0.8s ease 0s, border-color 0.8s ease 0s;
+}
+
+.partnership-link,
+.btn-on-purple-dark:hover,
+.btn-on-yellow-dark2:hover,
+.btn-on-yellow-dark:hover {
+    transition: background-position 0.8s ease 0s, color 0.5s ease 0s, border-color 0.5s ease 0s;
+}
+
+.partnership-link,
+.btn-on-purple-dark,
+.btn-on-yellow-dark2,
+.btn-on-yellow-dark {
+    background-position: -500px -100px;
+}
+
+.btn-on-yellow-dark2:hover,
+.btn-on-yellow-dark:hover {
+    background-position: 0 -100px;
+    border-color: #fdd700;
+    color: #8b69d3 !important;
+    text-decoration:none;
+}
+
+.btn-on-purple-dark:hover {
+    background-position: 0 -100px;
+    border-color: #8b69d5;
+    color: #ffd700 !important;
+    text-decoration:none;
+}
+
+.partnership-link:hover {
+    background-position: 0 -100px;
+    border-color: #f1f2f4;
+    color: #a0968b !important;
+    text-decoration:none;
+}
+
+
+
+.list-platforms {
+  padding-top: 30px;
+}
+
+.list-platforms ul li {
+  border-bottom: 2px solid #bababa;
+  padding: 20px 0;
+  width: 114px;
+}
+
+.list-platforms ul li a {
+  background-position: left center;
+  background-repeat: no-repeat;
+  color: #8b69d3;
+  display: block;
+  height: 23px;
+  padding-left: 38px;
+  outline: medium none;
+}
+
+.list-platforms ul li a:hover {
+	text-decoration: none;
+}
+
+.list-platforms ul li.windows a {
+	background-image: url(../images/Windows.png);
+}
+
+.list-platforms ul li.mac a {
+	background-image: url(../images/Mac.png);
+}
+
+.list-platforms ul li.webtrader a {
+	background-image: url(../images/Webtrader.png);
+}
+
+.list-platforms ul li.android a {
+	background-image: url(../images/Android.png);
+}
+
+.list-platforms ul li.iPhone a {
+	background-image: url(../images/IPhone.png);
+}
+
+.list-platforms ul li.iPhone {
+	border:0;
+}
+
+.locationsBlock ul {
+	padding: 0;
+}
+
+.locationsBlock > ul li {
+  display: inline-block;
+  padding-right: 14px;
+}
+
+.footer-details .info {
+  color: #fff !important;
+  line-height: 27px;
+  min-height: 109px;
+}
+
+.locationsBlock ul li  {
+  background-image: url("../images/icon2.jpg");
+  background-position: left center;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 12px;
+  padding-left: 16px;
+  padding-top: 3px;
+}
+
+.locationsBlock ul li a:hover {
+  text-decoration:none;
+}
+
+.followUs {
+  color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+  margin: 14px 0;
+}
+
+.footerLogo {
+  margin-bottom: 6px;
+  margin-top: 20px;
+}
+
+.socialMedia-icons ul {
+	padding: 0;
+}
+
+.socialMedia-icons ul li {
+  display: inline-block;
+  padding: 0 4px;
+}
+
+.footer-details .info {
+  border-right: 2px solid #bababa;
+}
+
+footer {
+  background-color: #928a82;
+  background-image: url("../images/Footer-img-map.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.footerLine {
+	background-color: #aba8a4;
+	height: 2px;
+}
+
+.liquidityProviders-logos ul li {
+  display: inline-block;
+  padding-right: 37px;
+}
+
+.liquidityProviders-logos ul {
+	padding: 0;
+}
+
+.footerCont .title {
+  color: #fff;
+  margin: 14px 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.footerCont .description {
+	color: #fff;
+  	margin: 10px 0 28px;
+}
+
+.copyRight-text {
+	color: #fff;
+	padding: 5px 0;
+	text-align: center;
+	font-size: 15px;
+}
+
+.copyRight {
+	background-color: #9f968c;
+}
+
+.copyRight-text span {
+  font-size: 18px;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.footerCont {
+  margin: 0 15px;
+}
+
+.footerBlocks {
+  overflow: auto;
+  padding-top: 8px;
+}
+
+.aboutBaxia-tabs ul.nav.nav-tabs li {
+  margin-right: 6px;
+  margin-bottom: 0;
+}
+
+.outer-search-box {
+  background-image: url("../images/search-icon.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: inline-block;
+  float: left;
+  height: 37px;
+  width: 46px;
+}
+
+.outer-search-box .seach-toggle:hover, 
+.outer-search-box .seach-toggle.active {
+  color: #0f1341;
+}
+
+.outer-search-box .seach-toggle {
+  background: transparent none repeat scroll 0 0;
+  color: #222222;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  height: 25px;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  transition: all 500ms ease 0s;
+  width: 30px;
+}
+
+.search-box.now-visible {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+  z-index: 100;
+}
+
+.thm-bg-clr, .search-box {
+  background-color: #46c3e8;
+}
+
+.search-box {
+  background: #fed809 none repeat scroll 0 0;
+  opacity: 0;
+  padding: 20px;
+  position: absolute;
+  right: 15px;
+  top: 120%;
+  transition: all 500ms ease 0s;
+  visibility: hidden;
+  z-index: 100;
+}
+
+.bsquarebutton {
+	visibility: inherit;
+	opacity: 1;
+}
+
+.search-box .form-group {
+  margin: 0;
+  min-width: 250px;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.search-box .form-group input[type="search"] {
+  background: #ffffff none repeat scroll 0 0;
+  border: 1px solid #303443;
+  color: #000;
+  display: block;
+  font-size: 13px;
+  height: 40px;
+  line-height: 24px;
+  padding-left: 15px;
+  padding-right: 50px;
+  position: relative;
+  transition: all 500ms ease 0s;
+  width: 100%;
+}
+
+.search-box .form-group button, .search-box .form-group input[type="submit"] {
+  background: #303443 none repeat scroll 0 0;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 13px;
+  height: 40px;
+  line-height: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: all 500ms ease 0s;
+  width: 40px;
+  border: 0 none;
+}
+
+
+
+
+/***********************************************/
+
+.mega-dropdown {
+  position: static !important;
+}
+.mega-dropdown-menu {
+    padding: 20px 0px;
+    width: 100%;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.mega-dropdown-menu > li > ul {
+  padding: 0;
+  margin: 0;
+}
+.mega-dropdown-menu > li > ul > li {
+  list-style: none;
+}
+.mega-dropdown-menu > li > ul > li > a {
+  display: block;
+  color: #222;
+  padding: 3px 5px;
+}
+.mega-dropdown-menu > li ul > li > a:hover,
+.mega-dropdown-menu > li ul > li > a:focus {
+  text-decoration: none;
+}
+.mega-dropdown-menu .dropdown-header {
+  font-size: 18px;
+  color: #ff3546;
+  padding: 5px 60px 5px 5px;
+  line-height: 30px;
+}
+
+.carousel-control {
+  width: 30px;
+  height: 30px;
+  top: -35px;
+
+}
+.left.carousel-control {
+  right: 30px;
+  left: inherit;
+}
+.carousel-control .glyphicon-chevron-left, 
+.carousel-control .glyphicon-chevron-right {
+  font-size: 12px;
+  background-color: #fff;
+  line-height: 30px;
+  text-shadow: none;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.navBar-Menu .navbar {
+  position: initial !important;
+}
+
+.navBar-Menu .navbar {
+  border: 0;
+}
+
+.bottomMain-header .navBar-Menu nav {
+	margin: 0;
+}
+
+.navBar-Menu .navbar-header a, 
+.navBar-Menu ul.nav.navbar-nav li a {
+  color: #fff;
+  margin-right: 0;
+  outline: medium none;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 21px;
+  text-align: left;
+}
+
+.trading-Platforms-menu .title {
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 4px;
+  margin-top: 16px;
+}
+
+
+.navBar-Menu ul.dropdown-menu.mega-dropdown-menu {
+	background-color: #9f968c;
+	border-top: 4px solid #ffd700;
+}
+
+.navBar-Menu {
+	position: initial;
+}
+
+.trading-Platforms-menu a.liveAccount-link {
+  margin-left: -14px;
+}
+
+
+.mega-dropdown {
+  position: static !important;
+}
+.mega-dropdown-menu {
+    padding: 20px 0px;
+    width: 100%;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.mega-dropdown-menu > li > ul {
+  padding: 0;
+  margin: 0;
+}
+.mega-dropdown-menu > li > ul > li {
+  list-style: none;
+}
+.mega-dropdown-menu > li > ul > li > a {
+  display: block;
+  color: #222;
+  padding: 3px 5px;
+}
+.mega-dropdown-menu > li ul > li > a:hover,
+.mega-dropdown-menu > li ul > li > a:focus {
+  text-decoration: none;
+}
+.mega-dropdown-menu .dropdown-header {
+  font-size: 18px;
+  color: #ff3546;
+  padding: 5px 60px 5px 5px;
+  line-height: 30px;
+}
+
+.carousel-control {
+  width: 30px;
+  height: 30px;
+  top: -35px;
+
+}
+.left.carousel-control {
+  right: 30px;
+  left: inherit;
+}
+.carousel-control .glyphicon-chevron-left, 
+.carousel-control .glyphicon-chevron-right {
+  font-size: 12px;
+  background-color: #fff;
+  line-height: 30px;
+  text-shadow: none;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+
+.megaMenu-listItem ul {
+	padding: 0;
+}
+
+.megaMenu-listItem ul li.title a {
+  background-image: url("../images/mega-title-arrow.jpg");
+  background-position: left center;
+  background-repeat: no-repeat;
+  font-weight: bold;
+  padding-top: 15px !important;
+}
+
+.megaMenu-listItem ul li a {
+  font-size: 14px;
+  padding-top: 3px !important;
+}
+
+.megaMenu-listItem ul li {
+  display: table-row;
+}
+
+.navBar-Menu li.dropdown.mega-dropdown.open a {
+  background-color: transparent;
+}
+
+.mainSlider .sliderBlock .container {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 57px;
+  z-index: 9999;
+}
+
+
+.bottomMain-header .navBar-Menu button.navbar-toggle:focus,
+.bottomMain-header .navBar-Menu button.navbar-toggle:active,
+.bottomMain-header .navBar-Menu button.navbar-toggle:hover {
+  	background: transparent;
+}
+
+.numAnd-text-slider {
+		display: none;
+}
+
+.numAnd-text-Cont {
+  overflow: auto;
+}
+
+.numAnd-text-slider .slick-arrow {
+  background-repeat: no-repeat;
+  width: 11px;
+  height: 18px;
+}
+
+.numAnd-text-slider .slick-arrow::before {
+	content:"";	
+}
+
+.numAnd-text-slider .slick-prev {
+	background-image: url(../images/left-black.jpg);
+}
+
+.numAnd-text-slider .slick-next {
+	background-image: url(../images/right-black.jpg);	
+}
+
+.numAnd-text-slider ul.slick-dots,
+.fundingMeythods ul.slick-dots {
+	display: none !important;
+}
+
+ /*.numAnd-text-slider .slick-next::before {
+ 	content:"";
+ }*/
+
+ .logoFooter-Block {
+  float: right;
+}
+
+.technologyExecution-block .featureBlock2 .image {
+  float: right;
+  padding-left: 0;
+}
+
+.tradingPlatforms-butt {
+  overflow: auto;
+}
+
+.tradingPlatforms-img {
+	display: none;
+}
+
+.fundingMeythods-slider.mobileStyle {
+	display: none;
+}
+
+.trade-withUsMobile .title {
+	color: #8b69d3;
+	font-size: 26px;
+	text-align: center;
+}
+
+.trade-withUsMobile .yellow-line {
+	margin: 0 auto;
+}
+
+.trade-withUs-mobile {
+  margin-bottom: 15px;
+  margin-top: 25px;
+}
+
+.trade-withUsMobile .description {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.trade-withUsButtons {
+  text-align: center;
+}
+
+.trade-withUsButtons a.Demo-Account:hover, 
+.trade-withUsButtons a.Live-Account:hover {
+	text-decoration: none;
+}
+
+.trade-withUsButtons a.Demo-Account, 
+.trade-withUsButtons a.Live-Account {
+  border-radius: 4px;
+  color: #9f968c;
+  display: inline-block;
+  float: none;
+  margin-bottom: 10px;
+  margin-right: 8px;
+  padding: 5px 18px;
+  text-align: left;
+  width: 175px;
+}
+
+.trade-withUsButtons a.Live-Account {
+  background-color: #fbd300;
+  background-image: url("../images/yellow.jpg");
+  background-position: 98% 19px;
+  background-repeat: no-repeat;
+}
+
+.trade-withUsButtons a.Demo-Account {
+	background-color: #8b69d3;
+	background-image: url("../images/purple.jpg");
+	background-position: 98% 19px;
+	background-repeat: no-repeat;
+}
+
+.trade-withUsButtons a.Live-Account .mobileTitle {
+  color: #8b69d3;
+}
+
+.trade-withUsButtons a.Demo-Account .mobileTitle {
+	color: #ffd700;
+}
+
+.trade-withUsButtons a.Demo-Account .descriptionMobile {
+  color: #ffffff;
+  margin: 5px 0;
+  font-size: 11px;
+  text-align: left;
+}
+
+.trade-withUsButtons a.Live-Account .descriptionMobile {
+  color: #8b69d3;
+  margin: 5px 0;
+  font-size: 11px;
+}
+
+.trade-withUs-mobile {
+	display: none;
+}
+
+.languageBlock a.dropdown-toggle span.caret {
+  background-image: url("../images/language-arrow.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  border: 0 none;
+  height: 6px;
+  width: 10px;
+}
+
+.languageBlock ul.dropdown-menu li a.language img {
+	background-repeat: no-repeat;
+	width: 18px;
+	height: 11px;
+	background-image: url(../images/en.jpg);
+}
+
+.languageBlock li.dropdown a.dropdown-toggle img#imgNavSel.icon-small {
+	background-repeat: no-repeat;
+	width: 18px;
+	height: 11px;
+}
+
+.languageBlock a.dropdown-toggle span#lanNavSel {
+  color: #fff;
+}
+
+.mainTitle-block {
+  color: #fff;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+/**************************** Inner Pages **********************************/
+.contactUs-block .title {
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.contactUs-block .contentBlock ul {
+  padding: 0;
+}
+
+.contactUs-block .contentBlock ul li {
+  font-size: 16px;
+  padding: 15px 0;
+}
+
+.contentBlock ul li {
+  background-repeat: no-repeat;
+  background-position: left;
+
+}
+
+.contentBlock ul li.working-hours {
+  background-image: url(../images/Working-hours.jpg);
+  padding-left: 26px;
+}
+
+.contentBlock ul li.live-Chat {
+  background-image: url(../images/live-Chat.jpg);
+  padding-left: 26px;
+}
+
+.contentBlock ul li.email {
+  background-image: url(../images/email.jpg);
+  padding-left: 26px;
+}
+
+.contentBlock ul li.phone {
+  background-image: url(../images/phone.jpg);
+  padding-left: 26px;
+}
+
+.tradeWith-Us-inner {
+  background-color: #e2dfdc;
+  padding: 30px 20px;
+  overflow: auto;
+}
+
+.tradeWith-Us-inner .title {
+  color: #8b69d3;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.tradeWith-Us-inner a:hover {
+  text-decoration:none;
+  outline: none;
+}
+
+.tradeWith-Us-inner a.liveAccount-link .liveAccount {
+  background-color: #debd13;
+  background-image: url("../images/yellow-arrow.jpg");
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  padding: 10px 10px 11px 12px;
+}
+
+.tradeWith-Us-inner a.demoAccount-link .demoAccount {
+  background-color: #8669bc;
+  background-image: url("../images/purple-arrow.jpg");
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px 10px 11px 12px;
+}
+
+.tradeWith-Us-inner .description {
+  padding: 8px 0;
+}
+
+.contactUs-block {
+  border-bottom: 1px solid #979797;
+  margin-bottom: 25px;
+  margin-right: 60px;
+}
+
+.phoneSupport-Block {
+  border: 0 none;
+}
+
+.mainInner-pageCont .rightSide-bar {
+  float: right;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.demoAccout-block {
+  margin-bottom: 30px;
+}
+
+.whyBaxia .title {
+  color: #333333;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.whyBaxia-box {
+  background-color: #f4f3f2;
+  border-top: 1px solid #ffd700;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  padding: 15px 15px 30px;
+  width: 46%;
+}
+
+.whyBaxia-title {
+  border-bottom: 2px solid #c9c4bf;
+  color: #9f968c;
+  font-size: 22px;
+  padding-bottom: 6px;
+}
+
+
+.real-account-block .title,
+.demoAccout-block .title {
+  color: #8b69d3;
+  font-size: 26px;
+  margin-top: 30px;
+}
+
+.messageBlock {
+  color: #333333;
+  font-size: 18px;
+  margin: 13px 0 0;
+  background-color:#f4f3f2;
+}
+
+.instantRegistration {
+  color: #333333; 
+  font-size:22px;
+}
+
+.demoAccout-block .formBlock .form-group.row label {
+  color: #888888;
+  font-weight: normal;
+  padding-top: 6px;
+}
+
+.demoAccout-block .formBlock .form-group {
+  margin-top: 10px;
+}
+
+.demoAccout-img img {
+  width: 100%;
+}
+
+.numberBlock1 {
+  float: left;
+  width: 15%;
+  margin-right: 10px;
+}
+
+.numberBlock2 {
+  float: right;
+  width: 70%;
+}
+
+.demoAccout-block .formBlock .form-group.row input {
+  border-radius: 0;
+}
+
+.open-DemoAccount a {
+  background-color: #ffd700;
+  background-image: url("../images/yellow-arrow-butt.png");
+  background-position: 143px center;
+  background-repeat: no-repeat;
+  border-radius: 2px;
+  color: #8b69d3;
+  font-size: 13px;
+  padding: 13px 26px 13px 18px;
+}
+
+.open-DemoAccount a:hover {
+  text-decoration:none;
+  background-position: 145px center;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.open-DemoAccount {
+  float: right;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.itemBlock {
+  border-left: 1px solid #8b69d3;
+  float: left;
+  margin-left: -25px;
+  margin-top: 2px;
+  padding-left: 39px;
+  padding-top: 20px;
+  width: 264px;
+}
+
+.timeBlock {
+  background-image: url("../images/time-img.jpg");
+  background-position: left center;
+  background-repeat: no-repeat;
+  color: #9f968c;
+  float: right;
+  font-size: 12px;
+  padding-left: 20px;
+  width: 200px;
+  margin-bottom: 30px;
+}
+
+.demoAccout-description {
+  margin-bottom: 30px;
+  margin-top: 43px;
+  color: #333333;
+  font-size: 14px;
+}
+
+.demoAccout-Cont {
+  border-top: 1px solid #f4f3f2;
+  margin-top: 35px;
+}
+
+.left-info-block {
+  background-color: #f4f3f2;
+  margin-top: 27px;
+  margin-bottom: 30px;
+  padding: 30px 12px;
+  min-height: 577px;
+}
+
+.left-info-block .item-cont .number {
+  background: #f4f3f2 none repeat scroll 0 0;
+  border: 1px solid #8b69d3;
+  border-radius: 78px;
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  text-align: center;
+  width: 50px;
+  color: #8b69d3;
+}
+
+.left-info-block .itemBlock .item-title {
+  color: #8b69d3;
+  font-size: 16px;
+}
+
+.left-info-block .itemBlock .item-description {
+  color: #333333;
+  font-size: 12px;
+}
+
+.item-cont {
+  overflow: auto;
+  position: relative;
+}
+
+.follow-theSteps {
+  box-shadow: 6px 4px 18px -6px #ccc;
+  margin-bottom: 60px;
+  margin-top: 27px;
+  min-height: 577px;
+  padding-bottom: 60px;
+  padding-left: 48px;
+}
+
+.leftItem {
+  padding: 0;
+}
+
+.follow-theSteps-title {
+  font-size: 26px;
+  margin-bottom: 11px;
+  margin-top: 35px;
+}
+
+.follow-theSteps-description {
+  margin-bottom: 15px;
+}
+
+.follow-theSteps-form form div.message-block {
+  color: #a1a1a1;
+  float: left;
+  font-size: 12px;
+  width: 239px;
+  margin-right: 36px;
+}
+
+.follow-theSteps-form form button {
+  background-color: #ffd700;
+  border: 0 none;
+  color: #8b69d3;
+  float: left;
+  /*margin-left: 25px;*/
+  padding: 10px 43px;
+}
+
+.follow-theSteps-form form button:focus,
+.follow-theSteps-form form button:active,
+.follow-theSteps-form form button:hover {
+  background-color: #ffd700;
+}
+
+
+.follow-theSteps-form form div.form-group select,
+.follow-theSteps-form form div.form-group input {
+  border-color: #dedede;
+  border-radius: 2px;
+  box-shadow: none;
+  margin-bottom: 10px;
+  width: 60%;
+  color: #9b9b9b;
+}
+
+.follow-theSteps-form .form-check label.form-check-label {
+  color: #a1a1a1;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.form-check {
+  margin-bottom: 12px;
+}
+
+.follow-theSteps-form .form-check label.form-check-label {
+  color: #a1a1a1;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0 0 0 5px;
+}
+
+.follow-theSteps-form .form-check input {
+  margin-top: 0;
+}
+
+.grayline {
+  background-color: #f9f9f8;
+  height: 2px;
+  margin-bottom: 19px;
+  margin-left: -48px;
+  margin-top: 22px;
+  width: 90%;
+}
+
+.follow-theSteps-info .title1 {
+  color: #333333;
+  font-size: 22px;
+}
+
+.follow-theSteps-info .description {
+  color: #333333;
+  font-size: 14px;
+  margin-bottom: 13px;
+  margin-top: 5px;
+}
+
+.whyBaxia-box .readMore a {
+  border: 2px solid #ffd700;
+  border-radius: 4px;
+  color: #8b69d3;
+  float: left;
+  padding: 9px 26px;
+  text-align: center;
+}
+
+.whyBaxia-box .readMore a:hover {
+  text-decoration: none;
+  border-color: #fdd700;
+}
+
+.item-cont.last .itemBlock {
+  border: 0;
+}
+
+.yellow_Line {
+  height: 3px;
+  background-color: #ffd700;
+  margin-top: 20px;
+}
+
+.aboutDescription {
+  line-height: 23px;
+  margin-top: 30px;
+  overflow: auto;
+  margin-bottom: 30px;
+}
+
+.leftSide-bar .description  {
+  margin-bottom: 30px;
+}
+
+.forexTrading .description img {
+  width: 100% !important;
+}
+
+.aboutImg img {
+  width: 100%;
+}
+
+.aboutSpan {
+  display: block;
+  margin-bottom: 60px;
+  margin-top: 35px;
+  overflow: auto;
+}
+
+.accordion-breadCrumbs {
+  margin-top: 30px;
+  overflow: auto;
+}
+
+.accordion-breadCrumbs .acc-content ul {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.accordion-breadCrumbs .acc-content ul li.last {
+  border:0;
+}
+
+.accordion-breadCrumbs .acc-content ul li {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 6px;
+  padding-top: 6px;
+}
+
+.accordion-breadCrumbs .acc-content ul li:hover {
+  background-color: #f4f3f2;
+  cursor: pointer;
+}
+
+.accordion-breadCrumbs .acc-content ul li:hover a {
+  color:#8b69d3; 
+  background-image: url("../images/accordion-arrow-hover.jpg");
+}
+
+.accordion-breadCrumbs .acc-content ul li a {
+  background-image: url("../images/accordion-arrow.jpg");
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding-left: 11px;
+  color: #333333;
+  font-size: 12px;
+}
+
+.accordion-breadCrumbs .acc-content ul li a:hover {
+  text-decoration: none;
+}
+
+.accordion-breadCrumbs .acc-content ul li.activePageMenu a {
+  background-image: url("../images/accordion-arrow-active.jpg");
+}
+
+.forexTrading .title {
+  font-size: 22px;
+  margin-bottom: 6px;
+  margin-top: 30px;
+}
+
+.forexTrading .description {
+  line-height: 22px;
+}
+
+.forexTrading-img img {
+  width: 100%;
+}
+
+.forexTrading-img {
+  margin-bottom: 24px;
+  margin-top: 13px;
+}
+
+.forex-Trading-List .title-Block {
+  color: #333333;
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+.forex-Trading-List {
+  margin-bottom: 27px;
+  margin-top: 20px;
+  overflow: auto;
+}
+
+.forex-Trading-List .iconBlock {
+  height: 59px;
+}
+
+.forex-TradingBlock {
+  margin-bottom: 25px;
+}
+
+.forex-TradingBottom {
+  padding: 0 15px;
+  margin-bottom: 40px;
+}
+
+.forex-TradingBottom ul {
+  padding: 0 0 0 15px;
+}
+
+.forex-TradingBottom ul li {
+  list-style: outside;
+  padding: 5px 0;
+}
+
+.FAQs-Block {
+  color: #333333;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.FAQs-Block .subTitle {
+  color: #333333;
+  font-size: 18px;
+  margin-bottom: 22px;
+}
+
+
+/*********************************************/
+
+.accordionPanel .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.accordionPanel .active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.accordionPanel .accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.accordionPanel .active:after {
+    content: "\2212";
+}
+
+.accordionPanel .panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    border: 0 none;
+}
+
+.accordionPanel .panel p {
+  color: #333333;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/*********************************************/
+
+.Partnerships {
+  background-color: #f4f3f2;
+  margin-bottom: 30px;
+}
+
+.partnership-page .baxiaMain-slider {
+  margin-bottom: 0;
+}
+
+.baxia-Partnership {
+  padding-bottom: 40px;
+  padding-top: 23px;
+}
+
+.baxia-Partnership .title {
+  font-size: 26px;
+  color: #333333;
+}
+
+.partnership-buttons {
+  margin-top: 24px;
+}
+
+.Partnerships a.partnership-link {
+  border-color: #6f6f6f;
+  color: #333333;
+}
+
+.globalPartnership .title {
+  color: #333333;
+  font-size: 26px;
+  margin-bottom: 11px;
+}
+
+.globalPartnership-block {
+  text-align: center;
+}
+
+.globalPartnership-cont {
+  border: 1px solid #8b69d3;
+  border-radius: 2px;
+  margin-right: 30px;
+  padding-bottom: 26px;
+  padding-top: 26px;
+  width: 29%;
+}
+
+.globalPartnership-cont .partnership-title {
+  color: #333333;
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.globalPartnership-cont .icon {
+  height: 60px;
+  position: relative;
+}
+
+.globalPartnership-cont .icon img {
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.globalPartnership-cont.last {
+  margin-right: 0;
+}
+
+.Partnerships .partnership-buttons {
+  overflow: auto;
+}
+
+.become-an-BaxiaPartner .title {
+  color: #333333;
+  font-size: 26px;
+  margin-bottom: 11px;
+  margin-top: 25px;
+}
+
+.purple-Line {
+  background-color: #c5b4e9;
+  height: 2px;
+  width: 130px;
+  margin-bottom: 7px;
+}
+
+.baxiaPartner-item .title {
+  color: #8b69d3;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 5px;
+}
+
+.baxiaPartner-item .description {
+  margin-bottom: 14px;
+  line-height: 22px;
+}
+
+.baxiaPartner-item {
+  padding-left: 0;
+}
+
+.baxiaPartner-message {
+  padding: 35px 15px;
+  overflow: auto;
+}
+
+.messageCont {
+  float: left;
+  margin-right: 70px;
+  font-size: 26px;
+}
+
+.baxiaPartner-message button {
+  background-color: #ffd700;
+  border: 0 none;
+  color: #8b69d3;
+  padding: 9px 34px;
+}
+
+.baxiaPartner-message button:hover {
+  background-color: #ffd700;
+}
+
+.baxiaPartner-message .btn-primary.focus, 
+.baxiaPartner-message .btn-primary:focus {
+  background-color: #ffd700;
+  outline: medium none;
+}
+
+.technologyBlock .title {
+  color: #333333;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.itemsTechnology .pointBlock {
+  background: #8b69d3;
+  width: 16px;
+  height: 16px;
+  border-radius: 29px;
+  margin-bottom: 6px;
+}
+
+.itemsTechnology {
+  margin-bottom: 22px;
+  padding-left: 0;
+}
+
+.technologyGray_block {
+  background-color: #f4f3f2;
+  height: 287px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  padding: 50px 28px;
+  /*width: 31%; abdullah*/
+  width: 28%;
+}
+
+.technologyGray_block .title {
+  color: #8b69d3;
+  font-size: 22px;
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.technologyGray_block .image_block {
+  text-align: center;
+}
+
+.technologyGray_block .image_block img {
+  margin: 0 auto;
+}
+
+.technologyBoxs {
+  border: 1px solid #fff;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+.technologyGray_block.last {
+  margin-right: 0;
+}
+
+.technologyBlock {
+  margin-bottom: 20px;
+  overflow: auto;
+}
+
+.itemsTechnology .description {
+  font-size: 18px;
+}
+
+/*.formBlock form#demoForm div.form-group .allow-dropdown {
+  border: 1px solid;
+  width: 22%;
+}*/
+
+.formBlock form#demoForm div.form-group .selected-flag {
+  background-color: transparent;
+}
+
+.formBlock form#demoForm div.form-group .intl-tel-input {
+  display: inline-block;
+  float: left;
+  position: relative;
+  /*width: 94px;*/
+  /*margin-right: 10px;*/
+}
+
+#demoForm div.form-group select#DemoType_country {
+  border-radius: 0;
+}
+
+ #demoForm div.form-group input#DemoType_phone_code.form-control.numberBlock1 {
+  width: 94px;
+ }
+
+ span.error_massage ul {
+  padding: 0;
+  margin-top: 3px;
+}
+
+span.error_massage ul li {
+  color: red;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+
+
+.left-info-block ul#form_steps {
+  padding: 0;
+}
+
+.left-info-block ul#form_steps li {
+  border-left: 3px solid transparent;
+  display: inline-table;
+  float: left;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 2px 0 0;
+  padding: 1px 15px;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  z-index: 0;
+}
+
+.left-info-block ul#form_steps li a {
+  border-radius: 3px;
+  color: #8da0aa;
+  cursor: pointer;
+  display: table;
+  float: left;
+  font-size: 13px;
+  height: 75px;
+  line-height: 35px;
+  margin: 2px 0;
+  padding: 0 6px;
+  transition: all 300ms linear 0s;
+  width: 100%;
+}
+
+.left-info-block ul#form_steps li a:hover {
+  text-decoration:none;
+}
+
+.left-info-block ul#form_steps li a .numberCircle::after {
+  background-color:#8b69d3;
+  content: "";
+  display: block;
+  height: 51px;
+  left: 23px;
+  position: absolute;
+  top: 48px;
+  width: 1px;
+  z-index: 10000000;
+}
+
+.left-info-block ul#form_steps li.completed .numberCircle::after {
+   background-color: #171a25;
+   width: 2px;
+}
+
+.left-info-block ul#form_steps li.last a .numberCircle::after {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+}
+
+ul#form_steps li:focus .numberCircle, 
+ul#form_steps li.is_active .numberCircle {
+  color: #171a25;
+}
+
+.numberCircle {
+  color: #b7b5b5;
+  font-size: 22px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.numberCircle {
+  border: 1px solid #8b69d3;
+  border-radius: 50%;
+  bottom: 19px;
+  color: #b7b5b5;
+  float: left;
+  font-size: 15px;
+  line-height: 52px;
+  margin-right: 4px;
+  position: absolute;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+}
+
+ul#form_steps li a img {
+  padding: 8px 6px;
+  width: 36px;
+}
+
+.complete-img {
+  display: none;
+}
+
+li.registration-left-step.is_active span.menu-text {
+  color: #000;
+}
+
+ul#form_steps li a .menu-text {
+  color: #b7b5b5;
+  cursor: default;
+  display: table-cell;
+  font-size: 15px;
+  height: 94px;
+  line-height: 19px;
+  position: relative;
+  text-align: left;
+  top: 29px;
+  vertical-align: middle;
+  width: 81%;
+}
+
+li.registration-left-step.completed .numberCircle {
+  background-color: #8b69d3;
+}
+
+ li.completed .numberCircle img.complete-img {
+  bottom: 0;
+  display: block;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+ }
+
+ li.completed .numberCircle span.num-circle-hide {
+    display: none;
+ }
+
+ .menu-text.real-text > title {
+  display: block;
+  margin-bottom: 2px;
+  color: #8b69d3;
+}
+
+ul#form_steps li span.menu-text.real-text span.description {
+  display: block;
+  color: #333333;
+  font-size: 12px;
+}
+
+.real-account-block #form_container .form-group label.label_form {
+  float: left;
+  min-width: 100px;
+}
+
+
+.real-account-block #form_container .form-group input[type='checkbox'] {
+  width: auto !important;
+  position: relative;
+  top: -5px;
+  left: 8px;
+}
+
+.real-account-block #form_container .btn-primary.active.focus, 
+.real-account-block #form_container .btn-primary.active:focus, 
+.real-account-block #form_container .btn-primary.active:hover, 
+.real-account-block #form_container .btn-primary.focus:active, 
+.real-account-block #form_container .btn-primary:active:focus, 
+.real-account-block #form_container .btn-primary:active:hover, 
+.real-account-block #form_container .open > .dropdown-toggle.btn-primary.focus, 
+.real-account-block #form_container .open > .dropdown-toggle.btn-primary:focus, 
+.real-account-block #form_container .open > .dropdown-toggle.btn-primary:hover {
+  background-color: #8b69d3;
+  border-color: #8b69d3;
+  outline: none;
+}
+
+.follow-theSteps-form form#step5Form.step5_form .form-group label.label_form {
+  min-width: 115px;
+}
+
+.innerPages .sliderBlock {
+  max-height: 300px !important;
+  position: relative;
+}
+
+.mainSlider .baxiaMain-slider {
+  overflow: hidden;
+}
+
+.languageBlock ul.nav.navbar-nav li.dropdown ul.dropdown-menu li a {
+  padding-top: 4px;
+  padding-bottom: 3px;
+}
+
+ul.dropdown-menu.mega-dropdown-menu div.container li .megaMenu-listItem ul li,
+ul.nav.navbar-nav.nav_menu li.dropdown.mega-dropdown ul.dropdown-menu.mega-dropdown-menu  li {
+  list-style: none;
+  border: 0;
+}
+
+
+@media only screen and (min-width: 991px) and (max-width: 1199px) {
+
+  .navBar-Menu .collapse.navbar-collapse.js-navbar-collapse {
+    padding: 0 !important;
+  }
+
+  .follow-theSteps-form form#part .open-DemoAccount a {
+    position: relative;
+    left: -31px;
+  }
+
+  .numberBlock2 {
+    width: 213px !important;
+  }
+
+  ul#form_steps li a .menu-text {
+    width: 77%;
+    top: 40px;
+  }
+
+  .tradeWith-Us-inner .title {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+
+  .trading-Platforms-menu .demoAccount-link {
+    margin-left: -9px;
+  }
+
+  .mainHeader .navBar-Menu nav.navbar .nav_menu li a {
+    padding-right: 2px;
+    font-size: 14px;
+  }
+
+  .mainHeader .logo {
+    padding:0;
+    width: 13%;
+  }
+
+  .mainHeader .navBar-Menu {
+    padding:0;
+    width: 87%;
+  }
+
+	.mainSlider .baxiaMain-slider .slick-dots {
+		width: 970px;
+	}
+
+
+	.footer-details .info {
+  		min-height: 137px;
+	}
+
+	.numAnd-textBlock .leftBlock {
+		color: #8b69d3;
+		float: left;
+		font-size: 21px;
+		padding-right: 7px;
+	}
+
+	.mainSlider .baxiaMain-slider .sliderBlock {
+		height: 416px;
+		min-height: 100%;
+		max-height: 100%;
+		height: 100%;
+	}
+
+	.mainSlider .baxiaMain-slider .sliderBlock img {
+		width: auto;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1199px) {
+
+
+	.numberBlock2 {
+  		width: 67%;
+      float: left;
+	}
+
+	.numberBlock1 {
+  		margin-right: 12px !important;
+	}
+
+	.numAnd-text-slider .numAnd-textCont {
+		margin-right: 35px;
+	}
+
+	.numAnd-text-Cont {
+  	display: none;
+	}
+
+	.numAnd-text-slider {
+		display: block;
+		margin-bottom: 12px;
+	}
+
+	.navBar-Menu .navbar-header a, 
+	.navBar-Menu ul.nav.navbar-nav li a {
+		padding: 21px 10px 15px;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+  .megaMenu-listItem ul li.title a {
+    font-size: 13px !important;
+    padding-left: 11px !important;
+  }
+
+  .mainHeader .navBar-Menu nav.navbar .nav_menu li a {
+    font-size: 13px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  ul.nav.navbar-nav.nav_menu.desktop_menu > li {
+    margin-left: 12px;
+  }
+
+	.numberBlock2 {
+    width: 401px !important;
+  }
+
+	.mainSlider .baxiaMain-slider .slick-dots {
+		width: 750px;
+	}
+
+	.mega-dropdown-menu a.demoAccount-link .demoAccount {
+  		margin-top: -22px;
+    	width: 162px;
+	}
+
+	.dropdown-menu.mega-dropdown-menu a.liveAccount-link div.liveAccount {
+  		width: 162px;
+	}
+
+	.navBar-Menu .navbar-header a, 
+	.navBar-Menu ul.nav.navbar-nav li a {
+  		font-size: 13px;
+  		padding: 21px 5px 15px;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 991px) {
+
+  .follow-theSteps-form form#step5Form.step5_form .form-group label.label_form {
+    display: block;
+    width: 100%;
+  }
+
+  .follow-theSteps-form form#part .open-DemoAccount {
+    margin: 0 !important;
+    padding-right: 0;
+    float: right !important;
+  }
+
+  .intl-tel-input.allow-dropdown {
+  width: 100% !important;
+  }
+
+  .left-info-block {
+    padding: 0 !important;
+  }
+
+  .left-info-block {
+    padding-top: 0;
+    overflow: hidden;
+  }
+
+  .follow-theSteps {
+    overflow: auto;
+  }
+
+  ul#form_steps li a .menu-text {
+    width: 88%;
+  }
+
+  .baxia-Partnership .description {
+    text-align: center;
+  }
+
+  .baxia-Partnership .title {
+    text-align: center;
+  }
+
+  .FAQs-Block {
+    margin-top: -30px;
+  }
+
+  .accordionPanel .panel p {
+    text-align: center;
+  }
+
+  .FAQs-Block .subTitle {
+    text-align: center;
+  }
+
+  .FAQs-Block .title {
+    text-align: center;
+  }
+
+  .forexTrading .description {
+    text-align: center;
+    margin-bottom: 27px;
+  }
+
+  .forexTrading .title {
+    text-align: center;
+  }
+
+  .accordion-breadCrumbs {
+    display: none;
+  }
+
+  .whyBaxia-box {
+    width: auto;
+  }
+
+  .whyBaxia-box .description {
+    margin-top: 8px;
+  }
+
+  .whyBaxia-box .readMore {
+    height: 55px;
+    margin: 12px auto auto;
+    overflow: auto;
+    padding-top: 10px;
+  }
+
+  .whyBaxia-box .readMore a {
+    float: none;
+  }
+
+  .whyBaxia-box {
+    text-align: center;
+  }
+
+  .whyBaxia .title {
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .real-account-block .yellow-line {
+    margin: 0 auto;
+  }
+
+  .real-account-block .title {
+    text-align: center;
+  }
+
+  .follow-theSteps,
+  .left-info-block {
+    min-height: auto;
+  }
+
+  .grayline {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .follow-theSteps-form form div.form-group input {
+    width: 100% !important;
+  }
+
+  .follow-theSteps {
+    box-shadow: none !important;
+  }
+
+  .itemBlock {
+     width: 80% !important; 
+  }
+
+  .left-info-block .item-cont .number {
+    background: #fff none repeat scroll 0 0 !important;
+  }
+
+  .left-info-block {
+    background-color: #fff !important;
+    height: auto !important;
+    margin-top: 0;
+  }
+
+  #form_container.follow-theSteps-form .form-group select {
+    width: 100%;
+  }
+
+	.contactUs-block {
+  		border-bottom: 0 none !important;
+	}
+
+	.contentBlock ul li.working-hours::before {
+  		content: url("../images/Working-hours.jpg");
+  		padding-right: 10px;
+	}
+
+	.contentBlock ul li.live-Chat::before {
+  		content: url("../images/live-Chat.jpg");
+  		padding-right: 10px;
+	}
+
+	.contentBlock ul li.email::before {
+  		content: url("../images/email.jpg");
+  		padding-right: 10px;
+	}
+
+	.contentBlock ul li.phone::before {
+  		content: url("../images/phone.jpg");
+  		padding-right: 10px;
+	}
+
+	.contactUs-block .contentBlock ul li {
+  		padding: 15px 0 !important;
+  		background-image: none !important;
+	}
+
+	.contactUs-block {
+  		margin-right: 0 !important;
+  		text-align: center;
+	}
+
+	.tradeWith-Us-inner a.liveAccount-link .liveAccount {
+		width: 48%;
+		float: left;
+	}
+
+	.tradeWith-Us-inner a.demoAccount-link .demoAccount{
+		width: 48%;
+		margin-top: 0 !important;
+		float: right;
+	}
+
+	.tradeWith-Us-inner .description,
+	.tradeWith-Us-inner .title {
+  		text-align: center;
+	}
+
+	.mainInner-pageCont .rightSide-bar {
+		float: none !important;
+		width: 100%;
+		margin-bottom: 22px;
+	}
+
+	.tradeWith-Us-inner {
+  		background-color: transparent !important;
+  		padding: 30px 20px;
+	}
+
+	.megaMenu-listItem ul li.title a {
+		width: 100px;
+	}
+
+	.tradingPlatforms-img img {
+		margin: 0 auto;
+	}
+
+	.tradingPlatforms-img {
+		display: block;
+		text-align: center;
+		margin-top: 30px;
+	}
+
+	.list-platforms ul li {
+		border-bottom: 0 none;
+		display: inline-block;
+		width: 114px;
+	}
+
+	.tradingPlatforms-butt a {
+		display: inline-block;
+		float: none;
+	}
+
+	.tradingPlatforms-butt {
+  		text-align: center;
+	}
+
+	.tradingPlatforms-Cont .yellow-line {
+		margin: 0 auto;
+	}
+
+	.tradingPlatforms-Cont .title {
+  		text-align: center;
+	}
+
+	.tradingPlatforms-Cont .description {
+		width: 100%;
+		text-align: center;
+	}
+
+	.tradingPlatforms-block {
+		height: auto;
+		background-image: none;
+	}
+}
+
+
+@media only screen and (min-width: 768px) {
+
+
+	.innerPages .baxiaMain-slider .sliderBlock img {
+  		width: 100%;
+	}
+
+ .mega-dropdown-menu a.liveAccount-link .liveAccount,
+ .mega-dropdown-menu a.demoAccount-link .demoAccount {
+	background-position: 145px center;
+	float: left;
+	margin: 0;
+	padding: 10px 10px 11px 9px;
+	text-align: left;
+	width: 162px;
+	}
+
+	.mega-dropdown-menu a.liveAccount-link,
+	.mega-dropdown-menu a.demoAccount-link {
+		padding-bottom: 0 !important;
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 10px !important;
+		margin-right: 10px !important;
+		width: 162px;
+	}
+}
+
+@media only screen and (min-width: 767px) {
+    .mobile_menu {
+      display: none;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+
+  .featureBlock a {
+    display: block;
+    float: none !important;
+    margin: 11px auto 0;
+    width: 141px;
+  }
+
+  .mobile_menu li div.dropdown.open a.dropdown-toggle {
+    border: 0;
+    background: none;
+    border-bottom: 1px solid;
+    border-radius: 0;
+  }
+
+  ul .dropdown.show.open .dropdown-menu a.dropdown-item.title {
+    background-image: none;
+    border-top: 1px solid #000;
+    font-weight: bold;
+    padding-bottom: 0;
+    text-transform: capitalize;
+  }
+
+  ul.nav.navbar-nav.nav_menu.mobile_menu li a {
+    font-weight: bold;
+  }
+
+  ul.nav.navbar-nav.nav_menu.mobile_menu li a.dropdown-item {
+  background-image: url("../images/accordion-arrow.png");
+  background-position: left 18px;
+  background-repeat: no-repeat;
+  font-weight: normal;
+  padding-left: 14px;
+  padding-top: 11px;
+  }
+
+  ul.nav.navbar-nav.nav_menu.mobile_menu li.first {
+    border-top: 0;
+  }
+
+
+
+   .mobile_menu li div.dropdown a.dropdown-toggle {
+    background-color: transparent;
+    background-image: url("../images/+.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    box-shadow: none;
+  }
+
+  .mobile_menu li div.dropdown.open a.dropdown-toggle {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: transparent;
+    background-image: url("../images/-.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    border-color: -moz-use-text-color;
+    border-image: none;
+    border-style: none none solid;
+    border-width: 0 0 1px;
+    box-shadow: none;
+    border-color: #000;
+  }
+
+  ul.nav.navbar-nav.nav_menu.mobile_menu li {
+    border-top: 1px solid;
+    overflow: auto;
+  }
+
+  .desktop_menu {
+    display: none;
+  }
+
+  .technologyGray_block {
+      width: 100%; 
+    }
+
+  .itemsTechnology .description {
+    text-align: center;
+  }
+
+  .itemsTechnology .pointBlock {
+    margin: 0 auto 6px;
+  }
+
+  .technologyBlock .title {
+    text-align: center;
+  }
+
+  .messageCont {
+    float: none;
+    margin-bottom: 8px;
+    margin-right: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .baxiaPartner-item .description {
+    text-align: center;
+  }
+
+  .purple-Line {
+    margin: 0 auto 7px;
+  }
+
+  .become-an-BaxiaPartner .title {
+    text-align: center;
+  }
+
+  .globalPartnership .title {
+    text-align: center;
+  }
+
+  .globalPartnership-cont {
+    margin-bottom: 25px;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .forex-Trading-List .title-Block {
+    text-align: center;
+  }
+
+  .forex-Trading-List .iconBlock {
+    text-align: center;
+  }
+
+  .aboutDescription {
+    text-align: center;
+  }
+
+  .aboutImg img {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+	.instantRegistration {
+		text-align: center;
+	}
+
+	.messageBlock {
+		text-align: center;
+	}
+
+	.demoAccout-block .title {
+		text-align: center;
+	}
+
+	.demoAccout-img {
+  		margin-top: 70px;
+  		overflow: auto;
+  		text-align: center;
+	}
+
+	.mainSlider .baxiaMain-slider ul.slick-dots li {
+		float: none;
+	}
+
+	.numAnd-text-slider .numAnd-textCont {
+  		margin-right: 0;
+	}
+
+	.numAnd-textBlock .rightBlock {
+		text-align: center;
+		width: 100%;
+	}
+
+	.numAnd-textBlock .leftBlock {
+  		font-size: 22px;
+  		text-align: center;
+  		width: 100%;
+	}
+
+	.footerLine {
+  		margin: 0 25px;
+	}
+
+	.numAnd-textBlock .leftBlock {
+		font-size: 22px;
+	}
+
+	.numAnd-text-slider {
+  		margin-left: 13px;
+  		margin-right: 13px;
+	}
+
+	body {
+		overflow-x: hidden;
+	}
+
+	.megaMenu-listItem ul li.title a::before {
+		content: url("../images/mega-title-arrow.jpg");
+		padding-right: 3px;
+	}
+
+	.megaMenu-listItem ul li.title a {
+		background-image: none;
+	}
+
+	.navBar-Menu li.dropdown.mega-dropdown.open a {
+  		color: #000;
+	}
+
+	.navBar-Menu ul.dropdown-menu.mega-dropdown-menu li.first {
+		border-bottom: 1px solid #fff;
+		padding-bottom: 20px;
+	}
+
+	.megaMenu-listItem.last {
+		border:0;
+	}
+
+	.megaMenu-listItem {
+  		border-bottom: 1px solid #fff;
+	}
+
+	.trading-Platforms-menu a.demoAccount-link,
+	.trading-Platforms-menu a.liveAccount-link {
+  		padding-bottom: 0 !important;
+    	padding-top: 12px !important;
+	}
+
+	.mega-dropdown-menu a.liveAccount-link .liveAccount, 
+	.mega-dropdown-menu a.demoAccount-link .demoAccount {
+		float: none;
+		margin: 0 auto;
+		width: 186px;
+	}
+
+	.navBar-Menu ul.dropdown-menu.mega-dropdown-menu li {
+	  display: block;
+	  float: none;
+	  overflow: auto;
+	}
+
+	.navBar-Menu ul.dropdown-menu.mega-dropdown-menu li a {
+		color: #fff !important;
+	}
+
+	.languageBlock .navbar-nav .open .dropdown-menu {
+		position: absolute;
+		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+		background-color: #fff;
+		border:1px solid rgba(0, 0, 0, 0.15);
+	}
+
+	.trading-Platforms-menu .description {
+  		color: #ffffff;
+  		text-align: center;
+	}
+
+	.trading-Platforms-menu .title {
+		text-align: center;
+	}
+
+	.navBar-Menu ul.dropdown-menu.mega-dropdown-menu {
+		position: absolute;
+		top: 248px;
+	}
+
+	.serchBlock {
+		width: 20px;
+	}
+
+	.outer-search-box {
+    background-image: url("../images/search-icon-mobile.jpg");
+    height: 13px;
+    margin-top: 14px;
+    width: 13px;
+	}
+
+	.listItems ul li {
+  		padding-right: 7px;
+	}
+
+	.languageBlock div#navbar.navbar-collapse.collapse {
+  		display: block;
+	}
+
+	.languageBlock #navbar ul.nav.navbar-nav {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.languageBlock li.dropdown ul.dropdown-menu {
+		left: -80px;
+	}
+
+	.navBar-Menu {
+		margin-top: -55px;
+		position: relative;
+		width: 100%;
+	}
+
+	.navBar-Menu .navbar-inverse .navbar-collapse,
+	.navBar-Menu .navbar-inverse .navbar-form {
+		border: 0;
+	}
+
+	.navBar-Menu .navbar-header a, 
+	.navBar-Menu ul.nav.navbar-nav li a {
+		color: #000;
+		display: block;
+		padding: 21px 10px 15px;
+		width: 100%;
+	}
+
+	.baxiaPartnership-Cont .title {
+		text-align: center;
+	}
+
+	.trade-withUs-mobile {
+		display: block;
+	}
+
+	.numAnd-textBlock {
+  		border-bottom: 1px solid #d9d9d9;
+	}
+
+	.fundingMeythods-slider.mobileStyle .title {
+		text-align: center;
+		margin: 22px 0;
+		color: #8b69d3;
+	}
+
+	.fundingMeythods-slider.desktopStyle {
+		display: none;
+	}
+
+	.fundingMeythods-slider.mobileStyle {
+		display: block;
+	}
+
+	.featureBlock .title::before {
+		background-repeat: no-repeat;
+		content: url("../images/Feature-icon.png");
+		padding-right: 15px;
+	}
+
+	.featureBlock .title {
+		background-image: none;
+	}
+
+	.technologyExecution-block .featureBlock2 .image {
+		float: none;
+	}
+
+	.baxiaPartnership-block {
+		padding: 30px 15px;
+	}
+
+	.baxiaPartnership-Cont {
+		padding: 40px 15px;
+	}
+
+	.followUs {
+		float: left;
+		margin-right: 7px;
+		margin-top: 0;
+	}
+
+	.socialMedia-icons {
+  		float: right;
+	}
+
+	.footerLogo {
+  		float: left;
+	}
+
+	.footer-details.location .info {
+  		border: 0;
+	}
+
+	.logoFooter-Block {
+  		float: none;
+  		overflow: auto;
+	}
+
+	.followUs-Block {
+  		float: right;
+  		margin-top: 19px;
+	}
+
+	.footerCont .description {
+  		text-align: center;
+	}
+
+	.liquidityProviders-logos ul {
+  		text-align: center;
+	}
+
+	.footerCont .title {
+  		text-align: center;
+	}
+
+	.featureBlock2 .image {
+		padding: 0;
+	}
+
+	.featureBlock2 .image img {
+		margin: 0 auto;
+	}
+
+	.featureBlock .readMore a {
+		float: none;
+	}
+
+	.featureList {
+  		display: none;
+	}
+
+	.featureBlock .descrition {
+  		text-align: center;
+	}
+
+	.featureBlock .title {
+		padding-left: 0;
+	}
+
+	.featureBlock1 div.image img {
+  		margin: 0 auto;
+	}
+
+	.technologyExecution-block .description {
+  		text-align: center;
+	}
+
+	.technologyExecution-block .title {
+  		text-align: center;
+	}
+
+	.aboutBaxia-left .title {
+  		text-align: center;
+	}
+
+	.yellow-line {
+  		margin: 0 auto;
+	}
+
+	.aboutBaxia-left .description {
+  		text-align: center;
+	}
+
+	.aboutBaxia-list {
+  		display: none;
+	}
+
+	.readMore {
+  		text-align: center;
+  		height: 40px;
+    	margin-bottom: 19px;
+    	margin-top: 25px;
+	}
+
+	.aboutBaxia-left .readMore a {
+		float: none;
+	}
+	
+	.mainSlider .baxiaMain-slider .slick-dots {
+  		bottom: 45px;
+  		left: inherit;
+  		width: 100%;
+	}
+
+	.descriptionBlock .readMore a {
+		float: none;
+	}
+
+	.descriptionBlock {
+	  bottom: 0;
+	  left: 0;
+	  margin: auto;
+	  right: 0;
+	  text-align: center;
+	  top: 100px;
+	  padding: 0 10px;
+	}
+
+	.rightSide-Bar {
+		display: none;
+	}
+
+	.mainSlider .baxiaMain-slider .sliderBlock {
+		height: 416px;
+		min-height: 100%;
+		max-height: 100%;
+		height: 100%;
+	}
+
+	.mainSlider .baxiaMain-slider .sliderBlock img {
+		width: auto;
+	}
+
+	.bottomMain-header {
+		background-color: #fff;
+	}
+
+	.bottomMain-header .navBar-Menu button.navbar-toggle span {
+  		background: #000;
+  		height: 3px;
+	}
+
+	.bottomMain-header .navBar-Menu button.navbar-toggle {
+  		border: 0;
+  		margin-right: 0;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 600px) {
+
+  .real-account-block #form_container .form-group input[type="checkbox"] {
+    left: 9px;
+    position: relative;
+    top: 0;
+    width: auto !important;
+  }
+
+  .real-account-block #form_container .form-group label.label_form {
+    float: none;
+    min-width: 100px;
+    width: 100%;
+  }
+
+  ul#form_steps li span.menu-text.real-text span.description {
+    padding-right: 15px;
+  }
+
+  .follow-theSteps {
+    padding-left: 15px;
+  }
+
+  ul#form_steps li a .menu-text {
+    left: 28px;
+    top: 33px;
+  }
+
+  .left-info-block {
+    padding: 30px 0;
+  }
+
+  .left-info-block ul#form_steps li {
+    padding: 1px 0;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+
+  .socialMedia-icons {
+    float: left;
+  }
+
+  .footer-details .info {
+    min-height: 170px;
+  }
+
+  .socialMedia-icons ul li {
+    padding: 0 1px;
+  }
+
+  a.partnership-link {
+    height: 52px;
+  }
+
+  .tradeWith-Us-inner a.demoAccount-link .demoAccount,
+  .tradeWith-Us-inner a.liveAccount-link .liveAccount {
+    float: none;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .mainInner-pageCont .tradeWith-Us-inner a {
+    display: block;
+    overflow: auto;
+    float: none !important;
+    margin: 0 auto;
+    width: 202px;
+  }
+
+  .numberBlock2 {
+    width: 59% !important;
+  }
+
+  .follow-theSteps-form form button {
+    margin-left: 0;
+    margin-top: 11px;
+  }
+
+  .follow-theSteps-form form .message-block {
+    width: 100% !important; 
+  }
+
+	.timeBlock {
+		width: 100% !important;
+		float: none !important;
+	}
+
+  .open-DemoAccount {
+    float: none !important;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+
+	.liquidityProviders-logos ul li {
+  		margin-bottom: 8px;
+	}
+
+	.footerLogo {
+  		float: none;
+  		text-align: center;
+	}
+
+	.followUs-Block {
+  		float: none;
+  		margin: 19px auto 0;
+  		width: 252px;
+	}
+
+	.listItems ul li {
+  		padding-right: 0;
+	}
+
+	.listItems ul li a {
+  		font-size: 11px;
+	}
+
+	.aboutBaxia-Block .aboutBaxia-tabs ul.nav.nav-tabs li a {
+		font-size: 11px;
+		padding-right: 5px;
+		padding-left: 5px;
+	}
+
+	.tablesBlock table tr td {
+		color: #8b69d3;
+		font-size: 11px;
+		padding: 4px 5px;
+	}
+
+	.tablesBlock table tr th {
+  		padding: 4px 0;
+  		font-size: 11px;
+	}
+
+	a.partnership-link {
+		padding: 9px 5px;
+	}
+
+	.tradingPlatforms-butt a {
+		padding: 9px 12px;
+	}
+
+	.list-platforms > ul {
+		margin: 0 auto;
+		padding: 0;
+		width: 114px;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 374px) {
+  .numberBlock2 {
+  width: 50% !important;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 359px) {
+  
+  .partnership-butt {
+    padding: 0 5px 0 0;
+  }
+
+	.numberBlock2 {
+  		width: 80%;
+	}
+}
+
+.navBar-Menu .nav_menu>li>.dropdown-menu{    
+  margin-top: -4px;
+  padding-bottom: 1.905cm;
+}
+
+.navBar-Menu .nav_menu >li>a
+{
+    padding: 17px 14px;
+}
+.numAnd-textBlock .leftBlock
+{
+  font-size: 28px;  
+}
+
+
+.sliderBlock.slick-current.slick-active div.container {
+  color: transparent;
+}
+
+.baxiaMain-slider.slick-slider {
+  margin-bottom: 0;
+}
+
+/*.fundingMeythods.slick-slider {
+  width: 62% !important;
+}
+
+.fundingMeythods .slick-slide {
+  width: 64px !important;
+}*/
+
+form#partnershipIPForm button.btn-primary {
+  margin-left: 0;
+}
+
+.message-successfully {
+  background-image: url("../images/success-message.png");
+  background-position: center 9px;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  color: #67c116;
+  font-weight: bold;
+  font-size: 18px;
+  left: -18px;
+  margin-top: 19px;
+  padding: 68px 9px 9px;
+  position: relative;
+  text-align: center;
+  margin-bottom: 45px;
+}
+.activePageMenu{
+    background-color: #f4f3f2;
+    cursor: pointer;
+}
+
+.form-control.numberBlock1 {
+  width: 97px !important;
+}
+
+#step1Form .mobile_number {
+float: left;
+margin-left: 13px;
+width: 43%;
+}
+
+#step1Form .phone_code {
+  float: left;
+width: 15%;
+}
+
+#step1Form .form-control.numberBlock1 {
+  width: 100% !important;
+}
+
+#step1Form .form-control.numberBlock2 {
+  width: 100% !important;
+}
+
+.featureBlock a {
+  border: 2px solid #ffd700;
+  border-radius: 4px;
+  color: #8b69d3;
+  float: left;
+  padding: 9px 26px;
+  text-align: center;
+  margin-top: 20px;
+  outline: none;
+}
+
+.featureBlock a:hover {
+  outline: none;
+  text-decoration: none;
+  border-color: #fdd700;
+}
+
+.mainInner-pageCont .leftSide-bar .title {
+  font-size: 26px;
+}
+
+.whyBaxia .title {
+  margin-top: 35px;
+}
+
+.formBlock {
+  margin-bottom: 25px;
+  overflow: inherit;
+}
+
+.mainSlider.innerPages {
+  margin-bottom: 30px;
+}
+
+/*#partnership_phone_code:-moz-placeholder {
+  color: transparent;
+  opacity: 0;
+}
+#partnership_phone_code::-moz-placeholder {
+  color: transparent;
+  opacity: 0;
+}
+#partnership_phone_code:-ms-input-placeholder {
+  color: transparent;
+  opacity: 0;
+}
+#partnership_phone_code::-webkit-input-placeholder {
+  color: transparent;
+  opacity: 0;
+}*/
+
+/*form#step1Form .form-group div.phone_code div.intl-tel-input {
+  width: 95px;
+}*/
+
+.intl-tel-input.allow-dropdown {
+  width: 60%;
+  margin-bottom: 5px;
+}
+
+#partnership_phoneNumber {
+  width: 100%;
+}
+
+.formBlock form#demoForm div.form-group .intl-tel-input.allow-dropdown {
+  width: 100%;
+}
+
+.demoAccout-block .formBlock form#demoForm input#DemoType_mobile_number {
+  width: 100% !important;
+}
+
+.fundingMeythods .slick-track div.slick-slide {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  margin: 2px;
+  padding: 5px;
+}
+
+
+.mainHeader .navBar-Menu nav.navbar .nav_menu li a:hover {
+  color: #ffd700;
+}
+
+.liquidityProviders-logos ul li a,
+.socialMedia-icons ul li a,
+.fundingMeythods a {
+  outline: none !important;
+}
+
+.socialMedia-icons img:hover {
+  opacity: 0.57;
+}
+
+.mainInner-pageCont .leftSide-bar .baxiaPartner-item .title{
+    font-size: 18px;
+}
+
+/********************** 404 *******************/
+.Content-404 {
+  text-align: center;
+}
+
+.Content-404 .title span {
+  display: block;
+  font-size: 117px;
+  margin-bottom: -22px;
+}
+
+.Content-404 .title p {
+  font-size: 19px;
+  margin-bottom: 41px;
+  text-transform: capitalize;
+}
+
+.Content-404 .title p span.not-Found {
+  font-size: 37px;
+  margin-top: -14px;
+  display: block;
+  margin-bottom: -27px;
+  color: #f3cd0f;
+}
+
+/**********************End Of 404 *******************/
+
+.navBar-Menu ul.nav.navbar-nav.nav_menu.desktop_menu {
+  float: right;
+}
+
+.navBar-Menu ul.nav.navbar-nav.nav_menu.mobile_menu {
+  width:100%;
+}
+
+.navBar-Menu nav.navbar .navbar-collapse.collapse {
+  padding-right: 0;
+}
+
+.trade-withUs a.demoAccount-link:hover .demoAccount,
+.trade-withUs a.liveAccount-link:hover .liveAccount {
+  background-position: 173px center;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.trading-Platforms-menu a.demoAccount-link:hover .demoAccount,
+.trading-Platforms-menu a.liveAccount-link:hover .liveAccount {
+  background-position: 150px center;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.mainInner-pageCont .demoAccout-block .open-DemoAccount a,
+.trade-withUs a.demoAccount-link .demoAccount,
+.trade-withUs a.liveAccount-link .liveAccount,
+.tradeWith-Us-inner a.demoAccount-link .demoAccount,
+.tradeWith-Us-inner a.liveAccount-link .liveAccount,
+.trading-Platforms-menu a.demoAccount-link .demoAccount,
+.trading-Platforms-menu a.liveAccount-link .liveAccount {
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.tradeWith-Us-inner a.demoAccount-link:hover .demoAccount,
+.tradeWith-Us-inner a.liveAccount-link:hover .liveAccount {
+  background-position: right 3px center;
+}
+
+.mainInner-pageCont .demoAccout-block .open-DemoAccount a:hover {
+  background-position: 152px center;
+}
+
+a.liveAccount-link:focus,
+a.demoAccount-link:focus {
+  outline: none;
+  outline-offset:0;
+}
+
+.aboutBaxia-Block .aboutBaxia-tabs .tab-content {
+  margin-top: -6px;
+}
+
+.follow-theSteps-form input[type="file"] {
+  height: auto;
+  padding: 5px !important;
+}
+
+.iti-flag {
+    background-image: inherit !important;
+}
+
+.nav_menu.mobile_menu li .dropdown.open .dropdown-menu a.dropdown-item.level2 {
+  background-image: none;
+  font-weight: bold;
+  padding-bottom: 8px;
+  padding-left: 0;
+}
+/********************************* Login Page **********************************/
+
+.loginPage-block .mainLogin-img img {
+  margin: 0 auto;
+}
+
+.mainLogin-img {
+  position: relative;
+}
+
+.mainLogin-Block {
+  bottom: 0;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+}
+
+.loginPage-block {
+  overflow-x: hidden;
+}
+
+.logo-loginBox {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.logo-loginBox a {
+  outline: none;
+}
+
+.startTrading-today {
+  background-color: #fff;
+  margin: 60px auto 0;
+  padding: 40px 50px;
+  width: 400px;
+}
+
+.startTrading-today .title {
+  text-align: center;
+  font-size: 23px;
+  text-transform: capitalize;
+}
+
+.startTrading-form form .formGroup input {
+  border: 0;
+  box-shadow: none;
+  border-bottom: 2px solid #b9b9b9;
+  border-radius: 0;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-transform: capitalize;
+  color: #9b9b9b;
+}
+
+.startTrading-today .startTrading-form button {
+  width: 100%;
+  border: 0;
+  color: #fff;
+  background-color: #8b69d3;
+  padding: 10px 0;
+  border-radius: 3px;
+  margin-top: 15px;
+}
+
+.container.mainContent_login {
+  background-color: #fff;
+  margin-top: -240px;
+  position: relative;
+  z-index: 9;
+  padding: 0;
+}
+
+.mainContent_login .about_Baxia .title {
+  font-size: 25px;
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.mainContent_login .about_Baxia {
+  padding-top: 40px;
+}
+
+.mainContent_login .about_Baxia .description {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.mainContent_login .about_Baxia .read-More a {
+  border: 2px solid #ffd700;
+  border-radius: 4px;
+  color: #8b69d3;
+  display: block;
+  margin: 0 auto;
+  padding: 9px 26px;
+  text-align: center;
+  width: 135px;
+  outline: none;
+}
+
+.mainContent_login .about_Baxia .read-More a:hover {
+  text-decoration: none;  
+  border-color: #fdd700;
+}
+
+.mainContent_login .description_Text {
+  background-color: #8b69d3;
+  color: #fff;
+  text-align: center;
+  font-size: 29px;
+  margin-top: 30px;
+  padding-bottom: 10px;
+}
+
+.mainContent_login .description_Text p {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 23px;
+  font-family: "PxGrotesk-Light";
+}
+
+.mainContent_login .description_Text p span {
+  font-family: "PxGrotesk-Bold";
+}
+
+.loginPage-whyBaxia .whyBaxia .title {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.loginPage-whyBaxia .whyBaxia-box:last-child {  
+    margin: 0 !important;
+}
+
+.loginPage-whyBaxia .whyBaxia-box {
+    background-color: #f4f3f2;
+    margin: 0 10px 10px 0;
+    width: 32.733%;
+    text-align: center;
+}
+
+.loginPage-block .baxiaPartner-message .messageCont {
+  margin-right: 50px;
+}
+
+.loginPage-block .baxiaPartner-message {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.loginPage-block .whyBaxia-box .readMore a {
+  float: none;
+  outline: medium none;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1199px) {
+  .loginPage-whyBaxia .whyBaxia-box {
+    width: 32.633%;
+  }
+
+  .loginPage-block .baxiaPartner-message {
+    width: 72%;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 991px) {
+
+  .startTrading-form form .formGroup input {
+    margin-top: 9px;
+    margin-bottom: 9px;
+  }
+
+  .loginPage-whyBaxia .whyBaxia-box {
+    width: 100%;
+  }
+
+  .loginPage-block .baxiaPartner-message {
+      width: 100%;
+    }
+
+    .startTrading-today {
+      width: 320px;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1400px) {
+    .logo-loginBox {
+      margin-top: 20px;
+    }
+
+    .startTrading-today {
+          margin: 32px auto 0;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1260px) {
+    .container.mainContent_login {
+      margin-top: 0;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+
+    .mainContent_login .description_Text {
+      font-size: 21px;
+      padding: 10px;
+    }
+
+    .mainContent_login .description_Text p {
+      width: 100%;
+    }
+
+    .mainLogin-img {
+    height: 490px !important;
+    min-height: 100%;
+    max-height: 100%;
+    height: 100%;
+    overflow: hidden;    
+    }
+
+    .mainLogin-img img.mainLogin_img {
+    max-width: none;
+    }
+
+    .mainLogin-Block {
+      width: auto;
+    }
+
+    .startTrading-today {
+    width: 270px;
+    }
+}
+
+
+/********************************* End Of Login Page **********************************/
+
+.liquidityProviders-logos img:hover {
+  opacity: 0.57;
+}
+
+.baxia-Partnership .partnership-buttons a.btn-on-yellow-dark:hover {
+  border-color: #fdd700;
+  color: #8669bc !important;
+}
+
+.messageBlock .baxiaPartner-message a {
+  background-color: gold;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+  color: #8b69d3;
+  font-size: 14px;
+  padding: 12px 37px;
+}
+
+.messageBlock .baxiaPartner-message a:hover {
+  text-decoration:none;
+}
+
+.btn-on-yellow-dark2:hover {
+  border-color: #fdd700 !important;
+  color: #8669bc !important;
+}

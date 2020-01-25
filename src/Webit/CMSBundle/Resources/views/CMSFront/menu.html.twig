@@ -1,0 +1,25 @@
+<ul style="display: block;" class="{%if ul_class is defined%}{{ul_class}} {%endif%}level-{{level}}">
+
+    {% for item_info in items %}
+        
+        <li>           
+            {% if item_info.contentId is not empty%}                
+                {% set url = path('showPage',{'id': item_info.contentId, 'slug':  item_info.content_slug }) %}
+            {% elseif(item_info['route'] == '#' ) %}
+                {% set url='#' %}
+            {% elseif item_info['route'] == '' %}
+                {% set url = '/'~app.request.locale~item_info.link %}
+            {% else%}
+                {% set url = path(item_info.route ) %}
+            {% endif %}
+            <a href='{{url}}' {%if item_info.isTargetBlank%}target='_blank'{%endif%}>
+                {{item_info.displayLabel}}
+            </a>
+
+            {% if item_info.childs is defined and item_info.childs is not empty %}                
+                {% render(controller('WebitCMSBundle:CMSFront:drawMenu', {'menu_name':menu_name,'ul_class':ul_class, 'li_class':li_class, 'level':level+1, parent_id:item_info.item_id})) %}
+            {% endif %}
+        </li>
+    {% endfor %}
+
+</ul>

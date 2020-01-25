@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include 'WebitForexSiteBundle::Default/head.html.twig' %}
+        {%block css %}
+            <link rel="stylesheet" href="{{asset('bundles/webitforexsite/css/intlTelInput.css')}}">
+        {%endblock css %}
+        <title>{%if page%}{{page.getTranslationByLang(_locale).getTitle()}} | {%endif%}{%trans%}company_name{%endtrans%}</title>
+                <meta name="description" content="{%if page%}{{page.getTranslationByLang(_locale).getMetaDescription()}}{%endif%}" />
+        <meta name="keywords" content="{%if page%}{{page.getTranslationByLang(_locale).getMetaKeywords()}}{%endif%}" />
+    </head>
+    <body>
+        {% include 'WebitForexSiteBundle::Default/header.html.twig' %}
+        <div class="mainHeader">
+            <!-- start menus -->
+            {{ render(controller('WebitForexSiteBundle:Homepage:menus'))}} 
+            <!--  end menus -->
+            <div class="mainSlider innerPages">
+                {%if page%}
+                    <div class="baxiaMain-slider">
+                        <div class="sliderBlock">
+                            <img src="{{page.getTranslationByLang(_locale).getImage()}}">
+                            <div class="container">
+                                <div class="descriptionBlock">
+                                    <div class="mainTitle-block">{{page.getTranslationByLang(_locale).getTitle()}}</div>
+                                    <div class="yellow-line"></div>
+                                </div><!-- descriptionBlock -->
+                            </div><!-- container -->
+                        </div>
+                    </div>
+               {%endif%}   
+            </div><!-- mainSlider -->
+        </div><!-- mainHeader -->
+
+        <div class="container">
+            <div class="mainInner-pageCont">
+                <div class="demoAccout-block">
+                    <div class="title">Open Demo Account </div>
+                        <div class="yellow-line"></div>
+                        <div class="messageBlock">Try a 30 Day Practice Trading Account</div>
+                        <div class="instantRegistration">Instant Registration</div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                         {% if success %}
+                         <div class="message-successfully">
+                             {%trans%}NEW_DEMO_ACCOUNT_SUCCESS_MSG{%endtrans%}
+                             </div>
+                             {%else%} 
+                            <div class="formBlock">
+                                <form id="demoForm" action="{{path('demo_registration')}}" method="post">
+                                    {{ form_widget(form._token) }}
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">
+                                            {%trans%}first_name{%endtrans%}</label>
+                                        <div class="col-sm-9">
+                                            {{form_widget(form.first_name)}}
+                                            {% if form.first_name.vars.errors|length %}
+                              <span class="error_massage">
+                          {{ form_errors(form.first_name) }}
+                              </span>
+                          {%endif%}
+    
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">{%trans%}last_name{%endtrans%}</label>
+                                        <div class="col-sm-9">
+                                            {{form_widget(form.last_name)}}
+                                            {% if form.last_name.vars.errors|length %}
+                              <span class="error_massage">
+                          {{ form_errors(form.last_name) }}
+                              </span>
+                          {%endif%}
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">{%trans%}email{%endtrans%}</label>
+                                        <div class="col-sm-9">
+                                            {{form_widget(form.username)}}
+                                             {% if form.username.vars.errors|length %}
+                              <span class="error_massage">
+                          {{ form_errors(form.username) }}
+                              </span>
+                          {%endif%}
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">{%trans%}country{%endtrans%}</label>
+                                        <div class="col-sm-9">
+                                            {{form_widget(form.country)}}
+                                              {% if form.country.vars.errors|length %}
+                              <span class="error_massage">
+                          {{ form_errors(form.country) }}
+                              </span>
+                          {%endif%}
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">{%trans%}mobile_number{%endtrans%}</label>
+                                        <div class="col-sm-9">  
+                                            {{form_row(form.phone_code)}}
+                                            {{form_widget(form.mobile_number)}}
+                                               {% if form.mobile_number.vars.errors|length %}
+                              <span class="error_massage">
+                          {{ form_errors(form.mobile_number) }}
+                              </span>
+                          {%endif%}
+                                        </div>
+                                    </div>
+
+                                </form>
+                                              
+                            </div><!-- formBlock -->
+                            <div class="open-DemoAccount">
+                                <a href="javascript:void(0)">Open Demo Account</a>
+                            </div>
+                            <div class="timeBlock">
+                                Estimated time to complete
+                                3 minutes
+                            </div>
+                            {%endif%} 
+                        </div>
+                                                                  
+                    <div class="demoAccout-img col-lg-6 col-md-6 col-sm-6">
+                        <img class="img-responsive" src="{{ asset('bundles/webitforexsite/images/demo-img.jpg') }}">
+                    </div>
+
+                </div><!-- demoAccout-block -->
+
+            </div><!-- mainInner-pageCont -->
+        </div><!-- container -->
+
+        {% include 'WebitForexSiteBundle::Default/footer.html.twig' %} 
+        {%block js %}
+            <script src="{{asset('bundles/webitforexsite/js/intlTelInput.js')}}" type="text/javascript"></script>
+            <script>
+                $(document).ready(function () {
+                    if($(".error_massage").length) {
+                        $("html,body").animate({scrollTop:$('.error_massage').first().offset().top-80}, 'fast');
+                    }
+                    if($(".message-successfully").length) {
+                        $("html,body").animate({scrollTop:$('.message-successfully').first().offset().top-80}, 'fast');
+                    }
+
+                    $('.open-DemoAccount a').on('click', function () {
+                        $('#demoForm').submit();
+                    });
+                    $("input#DemoType_mobile_number").intlTelInput({
+                        nationalMode: true,
+    preventInvalidDialCodes: true,
+
+    separateDialCode: true,
+    autoPlaceholder: 'off',
+    formatOnDisplay: false
+                    });
+                    addressDropdown = $("#DemoType_country");
+                    telInput = $("input#DemoType_mobile_number"),
+                    telInput.on("countrychange", function (e, countryData) {
+                        if(!jQuery.isEmptyObject(countryData)){
+                            $('input[name="DemoType[phone_code]"]').val(countryData.dialCode);
+                            addressDropdown.val(countryData.iso2.toUpperCase());
+                        }
+                        
+                    });
+
+                    addressDropdown.change(function () {
+                        telInput.intlTelInput("setCountry", $(this).val());
+
+                    });
+                    if(addressDropdown.val() != ""){
+                       addressDropdown.trigger('change');
+                    }
+                });
+            </script>
+
+        {%endblock js %} 
+
+    </body>
+</html>

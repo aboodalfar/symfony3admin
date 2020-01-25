@@ -1,0 +1,122 @@
+sonata_block:
+    context_manager: sonata.page.block.context_manager
+
+#fos user bundle
+#fos_user:
+#    db_driver: orm
+#    firewall_name: admin
+#    user_class: Application\Sonata\UserBundle\Entity\User
+#    group:
+#        group_class: Application\Sonata\UserBundle\Entity\Group 
+#    from_email:
+#        address: you@example.com
+#        sender_name: You  
+sonata_user:
+    class:
+        user:               Application\Sonata\UserBundle\Entity\User
+        group:              Application\Sonata\UserBundle\Entity\Group
+fos_user:
+    db_driver:      orm
+    firewall_name:  main
+    user_class:     Application\Sonata\UserBundle\Entity\User
+    from_email:
+        address:        noreply@example.com
+        sender_name:    John Doe
+
+    group:
+        group_class:   Application\Sonata\UserBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager
+
+    service:
+        user_manager: sonata.user.orm.user_manager
+                  
+
+sonata_admin:
+    title:      CMS Admin
+    title_logo: /bundles/webitforexsite/images/logo_admin.png?v1.0
+    options:
+        use_icheck: true
+    security:
+      handler: sonata.admin.security.handler.role
+    assets:
+        extra_javascripts:
+            - bundles/sonatapage/sonata-page.back.min.js
+        extra_stylesheets: # changed order of js assets loading
+            - 'bundles/applicationsonataadmin/css/custom.css' 
+            - bundles/sonatapage/sonata-page.back.min.css
+      # role security information
+#      information:
+#          EDIT: EDIT
+#          LIST: LIST
+#          CREATE: CREATE
+#          DELETE: DELETE
+#          VIEW: VIEW
+#          HISTROY: HISTROY
+#    templates:
+#        # default global templates
+#        layout:  ApplicationSonataAdminBundle::standard_layout.html.twig
+#        ajax:    SonataAdminBundle::ajax_layout.html.twig        
+#        # default actions templates, should extend a global templates
+#        list:    ApplicationSonataAdminBundle:CRUD:list.html.twig
+#        show:    ApplicationSonataAdminBundle:CRUD:show.html.twig
+#        edit:    SonataAdminBundle:CRUD:edit.html.twig
+#        dashboard: ApplicationSonataAdminBundle::dashboard.html.twig
+    dashboard:
+        groups:
+            webit.admin.group.forex:
+                label: "Backoffice Area"
+                label_catalogue: WebitForexCoreBundle
+                icon: '<i class="fa fa-th-list"></i>'
+            webit.admin.group.compliance:
+                label: "Compliance Area"
+                label_catalogue: WebitForexCoreBundle
+                icon: '<i class="fa fa-glass"></i>'
+#            webit.admin.group.trading:
+#                label: "Trading Acc."
+#                label_catalogue: SonataAdminBundle
+#                icon: '<i class="fa fa-trophy"></i>'
+            webit.admin.group.cs:
+                label: "Customer Service"
+                label_catalogue: SonataAdminBundle
+                icon: '<i class="fa fa-tags"></i>'
+            webit.admin.group.finance:
+                label: "Finance"
+                label_catalogue: WebitForexCoreBundle
+                icon: '<i class="fa fa-money"></i>'
+            webit.admin.group.cms:
+                label: "General Content"
+                label_catalogue: WebitCMSBundle
+                icon: '<i class="fa fa-book"></i>'
+            webit.admin.group.settings:
+                label: "Settings"
+                label_catalogue: SonataAdminBundle
+                icon: '<i class="fa fa-arrows-alt"></i>'
+#            webit.admin.group.monitoring_logs:
+#                label: "Monitoring & Logs"
+#                label_catalogue: SonataAdminBundle
+#                icon: '<i class="fa fa-arrows-alt"></i>'                
+#            sonata_user:
+#                label: "Users & Roles"
+#                label_catalogue: SonataAdminBundle
+#                icon: '<i class="fa fa-users"></i>' 
+#                
+            group.translation:
+                label: Translation
+                items: ~  
+                
+            user:
+                    label: Users management
+                    items:
+                        - sonata.user.admin.user
+                        - sonata.user.admin.group
+                        
+            page:
+                    label: page
+                    items:
+                        - sonata.page.admin.page
+                        - sonata.page.admin.shared_block
+                        - sonata.page.admin.block
+                                  
+                
+                
+                

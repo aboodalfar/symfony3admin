@@ -1,0 +1,22 @@
+
+{%  set BeneficialOwners  =object.getRealProfileCorporation().getBeneficialOwners() %}
+{% if BeneficialOwners|length %}
+<tr>
+    <th colspan="3">list the Name of the ultimate Beneأ¶cial owners of the Company holding a 10% ownership intere stor greater</th>
+    
+</tr>
+<tr>
+    <th>Percentage held</th>
+    <th>Country</th>
+    <th>full name</th>
+</tr>    
+    {%for data in BeneficialOwners%}
+            <tr class="sonata-ba-view-container">
+
+                <td>{{data.getPercentageHeld()}}</td>
+                <td>{{data.getCountry()}}</td>
+                <td>{{data.getFullName()}}</td>
+            </tr> 
+    {%endfor%}
+    
+{%endif%}

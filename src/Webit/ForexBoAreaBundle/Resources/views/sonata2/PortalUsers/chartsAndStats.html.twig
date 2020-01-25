@@ -1,0 +1,128 @@
+{% extends base_template %}
+
+
+{%block sonata_page_content%}
+    <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
+    <script type="text/javascript" src="{{asset('bundles/applicationsonataadmin/js/charts.js')}}"></script>
+
+    <ul class="clearfix" id="nav-info">
+        <li><a href="{{path('sonata_admin_dashboard') }}"><i class="fa fa-home"></i></a></li>
+        <li ><a href="{{path('sonata_admin_dashboard') }}">Dashboard</a></li>
+        <li><a href="{{ path('admin_webit_forexcore_realprofile_list') }}">{%trans%}Real Accounts{%endtrans%}</a></li>
+        <li class="active"><a href="">{%trans%}Charts and Graphs{%endtrans%}</a></li>
+    </ul> 
+    <!-- END Navigation info -->
+    <h1>{%trans%}Real Accounts{%endtrans%}</h1>
+    <div class="row">
+        <div class="col-md-4 border-modify">
+            <h3 class="page-header-customize">{%trans%}Account Status{%endtrans%}<a href="#"><i class="gi gi-circle_info icon-chart-modify" rel="tooltip" title="Expand"></i></a></h3>
+            <div id="status-chart-pie" class="" style="max-width:100%;height: 300px;"></div>
+        </div>
+        <div class="col-md-4 border-modify">
+            <h3 class="page-header-customize">{%trans%}Compliance Status{%endtrans%}<a href="#"><i class="gi gi-circle_info icon-chart-modify" rel="tooltip" title="Expand"></i></a></h3>
+            <div id="compstatus-chart-pie" class="" style="max-width:100%;height: 300px;"></div>
+        </div>
+        <div class="col-md-4 border-modify">
+            <h3 class="page-header-customize">{%trans%}Account Type{%endtrans%}<a href="#"><i class="gi gi-circle_info icon-chart-modify" rel="tooltip" title="Expand"></i></a></h3>
+            <div id="acctype-chart-pie" class="" style="max-width:100%;height: 300px;"></div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4 border-modify">
+            <h3 class="page-header-customize">{%trans%}Active Accounts{%endtrans%}<a href="#"><i class="gi gi-circle_info icon-chart-modify" rel="tooltip" title="Expand"></i></a></h3>
+            <div id="active-chart-pie" class="" style="max-width:100%;height: 300px;"></div>
+        </div>
+        <div class="col-md-4 border-modify">
+            <h3 class="page-header-customize">{%trans%}Country{%endtrans%}<a href="#"><i class="gi gi-circle_info icon-chart-modify" rel="tooltip" title="Expand"></i></a></h3>
+            <div id="country-chart-bars" class="" style="max-width:100%;height: 300px;"></div>
+        </div>
+        <div class="col-md-4 border-modify">
+            <h3 class="page-header-customize">{%trans%}Registration By Date{%endtrans%}<a href="#"><i class="gi gi-circle_info icon-chart-modify" rel="tooltip" title="Expand"></i></a></h3>
+            <div id="created-chart-classic" class="" style="max-width:100%;height: 300px;"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 border-modify">
+            <h3 class="page-header-customize">{%trans%}Referer{%endtrans%}<a href="#"><i class="gi gi-circle_info icon-chart-modify" rel="tooltip" title="Expand"></i></a></h3>
+            <div id="referer-chart-bars" class="" style="max-width:100%;height: 300px;"></div>
+        </div>
+    </div>        
+            
+
+{%endblock sonata_page_content%}
+
+{%block custom_bottom_scripts%}
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var statusPieChart = 'status-chart-pie';
+                var compstatusPieChart = $('#compstatus-chart-pie');
+                var accTypePieChart = $('#acctype-chart-pie');
+                var activePieChart = $('#active-chart-pie');
+                var countryChart = $('#country-chart-bars');
+                var createdChart = $('#created-chart-classic');
+
+                // Initialize Pie Chart
+        {%spaceless%}	            
+        var statusPieData = [['header1', 'header2'],{%for k,data in status_chart_data%} ['{{data.label|trans}}', {{data.value}} ]{%if not loop.last%},{%endif%}{%endfor%} ];
+        {%endspaceless%}
+        var accTypePieData = [['header21', 'Users Number', {role: 'style'}], {%for k,data in acctype_chart_data%}['{{data.label|trans}}', {{data.value}}, 'gold']{%if not loop.last%},{%endif%}{%endfor%} ];
+        {%spaceless%}	            
+        var countryData = [['header31', 'Registration number'],{%for k,data in country_chart_data%} ['{{k}}', {{data}}  ]{%if not loop.last%},{%endif%}{%endfor%} ];
+        {%endspaceless%}    
+        {%spaceless%}	            
+        var statusPieDataActive = [['header41', 'header42'],{%for k,data in active_chart_data%} ['{{data.label|trans}}', {{data.value}} ]{%if not loop.last%},{%endif%}{%endfor%} ];
+        {%endspaceless%}
+        var compstatusPieData = [['header21', 'Users Number', {role: 'style'}], {%for k,data in compstatus_chart_data%}['{{data.label|trans}}', {{data.value}}, 'blue']{%if not loop.last%},{%endif%}{%endfor%} ];
+        {%spaceless%}	            
+        var createdData = [['header51', 'Registered users'],{%for k,data in createdat_chart_data%} ['{{k|date('d-m')}}', {{data}}  ]{%if not loop.last%},{%endif%}{%endfor%} ];
+        {%endspaceless%}
+        {%spaceless%}	            
+        var refererData = [['header51', 'Registered users'],{%for k,data in referer_chart_data%} ['{{k}}', {{data}}  ]{%if not loop.last%},{%endif%}{%endfor%} ];
+        {%endspaceless%}
+        
+        google.setOnLoadCallback(function () {
+            drawChart('status-chart-pie', statusPieData, 'Status chart');
+        });
+        $(window).resize(function () {
+            drawChart('status-chart-pie', statusPieData, 'Status chart');
+        });
+        google.setOnLoadCallback(function () {
+            drawChart4('country-chart-bars', countryData, 'Country');
+        });
+        $(window).resize(function () {
+            drawChart4('country-chart-bars', countryData, 'Country');
+        });
+        google.setOnLoadCallback(function () {
+            drawChart3('active-chart-pie', statusPieDataActive, 'Active Accounts');
+        });
+        $(window).resize(function () {
+           drawChart3('active-chart-pie', statusPieDataActive, 'Active Accounts');
+        });
+        google.setOnLoadCallback(function () {
+           drawChart2('acctype-chart-pie', accTypePieData, 'Account Type chart');
+        });
+        $(window).resize(function () {
+           drawChart2('acctype-chart-pie', accTypePieData, 'Account Type chart');
+        });
+        google.setOnLoadCallback(function () {
+           drawChart5('compstatus-chart-pie', compstatusPieData, 'Compliance Status');
+        });
+        $(window).resize(function () {
+           drawChart5('compstatus-chart-pie', compstatusPieData, 'Compliance Status');
+        });
+        google.setOnLoadCallback(function () {
+          drawChart6('created-chart-classic', createdData, 'Registration Date');
+        });
+        $(window).resize(function () {
+           drawChart6('created-chart-classic', createdData, 'Registration Date');
+        });                                   
+        google.setOnLoadCallback(function () {
+          drawChart5('referer-chart-bars', refererData, 'Referer');
+        });
+        $(window).resize(function () {
+           drawChart5('referer-chart-bars', refererData, 'Referer');
+        });                                   
+    });                                                               
+    </script>    
+{%endblock custom_bottom_scripts %}

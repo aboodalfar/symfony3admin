@@ -1,0 +1,80 @@
+ 
+        
+services:
+    forex.admin.Callback:
+        class:  Webit\ForexCoreBundle\Admin\CallbackAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.cs, label: Callback }
+        arguments: [null, Webit\ForexCoreBundle\Entity\Callback, WebitForexCoreBundle:Admin\Callback]
+
+    forex.admin.ForexPartnership:
+        class:  Webit\ForexCoreBundle\Admin\PartnershipAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.cs, label: Partnership }
+        arguments: [null, Webit\ForexCoreBundle\Entity\Partnership, WebitForexCoreBundle:Admin\Partnership]
+
+    forex.admin.ForexWireTransfer:
+        class:  Webit\ForexCoreBundle\Admin\WireTransferAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.finance, label: Wire Transfer }
+        arguments: [null, Webit\ForexCoreBundle\Entity\WireTransfer, WebitForexCoreBundle:Admin\WireTransfer]
+
+    forex.admin.ForexWithdrawalRequest:
+        class:  Webit\ForexCoreBundle\Admin\WithdrawalRequestAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.finance, label: Withdrawal Request }
+        arguments: [null, Webit\ForexCoreBundle\Entity\WithdrawalRequest, WebitForexCoreBundle:Admin\WithdrawalRequest]
+
+    forex.admin.ForexSubAccount:
+        class:  Webit\ForexCoreBundle\Admin\SubAccountAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.forex, label: Sub Account Request }
+        arguments: [null, Webit\ForexCoreBundle\Entity\SubAccount, WebitForexCoreBundle:Admin\SubAccount]
+
+    forex.admin.ForexNeteller:
+        class:  Webit\ForexCoreBundle\Admin\NetellerAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.finance, label: Deposit Neteller }
+        arguments: [null, Webit\ForexCoreBundle\Entity\Deposit, WebitForexCoreBundle:Admin\Neteller]
+        
+    forex.admin.RealTimeNews:
+        class:  Webit\ForexCoreBundle\Admin\RealTimeNewsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.market, label: News }
+        arguments: [null, Webit\ForexCoreBundle\Entity\RealTimeNews, WebitForexCoreBundle:Admin\RealTimeNews]
+                
+    forex.admin.PromoPages:
+        class:  Webit\ForexCoreBundle\Admin\PromoPagesAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.market, label: Special Offer }
+        arguments: [null, Webit\ForexCoreBundle\Entity\PromoPages, WebitForexCoreBundle:Admin\PromoPages]
+
+    webit_forex_core.admin.trading_central:
+        class: Webit\ForexCoreBundle\Admin\TradingCentralAdmin
+        arguments: [~, Webit\ForexCoreBundle\Entity\TradingCentral, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.market, label: Trading Central }
+
+    webit_forex_core.admin.daily_report:
+        class: Webit\ForexCoreBundle\Admin\DailyReportAdmin
+        arguments: [~, Webit\ForexCoreBundle\Entity\DailyReport, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.market, label: Daily Report }
+
+    webit_forex_core.admin.custom_daily_report:
+        class: Webit\ForexCoreBundle\Admin\CustomDailyReportAdmin
+        arguments: [~, Webit\ForexCoreBundle\Entity\CustomDailyReport, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.market, label: Custom Daily Report }
+
+    webit_forex_core.admin.withdrawal_request:
+        class: Webit\ForexCoreBundle\Admin\WithdrawalRequestAdmin
+        arguments: [~, Webit\ForexCoreBundle\Entity\WithdrawalRequest, WebitForexCoreBundle:Admin\WithdrawalRequest]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.finance, label: WithdrawalRequest }
+
+    webit_forex_core.admin.setting:
+        class: Webit\ForexCoreBundle\Admin\SettingAdmin
+        arguments: [~, Webit\ForexCoreBundle\Entity\Setting, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Setting }

@@ -1,0 +1,8 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+{% block field %}
+{%if value and value != "uploads/userDocuments/"%}    
+<a target="_blank" href="{{ asset(value|nl2br) }}">Download File</a>
+{%else%}
+No data
+{%endif%}
+{% endblock %}

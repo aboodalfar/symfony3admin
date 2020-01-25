@@ -1,0 +1,195 @@
+<section class="aboutBaxia">
+	<div class="container">
+		<div class="aboutBaxia-Block">
+			<div class="aboutBaxia-left col-lg-6 col-md-6 col-sm-6">
+				{%if about_baxia %}
+                                {{about_baxia.getTranslationByLang(_locale).getBrief()|raw}}
+
+                     <div class="readMore">
+                         <a class="readMore btn-on-yellow-dark" href="{{path('showPage',{'id':about_baxia.getId(), 'slug':about_baxia.getSlug()})}}">
+                             {%trans%}read_more{%endtrans%}
+                         </a>
+                     </div>
+                     {%else%}
+                         add new page from admin with title about baxia and add brief to show here
+                     {%endif%}
+
+				<div class="clear"></div>
+				<div class="fundingMeythods-slider desktopStyle">
+					<div class="title">{%trans%}funding_methods{%endtrans%}</div>
+					<div class="fundingMeythods col-lg-8 col-md-8">
+                                            {% if PaymentsGateway|length >0 %}
+                                                {%for PaymentGateway in PaymentsGateway%}
+                                                    <div>
+                                                        <a href="#">
+                                                            <img src="{{PaymentGateway.getIcon()| imagine_filter('thumb_42_30')}}">
+                                                        </a>
+                                                    </div>
+                                                {%endfor%}    
+                                            {%else%}
+                                                plz add payment from admin
+                                            {%endif%}    
+                                         
+					</div><!-- fundingMeythods -->
+				</div><!-- fundingMeythods-slider -->
+			</div>
+			<div class="aboutBaxia-right col-lg-6 col-md-6 col-sm-6">
+					
+				<div class="aboutBaxia-tabs">
+					<ul class="nav nav-tabs">
+						<li class="active"><a data-toggle="tab" href="#home">Standard Spreads</a></li>
+						<li><a data-toggle="tab" href="#menu1">Pro and Vip Spreads</a></li>
+					</ul>
+
+					<div class="tab-content">
+						<div id="home" class="tab-pane fade in active">
+							<div class="tablesBlock">
+                                                            {% if spreads|length %}
+								<table class="table" width="100%">
+                                                                    <tr class="odd">
+									<th>Symbol</th>
+									<th>MIN. Spread</th>
+                                                                        <th>Symbol</th>
+									<th>MIN. Spread</th>
+                                                                        </tr>
+                                                                    {% set loopIndex=0 %}    
+                                                                    {% for spread in spreads if loopIndex < spreads|length %}
+                                                                        <tr class="{% if loop.index is even %}odd{%endif%}">
+                                                                            <td>
+                                                                            
+                                                                               {{spread.getSymbol()}} 
+                                                                            </td>
+                                                                            <td>
+                                                                               {{spread.getStandardMinimumSpread()}} 
+                                                                               {% set loopIndex=loopIndex+1 %} 
+                                                                            </td>
+                                                                            <td>
+                                                                                {% if spreads[loop.index+1] is defined  %}
+                                                                                    {% set loopIndex=loopIndex+1 %} 
+                                                                                {{spreads[loop.index+1]}}
+                                                                                {%endif%}
+                                                                            </td>
+                                                                            <td>
+                                                                                {% if spreads[loop.index+1] is defined  %}
+                                                                                {{spreads[loop.index+1].getStandardMinimumSpread()}}
+                                                                                {%endif%}
+                                                                            </td>
+                                                                            
+                                                                        </tr>
+                                                                    {%endfor%}  
+                                                                      {% set loopIndex=0 %}   
+								</table>
+                                                                {%else%}
+                                                                    add spreads from admin
+                                                              {%endif%}  
+							</div><!-- tablesBlock -->
+						</div>
+						<div id="menu1" class="tab-pane fade">
+												<div class="tab-content">
+						<div id="home" class="tab-pane fade in active">
+							<div class="tablesBlock">
+                                                             {% if spreads|length %}
+								<table width="100%">
+									<tr class="odd">
+										<th>Symbol</th>
+										<th>MIN. Spread</th>
+                                                                                <th>Symbol</th>
+                                                                                <th>MIN. Spread</th>
+									</tr>
+                                                                        {% for spread in spreads if loopIndex < spreads|length  %}
+                                                                        <tr class="{% if loop.index is even %}odd{%endif%}">
+                                                                            <td>
+                                                                               {{spread.getSymbol()}} 
+                                                                            </td>
+                                                                            <td>
+                                                                               {{spread.getProMinimumSpread()}} 
+                                                                               {% set loopIndex=loopIndex+1 %} 
+                                                                            </td>
+                                                                            <td>
+                                                                                {% if spreads[loop.index+1] is defined  %}
+                                                                                    {% set loopIndex=loopIndex+1 %} 
+                                                                                {{spreads[loop.index+1]}}
+                                                                                {%endif%}
+                                                                            </td>
+                                                                            <td>
+                                                                                {% if spreads[loop.index+1] is defined  %}
+                                                                                {{spreads[loop.index+1].getProMinimumSpread()}}
+                                                                                {%endif%}
+                                                                            </td>
+                                                                        </tr>
+                                                                    {%endfor%}
+								</table>
+                                                                {%else%}
+                                                                    add spreads from admin
+                                                               {%endif%} 
+							</div><!-- tablesBlock -->
+						</div>
+						<div id="menu1" class="tab-pane fade">
+							<h3>Menu 1</h3>
+							<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+						</div>
+					</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="fundingMeythods-slider mobileStyle">
+					<div class="title">{%trans%}funding_methods{%endtrans%}</div>
+					<div class="fundingMeythods">
+					    {% if PaymentsGateway|length >0 %}
+                                                {%for PaymentGateway in PaymentsGateway%}
+                                                    <div>
+                                                        <a href="#">
+                                                            <img src="/{{PaymentGateway.getIcon()}}">
+                                                        </a>
+                                                    </div>
+                                                {%endfor%}    
+                                            {%else%}
+                                                plz add payment from admin
+                                            {%endif%} 
+					</div><!-- fundingMeythods -->
+				</div><!-- fundingMeythods-slider -->
+
+			</div>
+		</div><!-- aboutBaxia-Block -->
+	</div><!-- container -->
+</section>
+       <section class="technologyExecution">
+	<div class="container">
+		<div class="technologyExecution-block">
+		<div class="title">Technology Execution</div>
+		<div class="yellow-line"></div>
+		<div class="description">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		</div><!-- description -->
+		<div class="clear"></div>
+                {% if technologiesExecution|length > 0 %}
+                    {%  for technologyExecution in technologiesExecution %}
+                        <div class="featureBlock{{loop.index}}">
+                            <div class="image col-lg-6 col-md-6 col-sm-6">
+                                <img class="img-responsive" src="{{technologyExecution.getTranslationByLang(_locale).getImage()| imagine_filter('thumb_553_300') }}" />
+                            </div>
+                            <div class="feature col-lg-6 col-md-6 col-sm-6">
+                                <div class="featureBlock">
+                                    <div class="title">{{technologyExecution.getTranslationByLang(_locale).getTitle()}}</div>
+                                    {{technologyExecution.getTranslationByLang(_locale).getBrief()|raw}}
+                                    <div class="readMore">
+                                        <a class="btn-on-yellow-dark" href="{{path('showPage',{'id':technologyExecution.getId(), 'slug':technologyExecution.getSlug() })}}">
+                                            {%trans%}read_more{%endtrans%}
+                                        </a>
+                                    </div>
+
+                                </div><!-- featureBlock -->
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+
+                    {%endfor%}    
+                {%endif%}    
+                
+                
+
+
+	</div><!-- technologyExecution-block -->
+	</div><!-- container -->
+</section>

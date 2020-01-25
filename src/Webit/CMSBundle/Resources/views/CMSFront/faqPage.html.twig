@@ -1,0 +1,15 @@
+{% extends 'WebitForexSiteBundle::Extends/inner_page.html.twig'%}
+{%block page_body %}
+  <div class="FAQs-Block">  
+    <div class="title">FAQs</div>
+    <div class="subTitle">Lorem ipsum dolor sit amet.</div>
+    <div class="accordionPanel">
+        {% for question in questions %}
+            <button class="accordion">{{question.Translations[0].questionText}}</button>
+            <div class="panel">
+		 <p>{{question.Translations[0].answerText | raw}}</p>
+            </div>
+        {%endfor%}   
+    </div>
+  </div>      
+{%endblock page_body %}

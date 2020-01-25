@@ -1,0 +1,24 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+{% block field %}
+    <div>
+
+
+        {% if object.UploadTTCopyPath %}
+            <a id="Popup" href="{{ asset(object.UploadTTCopyPath()) }}" >TTCopy FILE</a>
+        {% else %}
+            N.A
+        {% endif %}
+    </div>
+        <script>
+            $(document).ready(function() {
+               $('#Popup').click(function() {
+                 var NWin = window.open($(this).prop('href'), '', 'height=800,width=800');
+                 if (window.focus)
+                 {
+                   NWin.focus();
+                 }
+                 return false;
+                });
+            });
+        </script>
+{% endblock %}

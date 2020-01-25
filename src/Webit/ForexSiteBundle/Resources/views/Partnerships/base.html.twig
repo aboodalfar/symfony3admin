@@ -1,0 +1,54 @@
+{% extends 'WebitForexSiteBundle::Extends/inner_page.html.twig'%}
+{%block page_body %}
+    <link rel="stylesheet" href="{{asset('bundles/webitforexsite/css/intlTelInput.css')}}">
+    {% include 'WebitCMSBundle::CMSFront/default_template.html.twig' %} 
+    <div class="follow-theSteps-form" id="form_container">
+         {% include 'WebitForexSiteBundle::Partnerships/ib_form.html.twig' %} 
+    </div>
+
+{%endblock page_body %}
+  {%block js %}
+      <script src="{{asset('bundles/webitforexsite/js/intlTelInput.js')}}" type="text/javascript"></script>
+        <script>
+       window.onload = function () {$('button[type="submit"]').prop("disabled", false);}
+   
+    function submitAjaxRealForm(form_id, container_id) {
+    var f = $('#' + form_id);
+    showLoadingImage(container_id);
+    var data = new FormData(f[0]);
+    $.ajax({
+        url: f.attr('action'),
+        type: f.attr('method'),
+        enctype: f.attr('enctype'),
+        data: data,
+        processData: false,
+        contentType: false,
+        success: function(data) {
+          removeLoadingImage(container_id);
+            $('#' + container_id).html(data);
+            if($(".error_massage").length) {
+                $("html,body").animate({scrollTop:$('.error_massage').first().offset().top-80}, 'fast');
+            }
+        },
+		error: function(){
+                    removeLoadingImage(container_id);
+		  alert('Something wrong happened, please try later!');
+		}
+    });
+    
+}
+
+function showLoadingImage(id) {
+    $('#' + id).addClass('relative_position');
+    $('#' + id).append('<div class="indicator">&nbsp;</div>');
+}
+
+function removeLoadingImage(id) {
+    $('#' + id).removeClass('relative_position');
+    $('#' + id + ' .indicator').remove();
+}
+js_call();
+
+
+</script>
+{%endblock js %} 

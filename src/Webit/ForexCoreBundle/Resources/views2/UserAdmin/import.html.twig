@@ -1,0 +1,59 @@
+{% extends base_template %}
+
+{% block list_table %}
+
+    <form action="" method="post" enctype="multipart/form-data">
+        <h2>Import File</h2>
+
+        {%if error is not empty %}
+            <div class="alert alert-error">{{error}}</div>
+        {%endif%}
+        {%if notice is not empty %}
+            <div class="alert alert-success">{{notice}}</div>
+        {%endif%}
+        <input type="file" name="file_to_import"  />
+        <div class="help-block">
+            * {% trans %}only CSV format is allowed{% endtrans %}.<br/>
+            * {% trans %}File structure as following: login, name, group, country, city, zipcode, address, email, comment, ID, date, leverage, agent account{% endtrans %}
+        </div>
+
+        <div class="well form-actions">
+            <input type="submit" class="btn btn-primary" name="btn_update_and_edit" value="{% trans %}Update{% endtrans %}">
+        </div>
+    </form>
+
+    {%if file_name is not empty %}
+        <style>
+            #import_logs{
+                height: 300px;
+                overflow: scroll;
+            }
+            #import_logs .success{
+                color: green;
+            }
+            #import_logs .error{
+                color: red;
+            }
+            #import_logs .separator{
+                border-bottom: 1px dashed #ddd;
+                margin-bottom: 5px;
+            }
+        </style>
+        <h3>{% trans %}Importing process logs{% endtrans %}</h3>
+        <div id="import_logs">
+
+        </div>
+
+        <script type="text/javascript">
+            var es = new EventSource("{{admin.generateUrl('parseImportedFile', {'file_name':file_name})}}");
+            es.addEventListener("message", function (e) {
+                arr = JSON.parse(e.data);
+                $('#import_logs').append('<div class="' + arr.status + '">' + arr.message + '</div>');
+                if (arr.message == 'close connection') {
+                    es.close();
+                    $('#import_logs').append('<div class="success"><b>File processing is finished!</b></div>');
+                }
+            });
+        </script>
+    {%endif%}
+{% endblock %}

@@ -1,0 +1,126 @@
+services:      
+    
+    boforex.admin.Demo:
+        class: Webit\ForexBoAreaBundle\Admin\DemoAccountsAdmin
+        tags:
+           - { name: sonata.admin, manager_type: orm, group: webit.admin.group.forex, label: Demo Accounts }
+        arguments: [null,Webit\ForexCoreBundle\Entity\DemoProfile, WebitForexBoAreaBundle:Admin\DemoUsers]
+
+    boforex.admin.Real:
+        class: Webit\ForexBoAreaBundle\Admin\RealAccountsAdmin
+        tags:
+           - { name: sonata.admin, manager_type: orm, group: webit.admin.group.forex, label: Real Accounts }
+        arguments: [null,Webit\ForexCoreBundle\Entity\RealProfile, WebitForexBoAreaBundle:Admin\RealUsers]
+
+    forex.admin.PortalUser:
+        class: Webit\ForexBoAreaBundle\Admin\PortalUserAdmin
+        tags:
+           - { name: sonata.admin, manager_type: orm, group: webit.admin.group.forex, label: PortalUsers , show_in_dashboard: false }
+        arguments: [null,Webit\ForexCoreBundle\Entity\PortalUser, WebitForexCoreBundle:Admin]
+
+#    boforex.admin.RealProfileEdit:
+#        class: Webit\ForexBoAreaBundle\Admin\RealProfileEditAdmin
+#        tags:
+#           - { name: sonata.admin, manager_type: orm, group: webit.admin.group.forex, label: "Edit Info. Requests" }
+#        arguments: [null, Webit\ForexCoreBundle\Entity\RealProfileEdit, WebitForexBoAreaBundle:Admin\RealProfileEdit]
+#        
+    boforex.admin.TradingAccount:
+        class: Webit\ForexBoAreaBundle\Admin\TradingAccountAdmin
+        tags:
+           - { name: sonata.admin, manager_type: orm, group: webit.admin.group.trading, label: Trading Accounts }
+        arguments: [null,Webit\ForexCoreBundle\Entity\TradingAccount, WebitForexBoAreaBundle:Admin\TradingAccount]
+   
+    boforex.admin.ForexPartnership:
+        class:  Webit\ForexBoAreaBundle\Admin\PartnershipAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.forex, label: Partnership }
+        arguments: [null, Webit\ForexCoreBundle\Entity\Partnership, WebitForexBoAreaBundle:Admin\Partnership]
+
+
+    forex.admin.documentsTranslation:
+        class:  Webit\ForexBoAreaBundle\Admin\DocumentsTranslationAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.hidden, label: Documents Translations }
+        arguments: [null, Webit\ForexCoreBundle\Entity\DocumentsTranslation, WebitForexCoreBundle:Admin\DocumentsTranslation]        
+
+
+# settings admin panels
+#    boforex.admin.RejectReason:
+#        class:  Webit\ForexBoAreaBundle\Admin\RejectReasonAdmin
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.settings, label: Reject Reasons }
+#        arguments: [null, Webit\ForexCoreBundle\Entity\RejectReason, WebitForexBoAreaBundle:Admin\RejectReason]
+
+    boforex.admin.PaymentGateway:
+        class: Webit\ForexBoAreaBundle\Admin\PaymentGatewayAdmin
+        tags:
+           - { name: sonata.admin, manager_type: orm, group: webit.admin.group.settings, label: Payment Gateway }
+        arguments: [null,Webit\ForexCoreBundle\Entity\PaymentGateway, null ]
+
+    boforex.admin.Setting:
+        class: Webit\ForexBoAreaBundle\Admin\SettingAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: webit.admin.group.settings,label: settings}
+        arguments: [null, Webit\ForexCoreBundle\Entity\Setting,WebitForexBoAreaBundle:Admin\Setting]      
+     
+    boforex.admin.spread:
+        class: Webit\ForexBoAreaBundle\Admin\SpreadAdmin
+        arguments: [~, Webit\ForexCoreBundle\Entity\Spread, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: webit.admin.group.settings, label: Spread } 
+            
+            
+    boforex.admin.category:
+        class: Webit\ForexBoAreaBundle\Admin\CMS\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: webit.admin.group.cms, label: Page Category }
+        arguments: [null, Webit\CMSBundle\Entity\Category, ~]
+
+    boforex.admin.content:
+        class: Webit\ForexBoAreaBundle\Admin\CMS\ContentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: webit.admin.group.cms, label: Pages }
+        arguments: [null, Webit\CMSBundle\Entity\Content,~]
+
+    boforex.admin.menu:
+        class: Webit\ForexBoAreaBundle\Admin\CMS\MenuAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: webit.admin.group.cms, label: Menu }
+        arguments: [null, Webit\CMSBundle\Entity\Menu, ~]
+
+    boforex.admin.menuitem:
+        class: Webit\ForexBoAreaBundle\Admin\CMS\MenuItemAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: webit.admin.group.cms, label: Menu Item }
+        arguments: [null, Webit\CMSBundle\Entity\MenuItem, ~]
+
+
+    boforex.admin.slider:
+        class: Webit\ForexBoAreaBundle\Admin\CMS\SliderAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: webit.admin.group.cms, label: Slider }
+        arguments: [null, Webit\CMSBundle\Entity\Slider, ~]
+
+#    boforex.admin.faqCategory:
+#        class: Webit\ForexBoAreaBundle\Admin\CMS\FaqCategoryAdmin
+#        tags:
+#            - { name: sonata.admin, manager_type: orm,group: webit.admin.group.cms, label: FAQ Category }
+#        arguments: [null, Webit\CMSBundle\Entity\FaqCategory, ~]
+
+    boforex.admin.faqQuestion:
+        class: Webit\ForexBoAreaBundle\Admin\CMS\FaqQuestionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: webit.admin.group.cms, label: FAQ Question }
+        arguments: [null, Webit\CMSBundle\Entity\FaqQuestion,~]
+        
+         
+    boforex.admin.contenttemplate:
+        class: Webit\ForexBoAreaBundle\Admin\CMS\ContentsTemplateAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: webit.admin.group.cms, label: FAQ Question }
+        arguments: [null, Webit\CMSBundle\Entity\ContentTemplate,~]  
+        public: false
+        
+        
+
+        

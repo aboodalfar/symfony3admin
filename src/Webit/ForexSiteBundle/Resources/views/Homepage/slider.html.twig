@@ -1,0 +1,44 @@
+<div class="mainSlider">
+    <div class="baxiaMain-slider">
+        {% for slider in items %}
+            <div class="sliderBlock">
+                <img src="/{{slider['image']}}" />
+                {% if slider['page_id'] is not empty%}                
+                    {% set url = path('showPage',{'id': slider['page_id'], 'slug':slider['slug'] }) %}
+                {% elseif slider['route'] is not empty%}  
+                    {% set url = path(slider['route']) %} 
+                {%else%}  
+                    {% set url = 'javascript:void(0)' %} 
+                {%endif%}  
+                <div class="container">
+                    <div class="descriptionBlock">
+                        <div class="title">{{slider['title']}}</div>
+                        <div class="description">{{slider['description']}}</div>
+                        <div class="readMore"><a class="btn-on-yellow-dark" href="{{url}}">{%trans%}read_more{%endtrans%}</a></div>
+                    </div><!-- descriptionBlock -->
+                 {#   {{slider['description']|raw}}#}
+                    
+                    <div class="rightSide-Bar">
+						<div class="trade-withUs">
+							<div class="title">trade with Us</div>
+							<div class="description">Experience our products and understand the difference!</div>
+							<a class="liveAccount-link" href="{{path('realRegistration')}}" tabindex="0">
+								<div class="liveAccount">
+									<div class="liveAccount-title">Live Account</div>
+									<div class="liveAccount-description">Open a live trading account</div>
+								</div><!-- liveAccount -->
+							</a>
+							<a class="demoAccount-link" href="{{path('demo_registration')}}" tabindex="0">
+								<div class="demoAccount">
+									<div class="demoAccount-title">Demo Account</div>
+									<div class="demoAccount-description">Try a trading account</div>
+								</div><!-- demoAccount -->
+							</a>
+						</div><!-- trade-withUs -->
+					</div>
+                </div>
+            </div>
+        {%endfor%}
+
+    </div>
+</div>

@@ -1,0 +1,8 @@
+sonata_doctrine_orm_admin:
+    templates:
+         types:
+            show:
+              image: WebitForexCoreBundle:sonata:document/show_image.html.twig
+              document: WebitForexCoreBundle:sonata:document/show_doc.html.twig
+              textarea2: WebitForexCoreBundle:sonata:document/show_logs.html.twig
+              TradingAccounts: WebitForexCoreBundle:sonata:TradingAccounts/show_trading_accounts.html.twig

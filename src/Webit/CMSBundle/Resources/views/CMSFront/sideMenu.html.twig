@@ -1,0 +1,44 @@
+<div class="accordion-breadCrumbs">
+    <div class="toc-tab-box">
+        {% for level2 in result %}
+            <h2 class="acc-title">
+                {% if level2['label'][_locale] is defined %}
+                    {% set label =level2['label'][_locale]  %}
+                {% elseif level2['label']['en'] is defined %}
+                    {% set label =level2['label']['en']  %}
+                {%else%}
+                    {%set label =''%}
+                {%endif%} 
+                {{label}}
+            </h2>
+            {%  if level2.level3 is defined %}
+            <div class="acc-content">
+                <ul>
+                    {% for level3 in level2['level3'] %}
+                        {% if level3['contentId'] is not empty%}                
+                            {% set url = path('showPage',{'id': level3['contentId'], 'slug':level3['content_slug'] }) %}
+                        {%elseif level3['link'] is not empty %}
+                            {% set url=level3['link'] %}
+                        {%elseif level3['route'] is not empty %}
+                            {% set url=path(level3['route']) %}
+                        {% else%}
+                            {% set url = 'javascript:void(0)' %}
+                        {% endif %}
+                        <li data-id="{{level3['contentId']}}" data-slug="{{level3['route']}}"><a href="{{url}}">
+                                {% if level3['label'][_locale] is defined %}
+                                    {% set label =level3['label'][_locale]  %}
+                                {% elseif level3['label']['en'] is defined %}
+                                    {% set label =level3['label']['en']  %}
+                                {%else%}
+                                    {%set label =''%}
+                                {%endif%} 
+                                {{label}}
+                            </a>
+                        </li>
+                        {%endfor%}  
+                </ul>
+            </div>
+                {%endif%}
+        {% endfor %}    
+    </div>
+</div><!-- accordion-breadCrumbs -->

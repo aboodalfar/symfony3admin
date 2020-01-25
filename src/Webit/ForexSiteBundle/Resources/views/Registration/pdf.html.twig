@@ -1,0 +1,161 @@
+<meta charset="UTF-8">
+
+<style>
+    
+      table.table.confirm-info-table {
+        border: 1.5px solid #dfe8f1;
+    }
+    .table.confirm-info-table  {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+ 
+    table.confirm-info-table  {
+        border-collapse: collapse;
+        background-color: transparent;
+    }
+    .table.confirm-info-table  thead th {
+        vertical-align: bottom;
+        text-align: left;
+        font-size: 14px;
+        border-bottom-color: #000;
+        background: transparent;
+        outline: none;
+        color: #999;
+        font-weight: normal;
+        text-transform: capitalize;
+    }
+    .table.confirm-info-table  td, .table.confirm-info-table  th {
+        padding: .75rem;
+        vertical-align: top;
+    }
+      .table.confirm-info-table  th
+    {
+        border-right: 1px solid #ddd;
+        font-size: 13px;
+    }
+    .confirm-info-table td{
+        border: none;
+        border: none;
+        line-height: 1;
+        text-transform: capitalize;
+        color: #67404f;
+        background: white;
+        font-size: 14px;
+        font-weight: normal;
+        pointer-events: none;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        font-family: 'Raleway', sans-serif;
+        opacity: .87;
+    }
+    
+table.table.confirm-info-table {
+    width: 100%;
+    float: left;
+}
+</style>
+<table class="table confirm-info-table left-only-table" style="direction: ltr;">
+    {%  set realUser = portalUser.getRealProfile()%}
+    <tbody>
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Full Name{%endtrans%}</th>
+            <td>{{portalUser.getFullName()}}</td>
+        </tr>
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Email{%endtrans%}</th>
+            <td>{{portalUser.getUsername()}}</td>
+        </tr>
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Country{%endtrans%}</th>
+            <td>{{portalUser.getCountryLabel()}}</td>
+        </tr>
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Mobile Number{%endtrans%}</th>
+            <td>{{portalUser.getMobileNumber()}}</td>
+        </tr>
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Date Of Birth{%endtrans%}</th>
+            <td>{{realUser.getDateOfBirth()|date('Y-m-d')}}</td>
+        </tr>
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Address{%endtrans%}</th>
+            <td>{{realUser.getFullAddress()}}</td>
+        </tr>
+        <tr class="headerrow">
+            <th>{%trans into "en" %}City{%endtrans%}</th>
+            <td>{{realUser.getCity()}}</td>
+        </tr>
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Zip Code{%endtrans%}</th>
+            <td>{{realUser.getZipCode()}}</td>
+        </tr>
+        <tr class="headerrow">
+            <th>{%trans into "en" %}State{%endtrans%}</th>
+            <td>{{realUser.getState()}}</td>
+        </tr>
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Secret Question{%endtrans%}</th>
+            <td>{{portalUser.getSecurityQuestion()}}</td>
+        </tr>
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Leverage{%endtrans%}</th>
+            <td>{{realUser.getLeverage()}}</td>
+        </tr>
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Currency{%endtrans%}</th>
+            <td>{{realUser.getCurrency()}}</td>
+        </tr>
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Account Type{%endtrans%}</th>
+            <td>{{realUser.getAccountType()}}</td>
+        </tr>
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Where did you hear of Baxia Capital{%endtrans%}</th>
+            <td>{{realUser.getHowKnow()}}</td>
+        </tr>
+        {% if  realUser and realUser.getDocumentId() is not null %}
+            {% set link =  "view"%}
+            {% set link2 =  app.request.scheme ~'://' ~ app.request.httpHost ~'/'~realUser.getDocumentId(1) %}
+        {% else %}      
+            {% set link =  '' %}
+            {% set link2 =  '' %}
+        {% endif %}
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Passport{%endtrans%}</th>
+            <td>
+                  <a href="{{link2}}" class="general-color gradient1_3 general-hover-color"  target="_blank">{{link}}</a>
+            </td>
+        </tr>
+        
+        {% if  realUser and realUser.getDocumentId2() is not null %}
+            {% set link =  "view"%}
+            {% set link2 =  app.request.scheme ~'://' ~ app.request.httpHost ~'/'~realUser.getDocumentId2(1) %}
+        {% else %}      
+            {% set link =  '' %}
+            {% set link2 =  '' %}
+        {% endif %}
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Driver's License{%endtrans%}</th>
+            <td>
+                  <a href="{{link2}}" class="general-color gradient1_3 general-hover-color"  target="_blank">{{link}}</a>
+            </td>
+        </tr>
+        
+        {% if  realUser and realUser.getDocumentPor() is not null %}
+            {% set link =  "view"%}
+            {% set link2 =  app.request.scheme ~'://' ~ app.request.httpHost ~'/'~realUser.getDocumentPor(1) %}
+        {% else %}      
+            {% set link =  '' %}
+            {% set link2 =  '' %}
+        {% endif %}
+        <tr class="headerrow">
+            <th>{%trans into "en" %}Driver's License{%endtrans%}</th>
+            <td>
+                  <a href="{{link2}}" class="general-color gradient1_3 general-hover-color"  target="_blank">{{link}}</a>
+            </td>
+        </tr> 
+    </tbody>
+</table> 
+          

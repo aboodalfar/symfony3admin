@@ -1,0 +1,10 @@
+parameters:
+    emails:
+        back_office: backoffice@baxia.com
+        compliance: compliance@baxia.com
+services:        
+    app.twig.database_globals_extension:
+         class: Webit\ForexSiteBundle\Twig\Extension\SettingsGlobalsExtension
+         arguments: ["@doctrine.orm.entity_manager"]
+         tags:
+             - { name: twig.extension }        

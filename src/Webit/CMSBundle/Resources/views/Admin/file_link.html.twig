@@ -1,0 +1,10 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+{% block field %}    
+    {% set thumb = object.getFullFilePath() %}
+    {% if thumb != 'N.A'%}
+        
+        <a href='{{thumb}}' target='_blank'>Link File</a>
+    
+    {%endif%}
+   
+{%endblock%}

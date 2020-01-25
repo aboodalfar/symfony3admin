@@ -1,0 +1,138 @@
+
+<ul class="nav navbar-nav nav_menu mobile_menu">
+    {% for item in results %}
+        <li class="{%if loop.index==1 %}first{%endif%}">
+            {% if item['contentId'] is not empty%}                
+                {% set url = path('showPage',{'id': item['contentId'], 'slug':  item['content_slug'] }) %}
+            {%elseif item['link'] is not empty %}
+                {% set url=item['link'] %}
+            {%elseif item['route'] is not empty %}
+                {% set url=path(item['route']) %}
+            {% else%}
+                {% set url = 'javascript:void(0)' %}
+            {% endif %} 
+            {% if item['label'][_locale] is defined %}
+                {% set label =item['label'][_locale]  %}
+            {% elseif item['label']['en'] is defined %}
+
+                {% set label =item['label']['en']  %}
+            {%else%}
+                {%set label =''%}
+            {%endif%} 
+            {% if item.level2 is defined %}
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="{{url}}" id="dropdownMenuLink{{loop.index}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{label}}
+                    </a>
+          
+                    {% if item.level2 is defined %}
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink{{loop.index}}">
+                            {% for level2 in item['level2'] %}
+                                {% if level2['label'][_locale] is defined %}
+                                    {% set label =level2['label'][_locale]  %}
+                                {% elseif level2['label']['en'] is defined %}
+                                    {% set label =level2['label']['en']  %}
+                                {%else%}
+                                    {%set label =''%}
+                                {%endif%}
+                                {% if level2['contentId'] is not empty%}                
+                                {% set url = path('showPage',{'id': level2['contentId'], 'slug':  level2['content_slug'] }) %}
+                                {%elseif level2['link'] is not empty %}
+                                    {% set url=level2['link'] %}
+                                {%elseif level2['route'] is not empty %}
+                                    {% set url=path(level2['route']) %}
+                                {% else%}
+                                    {% set url = 'javascript:void(0)' %}
+                                {% endif %}
+
+                                <a class="dropdown-item level2" href="{{url}}">{{label}}</a>
+                                
+                                {% if level2.level3 is defined %}
+                                    {% for level3 in level2['level3'] %}
+                                        {% if level3['contentId'] is not empty%}                
+                                        {% set url = path('showPage',{'id': level3['contentId'], 'slug':  level3['content_slug'] }) %}
+                                        {%elseif level3['link'] is not empty %}
+                                            {% set url=level3['link'] %}
+                                        {%elseif level3['route'] is not empty %}
+                                            {% set url=path(level3['route']) %}
+                                        {% else%}
+                                            {% set url = 'javascript:void(0)' %}
+                                        {% endif %}
+                                        {% if level3['label'][_locale] is defined %}
+                                        {% set label =level3['label'][_locale]  %}
+                                    {% elseif level3['label']['en'] is defined %}
+                                        {% set label =level3['label']['en']  %}
+                                    {%else%}
+                                        {%set label =''%}
+                                    {%endif%} 
+                                    
+                                    <a class="dropdown-item level3" href="{{url}}">{{label}}</a>
+                                    
+                                    {%endfor%}    
+                                    
+                                {%endif%}    
+                                
+
+                            {%endfor%} 
+
+                        </div>
+                    {%endif%} 
+                </div>    
+                {%else%}
+                    <a href="{{url}}"> {{label}} </a>
+                {%endif%} 
+
+
+        </li>
+
+
+
+
+    {%endfor%}    
+    {#      <li class="first">
+              <a href="#"> Home </a>
+          </li>
+
+          <li>
+              <a href="#"> Why Baxia </a>
+          </li>
+
+          <li>
+              <a href="#"> Our Products </a>
+          </li>
+
+          <li>
+              <a href="#"> Resources </a>
+          </li>
+
+
+          <li>
+             <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Forex Trading
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item title" href="#">title</a>
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+          </div>
+      </li>
+
+          <li>
+             <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Tradging Platform
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item title" href="#">title</a>
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+          </div>
+      </li>#}
+</ul>

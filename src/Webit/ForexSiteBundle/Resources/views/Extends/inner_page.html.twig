@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ {% include 'WebitForexSiteBundle::Default/head.html.twig' %}
+  <!-- only for inner page -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('bundles/webitforexsite/css/accordion-style.css') }}"/>
+  <!-- end -->
+ {%block css %}
+ {%endblock css %} 
+  <!-- add by abd -->
+  <title>{{page.getTranslationByLang(_locale).getMetaTitle()}} | {%trans%}company_name{%endtrans%}</title>
+  <meta name="description" content="{{page.getTranslationByLang(_locale).getMetaDescription()}}">
+  <meta name="keywords" content="{{page.getTranslationByLang(_locale).getMetaKeywords()}}">
+  <!-- end -->
+</head>
+<body>
+{% include 'WebitForexSiteBundle::Default/header.html.twig' %}
+<div class="mainHeader">
+    <!-- start menus -->
+	 {{ render(controller('WebitForexSiteBundle:Homepage:menus', {}, {'menu_id':page.getSideMenuItemId()}))}} 
+    <!--  end menus -->
+	<div class="mainSlider innerPages">
+		<div class="baxiaMain-slider">
+			<div class="sliderBlock">
+                          {#  {% if  page['image'] is not empty %}
+                                {% set image ='/'~page['image'] %}
+                            {%else%} 
+                                {% set image = asset('bundles/webitforexsite/images/main-img.png') %}
+                            {%endif%}    #}
+				<img src="{{page.getTranslationByLang(_locale).getImage()}}">
+				<div class="container">
+                                    <div class="descriptionBlock">
+                                        <div class="mainTitle-block">   
+                                            {% if page.getSideMenuItemId() %}
+                                            {{ page.SideMenuItem().getTranslationByLang(_locale).getDisplayLabel() }}
+                                            {%else%}
+                                                {{page.getTranslationByLang(_locale).getTitle()}}
+                                                {%endif%}</div>
+                                                <div class="yellow-line"></div>
+                                    </div><!-- descriptionBlock -->
+
+				</div><!-- container -->
+			</div>
+		</div>
+	</div><!-- mainSlider -->
+</div><!-- mainHeader -->
+{%block upper_content %}
+{%endblock upper_content %} 
+<div class="container">
+	<div class="mainInner-pageCont">
+		<div class="rightSide-bar col-lg-3 col-md-3">
+			<div class="tradeWith-Us-inner">
+				<div class="title">{%trans%}trade_with_us{%endtrans%}</div>
+				<div class="description">{%trans%}Experience_our_products_and_understand_the_difference!{%endtrans%}</div>
+
+				<a class="liveAccount-link" href="{{path('realRegistration')}}" tabindex="0">
+					<div class="liveAccount">
+						<div class="liveAccount-title">{%trans%}live_account{%endtrans%}</div>
+						<div class="liveAccount-description">{%trans%}Open_a_live_trading_account{%endtrans%}</div>
+					</div><!-- liveAccount -->
+				</a>
+
+
+				<a class="demoAccount-link" href="{{path('demo_registration')}}" tabindex="0">
+					<div class="demoAccount">
+						<div class="demoAccount-title">{%trans%}demo_account{%endtrans%}</div>
+						<div class="demoAccount-description">{%trans%}Try_a_trading_account{%endtrans%}</div>
+					</div><!-- demoAccount -->
+				</a>
+			</div><!-- TradeWith-Us-inner -->
+
+			{% if page.getSideMenuItemId() %}
+    {% block side_menu %}
+        {{ render(controller('WebitCMSBundle:CMSFront:sideMenu', {'menu_id':page.getSideMenuItemId()} )) }}
+    {% endblock side_menu %}
+{% endif %}
+		</div>
+
+		<div class="leftSide-bar col-lg-9 col-md-9">
+                            {%block page_body %}
+                            {%endblock page_body %}    
+		</div><!-- leftSide-bar -->
+
+	</div><!-- mainInner-pageCont -->
+	
+</div><!-- container -->
+{%block footer_content %}
+{%endblock footer_content %}
+{% include 'WebitForexSiteBundle::Default/footer.html.twig' %} 
+   <!-- only for inner pages -->
+ <script type="text/javascript" src="{{ asset('bundles/webitforexsite/js/accordion.js') }}"></script>
+   <script>
+    
+    $( document ).ready(function() {
+       {% if is_page is defined %}     
+        $('li[data-id="{{page.id}}"]').parent().parent().prev(".acc-title").addClass("open");
+        $('li[data-id="{{page.id}}"]').parent().parent().show();
+        $('li[data-id="{{page.id}}"]').addClass("activePageMenu");
+        {% elseif routeName is defined %}
+        $('li[data-slug="{{routeName}}"]').parent().parent().prev(".acc-title").addClass("open");
+        $('li[data-slug="{{routeName}}"]').parent().parent().show();
+        $('li[data-slug="{{routeName}}"]').addClass("activePageMenu");
+       {%endif%}
+           
+    })
+</script>
+{%block js %}
+{%endblock js %}   
+</body>
+</html>

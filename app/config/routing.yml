@@ -1,0 +1,53 @@
+root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /en/
+        permanent: true
+
+webit_forex_site:
+    resource: "@WebitForexSiteBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}
+
+webit_cms:
+    resource: "@WebitCMSBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}
+
+admin_area:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin
+    
+    
+sonata_user_admin_security:
+    resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
+    prefix: /admin
+
+sonata_user_admin_resetting:
+    resource: '@SonataUserBundle/Resources/config/routing/admin_resetting.xml'
+    prefix: /admin/resetting 
+    
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml" 
+    
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.yaml"   
+    
+lexik_translation_edition:
+    resource: "@LexikTranslationBundle/Resources/config/routing.yml"
+    prefix:   /my-prefix  
+    
+sonata_page_exceptions:
+    resource: '@SonataPageBundle/Resources/config/routing/exceptions.xml'
+    prefix: /
+
+sonata_page_cache:
+    resource: '@SonataPageBundle/Resources/config/routing/cache.xml'
+    prefix: /     
+    
+    
+    

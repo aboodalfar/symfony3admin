@@ -1,0 +1,80 @@
+<form id="step1Form" action="{{path('realRegistrations1')}}" method="post" novalidate onsubmit="submitAjaxRealForm('step1Form', 'form_container');return false;">
+                                    <div class="form-group">
+                                     
+                                            {% form_theme form 'WebitForexSiteBundle:Form:form.html.twig' %}
+                                            {{form_errors(form)}}
+                                            {{ form_widget(form._token) }}
+                                            {{ form_row(form.first_name) }}
+                                            {{ form_row(form.last_name) }}
+                                            {{ form_row(form.username) }}
+                                            {{ form_row(form.country)}}
+                                            {{ form_row(form.mobile_number) }}   
+                                            {{ form_row(form.phone_code) }}
+											
+                                        </div>
+                                        <div class="form-check">
+   
+               {{form_widget(form.terms,{'attr': {'class':'form-check-input'} })}}
+                          <label class="form-check-label" for="step1_terms">{%trans%}I agree to terms & conditions{%endtrans%}</label>
+                          {% if form.terms.vars.errors|length %}
+                              <span class="error_massage">
+                          {{ form_errors(form.terms) }}
+                              </span>
+                          {%endif%}
+                                        </div>
+
+                                   
+                                    <div class="message-block">
+                                        We care about your privacy. We do not sell or share your information with anyone else.
+                                    </div><!-- message-block -->
+                                    <button type="submit"  disabled class="btn btn-primary btn-on-purple-dark">{%trans%}continue{%endtrans%}</button>
+                                    <div class="clear"></div>
+                                    <div class="grayline"></div>
+                                    <div class="follow-theSteps-info">
+                                        <div class="title1">Lorem ipsum dolor sit amet</div>
+                                        <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                                    </div><!-- follow-theSteps-info -->
+                                </form>                                   
+<script>
+   
+    function js_call(is_ajax){
+      if(is_ajax){
+            $('button[type="submit"]').prop("disabled", false);
+        }
+          $("input#step1_mobile_number").intlTelInput({
+                           nationalMode: true,
+    preventInvalidDialCodes: true,
+    separateDialCode: true,
+    autoPlaceholder: 'off',
+    formatOnDisplay: false,
+    geoIpLookup: function(callback) {
+      $.get("https://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+        var countryCode = (resp && resp.country) ? resp.country : "";
+        callback(countryCode);
+      });
+    }
+                    });
+                    addressDropdown = $("#step1_country");
+                    telInput = $("input#step1_mobile_number"),
+                    telInput.on("countrychange", function (e, countryData) {
+                        if(!jQuery.isEmptyObject(countryData)){
+                            $('input[name="step1[phone_code]"]').val(countryData.dialCode);
+                            addressDropdown.val(countryData.iso2.toUpperCase());
+                        }
+                        
+                    });
+
+                    addressDropdown.change(function () {
+                        telInput.intlTelInput("setCountry", $(this).val());
+
+                    });
+                    if(addressDropdown.val() != ""){
+                       addressDropdown.trigger('change');
+                    }
+    }
+</script>  
+{% if app.request.isXmlHttpRequest()%}                                    
+<script>
+    js_call(1);
+</script> 
+{%endif%}

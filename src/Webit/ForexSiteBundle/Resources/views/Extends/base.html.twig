@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ {% include 'WebitForexSiteBundle::Default/head.html.twig' %}
+ <title>{% block title %}{% endblock %}</title>  
+ <meta name="description" content="{% block meta_description %}{% endblock %}" />
+ <meta name="keywords" content="{% block meta_keywords %}{% endblock %}" />
+ {%block css %}
+ {%endblock css %} 
+</head>
+<body>
+    {% block header %}
+        {% include 'WebitForexSiteBundle::Default/header.html.twig' %}
+    {% endblock %}
+
+<div class="mainHeader">
+    {{ render(controller('WebitForexSiteBundle:Homepage:menus'))}} 	
+    {{ render(controller('WebitForexSiteBundle:Homepage:slider'))}} 
+
+</div><!-- mainHeader -->
+
+ {% include 'WebitForexSiteBundle::Default/footer.html.twig' %}  
+ {%block js %}
+ {%endblock js %} 
+</body>
+</html>

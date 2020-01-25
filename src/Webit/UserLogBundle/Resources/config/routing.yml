@@ -1,0 +1,7 @@
+## YAML Template.
+test:
+    pattern:  /test
+    defaults: { _controller: WebitUserLogBundle:Default:index }
+log_dashboard_block:
+    pattern:  /dashboard-block
+    defaults: { _controller: WebitUserLogBundle:Default:dashboardBlock }

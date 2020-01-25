@@ -1,0 +1,72 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends base_template %}
+
+
+{% block title %}
+    {% trans %}Add New Note for{% endtrans %} {{admin.toString(object)}}
+{% endblock%}
+
+{% block actions %}
+<div class="sonata-actions">
+    <ul>
+          {% if admin.hasroute('create') and admin.isGranted('CREATE') and admin.id(object)%}
+            <li class="btn sonata-action-element"><a href="{{ admin.generateUrl('create') }}">{% trans from 'SonataAdminBundle' %}link_action_create{% endtrans %}</a></li>
+            {% endif %}
+            {% if admin.hasroute('list') and admin.isGranted('LIST')%}
+            <li class="btn sonata-action-element"><a href="{{ admin.generateUrl('list') }}">{% trans from 'SonataAdminBundle' %}link_action_list{% endtrans %}</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block side_menu %}{{ knp_menu_render(admin.sidemenu('edit'), {}, 'list') }}{% endblock %}
+
+
+
+{% block form %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-success">
+        <div class="box-header">
+            <h4 class="box-title">{% trans %}Add New Note For{% endtrans %} "{{object.getFullName()}}"</h4>
+        </div>
+        <div class="box-body">
+        <form id="register" action="{{ admin.generateUrl('demo_add_note', {'id': id}) }}" method="post">
+                {{form_errors(form)}}
+
+                <div class="form-group">
+                    {{ form_widget(form._token) }}
+                    <div class="control-label required">
+                        {{ form_label(form['body'])}}
+                    </div>
+                    <div class="input sonata-ba-field sonata-ba-field-standard-natural ">
+                        {{ form_widget(form['body'], {'attr':{'class':'form-control'}}) }}
+                    </div>
+                </div>
+                <div style="clear: both"></div>
+
+
+        <div class="well well-small form-actions">
+                <button type="submit" class="btn btn-success" name="btn_update_and_edit"><i class="fa fa-save"></i>{% trans %}Add Log{% endtrans %}</button>
+
+            {% if admin.hasroute('edit') and admin.isGranted('EDIT')%}
+                <li class="btn sonata-action-element"><a href="{{ admin.generateUrl('show', {'id': id}) }}">{% trans from 'SonataAdminBundle' %}Back to Edit{% endtrans %}</a></li>
+            {% endif %}
+        </div>
+    </form>
+
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

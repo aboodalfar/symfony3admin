@@ -1,0 +1,28 @@
+<ul class="faq-question-list">
+    {%for question in cat_questions %}
+    <li class="faq-question-item">
+        <div class="faq-question-text">
+            <a href="javascript:void(0)" data-qid="{{question.id}}" >
+                {{question.Translations[0].questionText}}
+            </a>
+        </div>
+        <div data-qid="{{question.id}}" id="answer-{{question.id}}" class="faq-question-asnwer" style="display: none;">
+            {{question.Translations[0].answerText | raw}}
+        </div>
+    </li>
+    {%endfor%}
+</ul>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.faq-question-text a').click(function(){
+           var id = $(this).attr('data-qid');
+           console.log('clicked on '+id);
+
+            $('#answer-'+id).slideDown();
+            $('#answer-'+id).addClass('expanded');
+
+            return false;
+        });
+    });
+</script>

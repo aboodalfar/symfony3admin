@@ -1,0 +1,41 @@
+<table class="table table-bordered">
+    <tbody>
+            <tr class="sonata-ba-view-container">
+                <th>passport</th>
+                <td>
+                    {% if object.getDocumentIdPath %}
+                        <a target="_blank" href="{{ asset(object.getDocumentIdPath)|nl2br }}">
+                            passport
+                        </a>
+                    {%else%}
+                        no data
+                    {%endif%}
+                </td>
+            </tr>
+            <tr class="sonata-ba-view-container">
+                <th>driver's license</th>
+                <td>
+                    {% if object.getDocumentId2Path %}
+                        <a target="_blank" href="{{ asset(object.getDocumentId2Path)|nl2br }}">
+                            driver's license
+                        </a>
+                    {%else%}
+                        no data
+                    {%endif%}
+                </td>
+            </tr>
+            <tr class="sonata-ba-view-container">
+                <th>national id</th>
+                <td>
+                    {% if object.getDocumentPorPath %}
+                        <a target="_blank" href="{{ asset(object.getDocumentPorPath)|nl2br }}">
+                            national id
+                        </a>
+                    {%else%}
+                        no data
+                    {%endif%}
+                </td>
+            </tr>
+ 
+    </tbody>
+</table>

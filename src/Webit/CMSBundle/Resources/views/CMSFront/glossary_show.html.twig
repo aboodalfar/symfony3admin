@@ -1,0 +1,35 @@
+{% extends 'WebitForexCoreBundle::inner.html.twig'%}
+
+{% block side_menu %}
+    {% render(controller('WebitCMSBundle:CMSFront:sideMenu',{'menu_id':10}))%}
+{% endblock %}
+
+{% block right_content %}
+
+    <div class="page-categrori-title"><h1>{% trans%}Glossary{%endtrans%}</h1></div>
+    <div class="clear"></div>
+    <div class="glossary-page">
+
+        <div class="question-section-submit">
+            <a href="{{path('glossary')}}">
+                <button class="question-submit-button" >
+                    {% trans%}All Glossary{%endtrans%}
+                </button>
+            </a>
+        </div>
+
+        <div class="letter-cont effect" id="letter-cont">
+            <div class="leter-term-coll">
+                <a  href="#">{{term.word}}</a>
+                <div class="clear"></div>
+
+                <div  title="{{term.word}}">
+                    <p class="dialog-content">{{term.definition}}</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+    </div><!--end-glossary-page-->
+
+{%endblock%}

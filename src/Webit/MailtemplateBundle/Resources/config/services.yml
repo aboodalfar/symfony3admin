@@ -1,0 +1,33 @@
+services:
+    webit.mailtemplate.helper:
+        class: Webit\MailtemplateBundle\Helper\MailHelper
+        factory: ['Webit\MailtemplateBundle\Helper\MailHelperFactory', configureMailHelper]
+        arguments: ['@service_container']
+        
+    webit.admin.mailtemplate:
+        class: Webit\MailtemplateBundle\Admin\MailTemplateAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: webit.admin.group.cms, label: Mail Template }
+        arguments: [null, Webit\MailtemplateBundle\Entity\MailTemplate, WebitMailtemplateBundle:MailTemplate]
+
+    webit.mailtemplate.logger_handler:
+        class:     Monolog\Handler\StreamHandler       
+        arguments: [%kernel.logs_dir%/mailtemplate.log, 200]     
+        
+    webit.mailtemplate.logger:
+        class:     Symfony\Bridge\Monolog\Logger
+        arguments: [app]
+        calls:
+           - [pushHandler, ['@webit.mailtemplate.logger_handler']]
+           
+    email_sending.processor.service:
+        class:      Webit\MailtemplateBundle\Queue\MailSenderConsumer
+        arguments:  ['@webit.mailtemplate.logger', '@webit.mailtemplate.helper']        
+           
+    webit.mailtemplate.producer:
+        class:      Webit\MailtemplateBundle\Queue\MailSendingProducer
+        arguments:  ['@service_container']        
+           
+    webit.mailtemplate.default_sender:
+        class:      Webit\MailtemplateBundle\Queue\DefaultMailerService
+        arguments:  ['@mailer']        

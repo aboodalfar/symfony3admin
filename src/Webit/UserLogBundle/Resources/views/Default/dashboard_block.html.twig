@@ -1,0 +1,43 @@
+<!-- END Row 1 -->
+	<!-- Table-border -->
+	<table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th title="" data-toggle="tooltip" class="cell-small text-center" data-original-title="Toggle all!"><input type="checkbox" name="check5-all" id="check5-all"></th>
+                                <th class="text-center">#</th>
+                                <th class="hidden-xs hidden-sm">
+                                    <i class="fa fa-envelope-o"></i> 
+                                    {%trans%}User Email{%endtrans%}
+                                </th>
+                                <th class="hidden-xs hidden-sm">{%trans%}Subject{%endtrans%}</th>
+                                <th class="hidden-xs hidden-sm">{%trans%}Body{%endtrans%}</th>
+                                <th class="hidden-xs hidden-sm">{%trans%}Date Time{%endtrans%}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for log in logs %}
+                            <tr>
+                                <td class="cell-small text-center"><input type="checkbox" name="check5-td1" id="check5-td1"></td>
+                                <td class="cell-small text-center">{{log.id}}</td>
+                                <td><a href="{{path('admin_webit_forexcore_realprofile_show',{'id':log.LoggedUser.RealProfile.id})}}">{{log.loggedUser}}</a></td>
+                                <td class="hidden-xs hidden-sm">
+                                    {{log.FosUser}}: {{log.subject}}
+                                </td>
+                                <td class="hidden-xs hidden-sm">{{log.body|raw}}</td>
+                                <td class="hidden-xs hidden-sm">{{log.createdAt | date('Y-m-d H:i')}}</td>                                
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">&nbsp;</td>
+                                <td>
+                                    <i class="fa fa-list"></i>
+                                    <a href="{{path('admin_webit_userlog_userlog_list')}}">
+                                        {%trans%}View All{%endtrans%}
+                                    </a>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+    <!-- END Table-border -->

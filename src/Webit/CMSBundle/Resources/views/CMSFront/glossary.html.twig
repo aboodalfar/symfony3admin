@@ -1,0 +1,76 @@
+{% extends 'WebitForexCoreBundle::inner.html.twig'%}
+
+{% block side_menu %}
+    {% render(controller('WebitCMSBundle:CMSFront:sideMenu',{'menu_id':10}))%}
+{% endblock %}
+
+
+{% block right_content %}
+
+    <div class="page-categrori-title"><h1>{% trans%}Glossary{%endtrans%}</h1></div>
+    <div class="clear"></div>
+    <div class="glossary-page">
+
+        <div class="glossery-letter-cont">
+            <a class="glossary-selected" href="javascript:void(0)" onclick="showLetterContent('all');">{% trans%}All{%endtrans%}</a>
+            {% for letter in alpha %}
+                {%if letter in letters%}
+                    <a class="active" data-letter="{{letter}}" href="javascript:void(0)" onclick="showLetterContent('{{letter}}');">{{letter}}</a>
+                {%else%}
+                    <a class="inactive" data-letter="{{letter}}" href="javascript:void(0)" onclick="javascript:void(0)">{{letter}}</a>
+                {%endif%}
+            {%endfor%}
+        </div>
+
+        {% for key,letter_terms in glossary %}
+
+            <div class="letter-cont effect" id="letter-cont-{{key}}">
+                <div class="letter-header"><h2>{{key}}</h2></div>
+                <div class="leter-term-coll">
+                    {% for term in letter_terms %}
+                        <a  class="{{loop.index}}{{key}}-dialog" href="{{path('glossaryShow',{'id':term.id,'slug':term.word})}}">{{term.word}}</a>
+
+                    {%endfor%}
+                    <div class="clear"></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div><!--end-glossary-page-->
+
+    <script>
+        function showLetterContent(letter)
+        {
+            if (letter === 'all')
+            {
+                jQuery('.glossery-letter-cont a').removeClass('glossary-selected');
+                jQuery('.glossery-letter-cont a:first').addClass('glossary-selected');
+                jQuery('.letter-cont').fadeIn('2000');
+                return;
+            }
+
+            jQuery('.letter-cont').each(function () {
+                if (jQuery(this).attr('id') == 'letter-cont-' + letter)
+                {
+                    jQuery(this).css('display', 'block');
+                    jQuery(this).addClass('effect');
+                    $('.glossary-selected').removeClass('glossary-selected');
+                    $('[data-letter="' + letter + '"]').addClass('glossary-selected');
+
+                }
+                else
+                {
+
+                    jQuery(this).css('display', 'none');
+                    jQuery(this).removeClass('effect');
+
+                }
+            });
+
+
+        }
+    </script>
+
+
+    <script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js" type="text/javascript"></script>
+
+{% endblock %}

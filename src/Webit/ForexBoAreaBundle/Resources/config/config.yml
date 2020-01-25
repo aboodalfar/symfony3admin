@@ -1,0 +1,5 @@
+sonata_doctrine_orm_admin:
+    templates:
+        types:
+            show:
+              document: WebitForexBoAreaBundle::UserAdmin/show_doc.html.twig

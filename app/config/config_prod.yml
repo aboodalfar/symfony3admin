@@ -1,0 +1,43 @@
+imports:
+    - { resource: config.yml }
+
+#doctrine:
+#    orm:
+#        metadata_cache_driver: apc
+#        result_cache_driver: apc
+#        query_cache_driver: apc
+
+monolog:
+    handlers:
+        main:
+            type: fingers_crossed
+            action_level: error
+            handler: nested
+        nested:
+            type: stream
+            path: '%kernel.logs_dir%/%kernel.environment%.log'
+            level: debug
+        console:
+            type: console
+            process_psr_3_messages: false
+            
+        mail:
+            type:         fingers_crossed
+            # 500 errors are logged at the alert level
+            action_level: critical
+            # to also log 400 level errors (but not 404's):
+            # action_level: error
+            # excluded_404:
+            #     - ^/
+            handler:      buffered
+        buffered:
+            type:    buffer
+            handler: swift
+        swift:
+            type:       swift_mailer
+            from_email: wewebit.developers@gmail.com
+            to_email:   [gxahmad@wewebit.com, abdullah@wewebit.com]
+            subject:    An Error in Baxia Site!
+            level:      debug  
+            
+            

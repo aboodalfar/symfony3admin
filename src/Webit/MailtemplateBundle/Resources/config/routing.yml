@@ -1,0 +1,3 @@
+mail_test:
+    path:  /mail-template/test
+    defaults: { _controller: WebitMailtemplateBundle:Default:test }

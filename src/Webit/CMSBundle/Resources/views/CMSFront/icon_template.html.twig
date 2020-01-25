@@ -1,0 +1,13 @@
+<div class="forexTrading">
+   {{page.getTranslationByLang(_locale).getBody()|raw}}
+    <div class="forex-Trading-List">
+     {% for content in page.getContentsTemplate() %}
+        <div class="forex-TradingBlock col-lg-4 col-md-4 col-sm-4">
+            <div class="iconBlock"><img src="/{{content.getIcon()}}"></div>
+            <div class="title-Block"> {{content.getTitle()}}</div>
+            <div class="description"> {{content.getBody()}}</div>
+        </div>
+     {%endfor%}
+    </div>
+    {{page.getTranslationByLang(_locale).getBrief()|raw}}
+</div>

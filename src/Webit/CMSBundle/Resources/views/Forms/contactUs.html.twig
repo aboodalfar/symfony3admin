@@ -1,0 +1,19 @@
+
+{% block content %}
+ <div class="contact-us-title">
+    Contact US
+    </div>
+
+
+<div class="contact-us-form">
+
+    <form action="{{ path('contactUs')}}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form._token) }}
+        {{ form_rest(form) }}
+        <input type="submit" value="{% trans from 'messages' %}submit{%endtrans%}" class="submit_btn"/>
+    </form>
+</div>
+
+
+
+{% endblock %}

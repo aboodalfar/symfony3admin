@@ -1,0 +1,43 @@
+<form id="step2Form" action="{{path('realRegistrations2')}}" method="post" novalidate onsubmit="submitAjaxRealForm('step2Form', 'form_container');return false;">
+                                    <div class="form-group">
+                                     
+                                            {% form_theme form 'WebitForexSiteBundle:Form:form.html.twig' %}
+                                            {{form_errors(form)}}
+                                            {{ form_widget(form._token) }}
+                                            {{ form_rest(form) }}
+
+                                        </div>
+                                    <div class="message-block">
+                                        We care about your privacy. We do not sell or share your information with anyone else.
+                                    </div><!-- message-block -->
+                                    <button type="submit" disabled class="btn btn-primary btn-on-purple-dark">{%trans%}continue{%endtrans%}</button>
+                                    <div class="clear"></div>
+                                    <div class="grayline"></div>
+                                    <div class="follow-theSteps-info">
+                                        <div class="title1">Lorem ipsum dolor sit amet</div>
+                                        <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                                    </div><!-- follow-theSteps-info -->
+                                </form>
+<script> 
+    function js_call(is_ajax){
+        $("ul#form_steps > li").removeClass("is_active");
+        $('ul#form_steps > li:nth-child(2)').addClass('is_active');
+        $('ul#form_steps > li:nth-child(1)').addClass('completed');
+        $('input#step2_date_of_birth').datepicker({
+            language: 'en',
+            dateFormat: 'yyyy-mm-dd',
+            autoClose:true
+        })
+        if(is_ajax){
+            $('button[type="submit"]').prop("disabled", false);
+            history.pushState(null, null, "{{path('realRegistration',{'step':2})}}");
+        }
+        
+    }
+</script>                                    
+{% if app.request.isXmlHttpRequest()%}                                    
+<script>
+    js_call(1);
+</script> 
+{%endif%}
+

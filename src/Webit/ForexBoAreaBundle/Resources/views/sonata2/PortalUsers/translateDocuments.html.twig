@@ -1,0 +1,169 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends base_template %}
+
+{% block title %}    
+    {{ "Documents Translation for %name%"|trans({'%name%': admin.toString(object)|truncate(15) }, 'SonataAdminBundle') }}    
+{% endblock%}
+
+{% block navbar_title %}
+    {{ block('title') }}
+{% endblock %}
+
+{% block actions %}
+    <li>{% include 'SonataAdminBundle:Button:show_button.html.twig' %}</li>
+    <li>{% include 'SonataAdminBundle:Button:history_button.html.twig' %}</li>
+    <li>{% include 'SonataAdminBundle:Button:acl_button.html.twig' %}</li>
+    <li>{% include 'SonataAdminBundle:Button:list_button.html.twig' %}</li>
+    <li>{% include 'SonataAdminBundle:Button:create_button.html.twig' %}</li>
+    {% endblock %}
+
+{% block tab_menu %}{{ knp_menu_render(admin.sidemenu(action), {'currentClass' : 'active', 'template': admin_pool.getTemplate('tab_menu_template')}, 'twig') }}{% endblock %}
+
+{% use 'SonataAdminBundle:CRUD:base_edit_form.html.twig' with form as parentForm %}
+{% import "SonataAdminBundle:CRUD:base_edit_form_macro.html.twig" as form_helper %}
+
+{% block form %}
+    <div class="col-sm-6">
+        <div class="sonata-ba-view">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="sonata-ba-view-title">
+                        <th colspan="2">
+                            Client Information
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{"Email"|trans({})}}</td>
+                        <td>{{object.getPortalUser().getUsername()}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{"First Name"|trans({})}}</td>
+                        <td>{{object.getPortalUser().getFirstName()}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{"Last Name"|trans({})}}</td>
+                        <td>{{object.getPortalUser().getLastName()}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{"Country"|trans({})}}</td>
+                        <td>{{object.getPortalUser().getCountry()}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{"City/Town"|trans({})}}</td>
+                        <td>{{object.getCityTown()}}</td>
+                    </tr>     
+                    {#<tr>
+                        <td>{{"State/Province"|trans({})}}</td>
+                        <td>{{object.getStateProvince()}}</td>
+                    </tr>#}
+                    <tr>
+                        <td>{{"Uploaded Documents"|trans({})}}</td>
+                        <td id="documents_cell">
+                            {% if object.getDocumentId() %}
+                                <a target="_blank" href="/uploads/userDocuments/{{object.getDocumentId}}">{{'ID document1'|trans}}</a>
+                                <br/>
+                            {% endif %}
+                            {% if object.getDocumentId2() %}
+                                <a target="_blank" href="/uploads/userDocuments/{{object.getDocumentId2}}">{{'ID document2'|trans}}</a>
+                                <br/>
+                            {% endif %}                            
+                            {% if object.getDocumentPor() %}
+                                <a target="_blank" href="/uploads/userDocuments/{{object.getDocumentPor}}">{{'POR Document1'|trans}}</a>
+                                <br/>
+                            {% endif %}
+                            {% if object.getDocumentPor2() %}
+                                <a target="_blank" href="/uploads/userDocuments/{{object.getDocumentPor2}}">{{'POR Document2'|trans}}</a>
+                                <br/>
+                            {% endif %}                            
+                            {% for custom_doc in object.getUserCustomDocuments() %}
+                                <a target="_blank" href="/uploads/userDocuments/{{custom_doc.documentPath}}">{{custom_doc.documentName}}</a>
+                                <br/>
+                            {%endfor%}
+                        </td>
+                    </tr>   
+                             
+                </tbody>
+            </table>
+        </div>
+        <div id="image_preview" class="sonata-ba-view">
+
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="sonata-ba-view">
+             <table class="table table-bordered">
+                <thead>
+                    <tr class="sonata-ba-view-title">
+                        <th colspan="2">
+                            Translation Information
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                        <div class="form_translation_cont">
+                            <form action="{{ admin.generateObjectUrl('translate_documents', object) }}" method="post">
+                            {% form_theme form admin.getTemplate('filter') %}
+                            {{form_rest(form)}}
+
+                            <div class="well form-actions">
+                                <input type="submit" class="btn btn-success" value='{{"Save"|trans}}' />
+                            </div>
+                            </form>
+                        </div>
+                        </td>
+                    </tr>
+                </tbody>
+             </table>
+        </div>
+    </div>    
+    <div class="clearfix">&nbsp;</div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#documents_cell a').click(function(){
+                $('#image_preview').html('<img src="'+$(this).attr('href')+'" style="width: 100%"/>');
+                return false;
+            });
+
+            var saved_json = {{translation_json|raw}};
+            $("#doc_trans_documentType").change(function(){
+           
+            console.log(typeof saved_json[$(this).val()]);
+            if(typeof saved_json[$(this).val()] == 'undefined'){                 
+                $('.form_translation_cont input[type="text"]').val('');                
+                $('.form_translation_cont textarea').val('');
+            }else{
+                var single_data = saved_json[$(this).val()];                 
+                $('#doc_trans_city').val(single_data.city);
+                $('#doc_trans_country').val(single_data.country);
+                $('#doc_trans_referenceId').val(single_data.referenceId);
+                $('#doc_trans_firstName').val(single_data.firstName);
+                $('#doc_trans_lastName').val(single_data.lastName);
+                $('#doc_trans_nationality').val(single_data.nationality);             
+                $('#doc_trans_address').val(single_data.address);                
+                
+                console.log(single_data.dateOfIssue.date);
+                date_of_issue = single_data.dateOfIssue.date.replace(' 00:00:00','');
+                date_of_expiry = single_data.dateOfExpiry.date.replace(' 00:00:00','');
+                $('#dp_doc_trans_dateOfIssue').data('DateTimePicker').setDate(date_of_issue);
+                $('#dp_doc_trans_dateOfExpiry').data('DateTimePicker').setDate(date_of_expiry);
+                
+            }              
+       });
+        });
+    </script>
+{% endblock %}

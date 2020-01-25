@@ -1,0 +1,19 @@
+<div class="globalPartnership">
+        <div class="title">Global Partnership</div>
+        <div class="globalPartnership-block">
+            {% for content in page.getContentsTemplate() %}
+                  <div class="globalPartnership-cont col-lg-4 col-md-4 col-sm-4 {%if loop.last%}last{%endif%}">
+                      <div class="icon"><img src="/{{content.getIcon()}}"></div>
+                      <div class="partnership-title">{{content.getTitle()}}</div>
+                      <div class="description">
+                          {{content.getBody()}}
+                      </div>		
+                  </div>
+            {%endfor%}
+            
+        </div>
+    </div>
+<div class="clear"></div>    
+{{page.getTranslationByLang(_locale).getBody()|raw}}
+ 
+

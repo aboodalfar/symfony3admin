@@ -1,0 +1,21 @@
+
+{%  set CompanyDisclosure  =object.getRealProfileCorporation().getCompanyDisclosure() %}
+{% if CompanyDisclosure|length %}
+<tr>
+    <th colspan="3">Company Disclosure
+<br/>
+Board of Directors</th>
+    
+</tr>
+<tr>
+    <th>full name</th>
+    <th>Position/Title</th>
+</tr>    
+    {%for data in CompanyDisclosure%}
+            <tr class="sonata-ba-view-container">
+                <td>{{data.getFullName()}}</td>
+                <td>{{data.getPosition()}}</td>
+            </tr> 
+    {%endfor%}
+    
+{%endif%}

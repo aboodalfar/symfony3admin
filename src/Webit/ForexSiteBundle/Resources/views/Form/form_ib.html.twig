@@ -1,0 +1,17 @@
+{% block form_row %}
+{% spaceless %}
+<div class="form-group row">
+	<label class="col-sm-3 col-form-label">
+        {{form.vars.attr.placeholder|capitalize}}
+	</label>
+<div class="col-sm-9">
+	{{form_widget(form, {'attr':{'class':'form-control'}})}}
+        {% if form.vars.errors|length %}
+        <span class="error_massage">
+        {{ form_errors(form) }}
+        </span>
+        {%endif%}
+        </div>
+</div>
+{% endspaceless %}
+{% endblock form_row %}

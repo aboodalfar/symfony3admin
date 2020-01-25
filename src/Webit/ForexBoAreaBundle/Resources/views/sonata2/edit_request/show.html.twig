@@ -1,0 +1,126 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends base_template %}
+
+{% block actions %}
+    <li>{% include 'SonataAdminBundle:Button:edit_button.html.twig' %}</li>
+    <li>{% include 'SonataAdminBundle:Button:history_button.html.twig' %}</li>
+    <li>{% include 'SonataAdminBundle:Button:list_button.html.twig' %}</li>
+    <li>{% include 'SonataAdminBundle:Button:create_button.html.twig' %}</li>
+{% endblock %}
+
+{% block tab_menu %}{{ knp_menu_render(admin.sidemenu(action), {'currentClass' : 'active', 'template': admin_pool.getTemplate('tab_menu_template')}, 'twig') }}{% endblock %}
+
+{% block show %}
+    <div class="sonata-ba-view real-profile-show-cont">
+
+        {{ sonata_block_render_event('sonata.admin.show.top', { 'admin': admin, 'object': object }) }}
+{%  set portalUser = object.getPortalUser() %}
+{%  set realUser = object.getPortalUser().getRealProfile() %}
+        <form action="{{ admin.generateObjectUrl('show', object) }}" method="post">
+        {% for name, view_group in admin.showgroups %}            
+            <table class="table table-bordered" id="profile-translate-tbl">
+                {% if name %}
+                    <thead>
+                        {% block show_title %}
+                            <tr class="sonata-ba-view-title">
+                                <th colspan="2">
+                                    {{ admin.trans(name) }}
+                                </th>
+                                <th colspan="2">
+                                    {{'Current Values'|trans}}
+                                </th>
+                            </tr>
+                        {% endblock %}
+                    </thead>
+                {% endif %}
+
+                <tbody>
+                    {% for field_name in view_group.fields %}
+                        {% block show_field %}
+                            <tr class="sonata-ba-view-container">
+                                {% if elements[field_name] is defined %}
+                                    {{ elements[field_name]|render_view_element(object) }}
+                                {% endif %}                                
+                                {% set normalized_arr = field_name|split('.') %}
+                                {% if normalized_arr|length == 1 %}
+                                    {% set normalized_field = normalized_arr[0] %}
+                                {%else%}
+                                    {% set normalized_field = normalized_arr[1] %}    
+                                {%endif%}                                
+                                {#{{ elements[field_name]|render_view_element(object.getPortalUser()) }}#}  
+                                <td>
+                                    {% if realUser.getIndividualOrCorporations()==2  %}
+                                            {% set city  = realUser.getCityTown() %}
+                                            {% set postalCode  = realUser.getPostalCode() %}
+                                            {% set country = portalUser.getCountryLabel()  %}
+                                            
+                                        {% else %}  
+                                            {% set city  = realUser.getRealProfileCorporation().getCompanyCity() %}
+                                            {% set postalCode  = realUser.getRealProfileCorporation().getCompanyPostalZip() %}
+                                            {% set country = realUser.getRealProfileCorporation().getCompanyResidenceCountryLabel()  %}
+                                        {% endif %} 
+                                    {% if field_name == 'city' %}
+                                        
+                                        {{city}}
+                                    {% elseif field_name == 'postal_code' %}   
+                                        {{postalCode}}
+                                    {% elseif field_name == 'personal_id' %}   
+                                        {{realUser.getIDAPi()}}
+                                        
+                                    {% elseif field_name == 'countryLabel' %}   
+                                        {{country}}     
+                                    {% elseif field_name == 'mobile_number' %}   
+                                        {{portalUser.getMobileNumber()}} 
+                                        {% elseif field_name == 'username' %}   
+                                        {{portalUser.getUserName()}} 
+                                        {% elseif field_name == 'alternative_email' %}   
+                                        {{portalUser.getAlternativeEmail()}} 
+                                    {% elseif field_name == 'DocumentIdPath' and realUser.getDocumentId() is not null %}   
+                                        <a target="_blank" href="{{ asset(realUser.DocumentIdPath()|nl2br) }}">
+                                            Download File
+                                        </a>
+                                    {% elseif field_name == 'DocumentId2Path' and realUser.getDocumentId2() is not null %}   
+                                        <a target="_blank" href="{{ asset(realUser.DocumentId2Path()|nl2br) }}">
+                                            Download File
+                                        </a> 
+                                    {% elseif field_name == 'documentPorPath' and realUser.getDocumentPor() is not null %}   
+                                        <a target="_blank" href="{{ asset(realUser.documentPorPath()|nl2br) }}">
+                                            Download File
+                                        </a> 
+                                    {% elseif field_name == 'documentPor2Path' and realUser.getDocumentPor2() is not null %}   
+                                        <a target="_blank" href="{{ asset(realUser.documentPor2Path()|nl2br) }}">
+                                            Download File
+                                        </a> 
+                                   {# {% elseif field_name == 'clientSignaturePath' and realUser.getClientSignature() is not null %}   
+                                        <a target="_blank" href="{{ asset(realUser.clientSignaturePath()|nl2br) }}">
+                                            Download File
+                                        </a> #}       
+                                    {% endif%}
+                                    
+                                    
+                                </td>
+                                
+                            </tr>
+                        {% endblock %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
+        </form>
+
+        {% include 'ApplicationSonataAdminBundle::CRUD/show_buttom_buttons.html.twig'%}
+
+        {{ sonata_block_render_event('sonata.admin.show.bottom', { 'admin': admin, 'object': object }) }}
+
+    </div>
+{% endblock %}

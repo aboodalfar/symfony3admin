@@ -1,0 +1,42 @@
+showPage:
+    path:  /page/{id}-{slug}
+    defaults: { _controller: WebitCMSBundle:CMSFront:show }
+
+#categoryPages:
+#    path: /category/{slug}
+#    defaults: { _controller: WebitCMSBundle:CMSFront:categoryPages }
+
+categoryPages:
+    path: /category/{id}
+    defaults: { _controller: WebitCMSBundle:CMSFront:categoryPages }
+
+#contactUs:
+#    path:  /contactus
+#    defaults: { _controller: WebitCMSBundle:Forms:contactUs }
+#
+
+faqListing:
+    path: /frequently-asked-questions
+    defaults: { _controller: WebitCMSBundle:CMSFront:faqListing }
+
+glossary:
+    path: /glossary
+    defaults: { _controller: WebitCMSBundle:CMSFront:glossary}
+
+glossaryShow:
+    path: /glossary-show/{id}/{slug}
+    defaults: { _controller: WebitCMSBundle:CMSFront:glossaryShow }
+
+glossarySearch:
+    path: /glossary-search
+    defaults: { _controller: WebitCMSBundle:CMSFront:glossarySearch }
+    
+
+your_upload_route:
+    path: /admin/upload-image
+    defaults: { _controller: WebitCMSBundle:CMSFront:uploadImage}   
+    
+# specific logic
+search:
+    path:  /search
+    defaults: { _controller: WebitCMSBundle:CMSFront:search }    

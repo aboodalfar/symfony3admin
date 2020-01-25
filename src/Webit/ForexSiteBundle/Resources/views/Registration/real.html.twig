@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include 'WebitForexSiteBundle::Default/head.html.twig' %}
+          <!-- add by abd -->
+        <title>{%if page%}{{page.getTranslationByLang(_locale).getTitle()}} | {%endif%}{%trans%}company_name{%endtrans%}</title>
+        <meta name="description" content="{%if page%}{{page.getTranslationByLang(_locale).getMetaDescription()}}{%endif%}" />
+        <meta name="keywords" content="{%if page%}{{page.getTranslationByLang(_locale).getMetaKeywords()}}{%endif%}" />
+        <!-- end -->
+        {%block css %}
+            <link rel="stylesheet" href="{{asset('bundles/webitforexsite/css/datepicker.min.css')}}" />
+            <link rel="stylesheet" href="{{asset('bundles/webitforexsite/css/intlTelInput.css')}}" />
+        {%endblock css %}
+    </head>
+    <body>
+        {% include 'WebitForexSiteBundle::Default/header.html.twig' %}
+        <div class="mainHeader">
+            <!-- start menus -->
+            {{ render(controller('WebitForexSiteBundle:Homepage:menus'))}} 
+            <!--  end menus -->
+            <div class="mainSlider innerPages">
+                <div class="baxiaMain-slider">
+                    <div class="sliderBlock">
+                        {%if page%}
+                        <img src="{{page.getTranslationByLang(_locale).getImage()}}">
+                        {%endif%}
+                        {%if page%}
+                        <div class="container">
+                            <div class="descriptionBlock">
+                                <div class="mainTitle-block">{{page.getTranslationByLang(_locale).getTitle()}}</div>
+                                <div class="yellow-line"></div>
+                            </div><!-- descriptionBlock -->
+
+                        </div><!-- container -->
+                         {%endif%}
+                    </div>
+                </div>
+            </div><!-- mainSlider -->
+        </div><!-- mainHeader -->
+
+        <div class="container">
+            <div class="mainInner-pageCont">
+		<div class="real-account-block ">
+			<div class="title">{%trans%}open_real_account{%endtrans%}</div>
+			<div class="yellow-line"></div>
+			
+			<div class="real-account-Cont">
+				<div class="realAccount">
+					
+				
+				<div class="leftItem col-lg-4 col-md-4">
+					<div class="left-info-block">
+						<ul id="form_steps" class="first-menu-slide steps">
+							<li class="registration-left-step">
+								<a class="general-hover-color ">
+									<div class="numberCircle">
+										<span class="num-circle-hide">1</span>
+										<img class="complete-img" src="/bundles/webitforexsite/images/icon-true.png">
+									</div>
+									<span class="menu-text real-text">
+										<title>Confirm your Email Address</title>
+										<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet.</span>
+									</span>
+								</a>
+							</li>
+							<li class="registration-left-step">
+								<a class="general-hover-color ">
+									<div class="numberCircle">
+										<span class="num-circle-hide">2</span>
+										<img class="complete-img" src="/bundles/webitforexsite/images/icon-true.png">
+									</div>
+									<span class="menu-text real-text">
+										<title>Setup your account</title>
+										<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet.</span>
+									</span>
+								</a>
+							</li>
+							<li class="registration-left-step">
+								<a class="general-hover-color ">
+									<div class="numberCircle">
+										<span class="num-circle-hide">3</span>
+										<img class="complete-img" src="/bundles/webitforexsite/images/icon-true.png">
+									</div>
+									<span class="menu-text real-text">
+										<title>Download platform</title>
+										<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet.</span>
+									</span>
+								</a>
+							</li>
+							<li class="registration-left-step last">
+								<a class="general-hover-color ">
+									<div class="numberCircle">
+										<span class="num-circle-hide">4</span>
+										<img class="complete-img" src="/bundles/webitforexsite/images/icon-true.png">
+									</div>
+									<span class="menu-text real-text">
+										<title>Start Trdaing</title>
+										<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet.</span>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div><!-- left-info-block -->
+				</div>
+				<div class="follow-theSteps col-lg-8 col-md-8">
+					<div class="follow-theSteps-title">Follow the steps below to open a real account with Baxia</div>
+					<div class="follow-theSteps-description">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet.
+					</div>
+
+					<div class="follow-theSteps-form" id="form_container">
+					
+                                          
+                                           {{render(controller('WebitForexSiteBundle:RealRegistration:step'~step))}}     
+                                                
+					</div><!-- follow-theSteps-form -->
+				</div><!-- follow-theSteps -->
+				</div><!-- realAccount -->
+			</div><!-- real-account-Cont -->
+
+		</div><!-- demoAccout-block -->
+
+	</div><!-- mainInner-pageCont -->
+        </div><!-- mainInner-pageCont -->
+    
+
+    {% include 'WebitForexSiteBundle::Default/footer.html.twig' %} 
+    
+    <script src="{{ asset('bundles/webitforexsite/js/datepicker.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/webitforexsite/js/datepicker.en.js') }}" type="text/javascript"></script>
+    {%block js %}
+        <script src="{{asset('bundles/webitforexsite/js/intlTelInput.js')}}" type="text/javascript"></script>
+        <script>
+       window.onload = function () {$('button[type="submit"]').prop("disabled", false);}
+   
+    function submitAjaxRealForm(form_id, container_id) {
+    var f = $('#' + form_id);
+    showLoadingImage(container_id);
+    var data = new FormData(f[0]);
+    $.ajax({
+        url: f.attr('action'),
+        type: f.attr('method'),
+        enctype: f.attr('enctype'),
+        data: data,
+        processData: false,
+        contentType: false,
+        success: function(data) {
+          removeLoadingImage(container_id);
+            $('#' + container_id).html(data);
+             
+            if($(".error_massage").length) {
+                $("html,body").animate({scrollTop:$('.error_massage').first().offset().top-80}, 'fast');
+            }
+        },
+		error: function(){
+                    removeLoadingImage(container_id);
+		  alert('Something wrong happened, please try later!');
+		}
+    });
+    
+}
+
+function showLoadingImage(id) {
+    $('#' + id).addClass('relative_position');
+    $('#' + id).append('<div class="indicator">&nbsp;</div>');
+}
+
+function removeLoadingImage(id) {
+    $('#' + id).removeClass('relative_position');
+    $('#' + id + ' .indicator').remove();
+}
+
+ js_call(0);
+</script>
+{%endblock js %} 
+</body>
+</html>

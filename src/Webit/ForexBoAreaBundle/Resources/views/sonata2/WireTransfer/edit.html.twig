@@ -1,0 +1,41 @@
+{% extends 'SonataAdminBundle:CRUD:base_edit.html.twig' %}
+
+{% block sonata_tab_content %}
+
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('.banking_information').html(null);
+            $('.trading_account_portal').html(null);
+
+            $(".portal_users_bank").on("change", function () {
+                var b_portal = ($(".portal_users_bank").next('select').val());
+                var b_url = "{{path('wiretransfer_portaluser_id')}}?portalid=" + b_portal;
+                $.post(b_url, function (data) {
+                    if (b_portal) {
+                        $('.banking_information').next('select').html(data);
+                        $('.banking_information span').html('Please select a Bank..');
+                    }
+                });
+                 var t_url = "{{path('wiretransfer_tradingaccount')}}?portalid=" + b_portal;
+               $.post(t_url , function(data){
+
+                   if(b_portal){
+                       $('.trading_account_portal').next('select').html(data);
+                       $('.trading_account_portal span').html('Please select a Trading Account..');
+
+                   }
+               });
+
+
+
+            });
+        })
+                ;
+    </script>
+{% endblock %}
+

@@ -1,0 +1,162 @@
+{% block form %}
+    {#{{ sonata_block_render_event('sonata.admin.edit.form.top', { 'admin': admin, 'object': object }) }}
+
+    {% set url = admin.id(object) is not null ? 'edit' : 'create' %}#}
+
+    {% if 0%}
+        <div>
+            {{ "form_not_available"|trans({}, "SonataAdminBundle") }}
+        </div>
+    {% else %}
+        <form
+              {% if sonata_admin.adminPool.getOption('form_type') == 'horizontal' %}class="form-horizontal"{% endif %}
+              role="form"
+              action="{{ admin.generateUrl('configSetting') }}"
+              method="POST"
+            
+              {% block sonata_form_attributes %}{% endblock %}
+              >
+
+      {#  {{ form_widget(form._token) }}#}
+            {#{{ include('SonataAdminBundle:Helper:render_form_dismissable_errors.html.twig') }}#}
+
+            {% block sonata_pre_fieldsets %}
+                <div class="row">
+            {% endblock %}
+
+            {% block sonata_tab_content %}
+                {% set has_tab = ((admin.formtabs|length == 1 and admin.formtabs|keys[0] != 'default') or admin.formtabs|length > 1 ) %}
+
+                <div class="col-md-12">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="active">
+                                <a href="#tab_s5b2919c896f65_1" data-toggle="tab">
+                                    <i class="fa fa-exclamation-circle has-errors hide"></i> platforms links
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="#tab_s5b2919c896f65_2" data-toggle="tab">
+                                    <i class="fa fa-exclamation-circle has-errors hide"></i> Homepage
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="#tab_3" data-toggle="tab">
+                                    <i class="fa fa-exclamation-circle has-errors hide"></i> Social Media
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    {% if has_tab %}
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs" role="tablist">
+                                {% for name, form_tab in admin.formtabs %}
+                                    <li{% if loop.index == 1 %} class="active"{% endif %}><a href="#tab_{{ admin.uniqid }}_{{ loop.index }}" data-toggle="tab"><i class="fa fa-exclamation-circle has-errors hide" aria-hidden="true"></i> {{ admin.trans(name, {}, form_tab.translation_domain) }}</a></li>
+                                {% endfor %}
+                            </ul>
+                            
+                            <div class="tab-content">
+                                {% for code, form_tab in admin.formtabs %}
+                                    <div class="tab-pane fade{% if loop.first %} in active{% endif %}" id="tab_{{ admin.uniqid }}_{{ loop.index }}">
+                                        <div class="box-body  container-fluid">
+                                            <div class="sonata-ba-collapsed-fields">
+                                               
+                                                
+                                                
+                                                {% if form_tab.description != false %}
+                                                    <p>{{ form_tab.description|raw }}</p>
+                                                {% endif %}
+
+                                                {{ form_helper.render_groups(admin, form, form_tab['groups'], has_tab) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="tab-content" >
+                         {% set platforms = constant('Webit\\ForexCoreBundle\\Entity\\Setting::platforms_links') %}
+                        <div class="tab-pane fade active in"  id="tab_s5b2919c896f65_1">
+                         {% for key,platform in platforms %}
+                             <div class="form-group">
+                                <label class=" control-label">
+                                    {{platform}}
+                                </label>
+                                <div class="sonata-ba-field sonata-ba-field-standard-natural">
+                                    {%if results[key] is defined %}
+                                       {% set val = results[key].getValue() %}
+                                    {%else%}
+                                       {%set val = ''%}
+                                    {%endif%}   
+                                    <input type="text" value="{{val}}" class="form-control" name="{{key}}" />
+                                </div>
+                             </div>
+                         {%endfor%}    
+                        </div>
+                        <div class="tab-pane fade" id="tab_s5b2919c896f65_2">
+                        {% set homepage = constant('Webit\\ForexCoreBundle\\Entity\\Setting::homepage') %}
+                        {% for key,val in homepage %}
+                             <div class="form-group">
+                                <label class=" control-label">
+                                    {{val}}
+                                </label>
+                                <div class="sonata-ba-field sonata-ba-field-standard-natural">
+                                    {%if results[key] is defined %}
+                                       {% set val = results[key].getValue() %}
+                                    {%else%}
+                                       {%set val = ''%}
+                                    {%endif%}   
+                                    <input type="text" value="{{val}}" class="form-control" name="{{key}}" />
+                                </div>
+                             </div>
+                         {%endfor%} 
+                        </div>
+                        <div class="tab-pane fade" id="tab_3">
+                        {% set socialMediaLinks = constant('Webit\\ForexCoreBundle\\Entity\\Setting::social_media_links') %}
+                        {% for key,val in socialMediaLinks %}
+                             <div class="form-group">
+                                <label class=" control-label">
+                                    {{val}}
+                                </label>
+                                <div class="sonata-ba-field sonata-ba-field-standard-natural">
+                                    {%if results[key] is defined %}
+                                       {% set val = results[key].getValue() %}
+                                    {%else%}
+                                       {%set val = ''%}
+                                    {%endif%}   
+                                    <input type="text" value="{{val}}" class="form-control" name="{{key}}" />
+                                </div>
+                             </div>
+                         {%endfor%} 
+                        </div>
+                        </div>
+                         
+            {#            {{ form_helper.render_groups(admin, form, admin.formtabs['default'].groups, has_tab) }}#}
+                        
+                        
+                        
+                    {% endif %}
+                </div>
+            {% endblock %}
+
+            {% block sonata_post_fieldsets %}
+                </div>
+                </div>
+            {% endblock %}
+
+            {#{{ form_rest(form) }}#}
+
+            {% block formactions %}
+                <div class="sonata-ba-form-actions well well-small form-actions">
+                {% block sonata_form_actions %}
+                  <button type="submit" class="btn btn-success"><i class="fa fa-save" aria-hidden="true"></i> {{ 'btn_update'|trans({}, 'SonataAdminBundle') }}</button>
+                {% endblock %}
+                </div>
+            {% endblock formactions %}
+        </form>
+    {% endif%}
+
+{#    {{ sonata_block_render_event('sonata.admin.edit.form.bottom', { 'admin': admin, 'object': object }) }}#}
+
+{% endblock %}

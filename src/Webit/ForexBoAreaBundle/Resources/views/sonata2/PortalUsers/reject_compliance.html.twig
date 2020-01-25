@@ -1,0 +1,70 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends base_template %}
+
+{% block title %}
+    {% trans from 'messages' %}Reject Application{%endtrans%} "{{ admin.toString(object) }}"
+{% endblock%}
+
+{% block actions %}
+<div class="sonata-actions">
+    <ul>
+          {% if admin.hasroute('create') and admin.isGranted('CREATE') and admin.id(object)%}
+            <li class="btn sonata-action-element"><a href="{{ admin.generateUrl('create') }}">{% trans from 'SonataAdminBundle' %}link_action_create{% endtrans %}</a></li>
+            {% endif %}
+            {% if admin.hasroute('list') and admin.isGranted('LIST')%}
+            <li class="btn sonata-action-element"><a href="{{ admin.generateUrl('list') }}">{% trans from 'SonataAdminBundle' %}link_action_list{% endtrans %}</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block side_menu %}{{ knp_menu_render(admin.sidemenu(action), {}, 'list') }}{% endblock %}
+
+
+
+{% block form %}
+
+    <div class="box-header">
+        <h4 class="box-title">Reject Application for "{{object.getPortalUser().getFullName()}}"</h4>
+    </div>
+    <form id="register" action="{{ admin.generateObjectUrl('reject_application_compliance', object) }}" method="post">
+    {% form_theme form admin.getTemplate('filter') %}
+   {{ form_widget(form._token) }}
+
+
+        <div id="sonata-ba-field-container-reject-reason" class="clearfix">
+            <div class="reject_form_cont">
+            {{ form_row(form['predefined_reasons'], {'attr': {'class':'reject_checkboxes_cont'} }) }}
+            <div class="clearfix">&nbsp;</div>
+            <div class="clearfix">&nbsp;</div>
+            {{ form_row(form['reason']) }}            
+            <div class="clearfix">
+            {{ form_widget(form['notify_client']) }}
+            {{ form_label(form['notify_client']) }}
+            </div>
+            <div class="clearfix">&nbsp;</div>
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <div class="well well-small form-actions">
+                <button type="submit" class="btn btn-success" name="btn_update_and_edit"><i class="fa fa-save"></i> Update</button>
+
+            {% if admin.hasroute('edit') and admin.isGranted('EDIT')%}
+                <li class="btn sonata-action-element"><a href="{{ admin.generateObjectUrl('edit', object) }}">{% trans from 'SonataAdminBundle' %}Back to Edit{% endtrans %}</a></li>
+            {% endif %}
+        </div>
+
+            </form>
+    </div>
+{% endblock %}

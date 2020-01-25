@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ {% include 'WebitForexSiteBundle::Default/head.html.twig' %}
+ <title>{%trans%}company_name{%endtrans%}</title>   
+</head>
+<body>
+{% include 'WebitForexSiteBundle::Default/header.html.twig' %}
+<div class="mainHeader">
+    {{ render(controller('WebitForexSiteBundle:Homepage:menus'))}} 	
+{{ render(controller('WebitForexSiteBundle:Homepage:slider'))}} 
+
+</div><!-- mainHeader -->
+
+<div class="numAnd-textBlock">
+	<div class="container">
+		<div class="numAnd-text-Cont">
+			
+		<div class="numAnd-textCont col-lg-2 col-md-2">
+			<div class="leftBlock">
+                            {%if settings['ultra_low_spreeds'] is defined %}
+                                {{settings['ultra_low_spreeds']['value']}}
+                            {%endif%}
+                        </div>
+			<div class="rightBlock">{%trans%}ultra_low_spreeds{%endtrans%}</div>
+		</div>
+		<div class="numAnd-textCont col-lg-2 col-md-2">
+			<div class="leftBlock">
+                            {%if settings['leverage_up_to'] is defined %}
+                                {{settings['leverage_up_to']['value']}}
+                            {%endif%}
+                        </div>
+			<div class="rightBlock">{%trans%}leverage_up_to{%endtrans%}</div>
+		</div>
+		<div class="numAnd-textCont col-lg-2 col-md-2">
+                    <div class="leftBlock">
+                        {%if settings['minimum_deposit'] is defined %}
+                            {{settings['minimum_deposit']['value']}}
+                        {%endif%}
+                    </div>
+			<div class="rightBlock">{%trans%}minimum_deposit{%endtrans%}</div>
+		</div>
+		<div class="numAnd-textCont col-lg-2 col-md-2">
+                    <div class="leftBlock">
+                        {%if settings['tradable_instruments'] is defined %}
+                            {{settings['tradable_instruments']['value']}}
+                        {%endif%}
+                    </div>
+			<div class="rightBlock">{%trans%}tradable_instruments{%endtrans%}</div>
+		</div>
+		<div class="numAnd-textCont col-lg-2 col-md-2">
+                    <div class="leftBlock">
+                        {%if settings['ultra_low_latency'] is defined %}
+                            {{settings['ultra_low_latency']['value']}}
+                        {%endif%}
+                    </div>
+			<div class="rightBlock">{%trans%}ultra_low_latency{%endtrans%}</div>
+		</div>
+		<div class="numAnd-textCont last col-lg-2 col-md-2">
+                    <div class="leftBlock">
+                        {%if settings['funding_methods'] is defined %}
+                            {{settings['funding_methods']['value']}}
+                        {%endif%}
+                    </div>
+			<div class="rightBlock">{%trans%}funding_methods{%endtrans%}</div>
+		</div>
+
+		</div><!-- numAnd-text-Cont -->
+
+		<div class="clear"></div>
+		<div class="numAnd-text-slider">
+			<div>
+				<div class="numAnd-textCont">
+                                    <div class="leftBlock">
+                                        {%if settings['ultra_low_spreeds'] is defined %}
+                                            {{settings['ultra_low_spreeds']['value']}}
+                                        {%endif%}
+                                    </div>
+					<div class="rightBlock">{%trans%}ultra_low_spreeds{%endtrans%}</div>
+				</div>
+			</div>
+			<div>
+				<div class="numAnd-textCont">
+                                    <div class="leftBlock">
+                                        {%if settings['leverage_up_to'] is defined %}
+                                            {{settings['leverage_up_to']['value']}}
+                                        {%endif%}
+                                    </div>
+					<div class="rightBlock">{%trans%}leverage_up_to{%endtrans%}</div>
+				</div>
+			</div>
+			<div>
+				<div class="numAnd-textCont">
+                                    <div class="leftBlock">
+                                        {%if settings['minimum_deposit'] is defined %}
+                                            {{settings['minimum_deposit']['value']}}
+                                        {%endif%}
+                                    </div>
+					<div class="rightBlock">{%trans%}minimum_deposit{%endtrans%}</div>
+				</div>
+			</div>
+			<div>
+				<div class="numAnd-textCont">
+                                    <div class="leftBlock">
+                                        {%if settings['tradable_instruments'] is defined %}
+                                            {{settings['tradable_instruments']['value']}}
+                                        {%endif%}
+                                    </div>
+					<div class="rightBlock">{%trans%}tradable_instruments{%endtrans%}</div>
+				</div>
+			</div>
+			<div>
+				<div class="numAnd-textCont">
+                                    <div class="leftBlock">
+                                        {%if settings['ultra_low_latency'] is defined %}
+                                            {{settings['ultra_low_latency']['value']}}
+                                        {%endif%}
+                                    </div>
+					<div class="rightBlock">{%trans%}ultra_low_latency{%endtrans%}</div>
+				</div>
+			</div>
+			<div>
+				<div class="numAnd-textCont last">
+                                    <div class="leftBlock">
+                                        {%if settings['funding_methods'] is defined %}
+                                            {{settings['funding_methods']['value']}}
+                                        {%endif%}
+                                    </div>
+					<div class="rightBlock">{%trans%}funding_methods{%endtrans%}</div>
+				</div>
+			</div>
+		</div><!-- numAnd-text-slider -->
+	</div><!-- container -->
+</div><!-- numAnd-textBlock -->
+
+
+<div class="trade-withUs-mobile">
+	<div class="container">
+		<div class="trade-withUsMobile">
+			<div class="title">Trade With Us</div>
+			<div class="yellow-line"></div>
+			<div class="description">
+				Experience our products and understand the difference!
+			</div><!-- description -->
+			<div class="trade-withUsButtons">
+				<a class="Live-Account" href="/en/open-real-account">
+					<div class="mobileTitle">{%trans%}live_account{%endtrans%}</div>
+					<div class="descriptionMobile">Open a live trading account</div>
+				</a>
+				<a class="Demo-Account" href="/en/free-demo-account">
+					<div class="mobileTitle">{%trans%}demo_account{%endtrans%}</div>
+					<div class="descriptionMobile">Try a trading account</div>
+				</a>
+			</div><!-- trade-withUsButtons -->
+		</div><!-- trade-withUsMobile -->
+	</div>
+</div><!-- trade-withUs-mobile -->
+
+{{ render(controller('WebitForexSiteBundle:Homepage:allBlock'))}} 
+
+
+<section class="baxia-Partnership">
+	<div class="container-fluid noPadding">
+		<div class="baxiaPartnership-block">
+				<div class="baxiaPartnership-Cont">
+					<div class="title">Baxia Partnership</div>
+					<div class="yellow-line"></div>
+					<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</div>
+					<div class="Partnership-buttons">
+						<div class="partnership-butt col-lg-3 col-md-6 col-sm-6 col-xs-6"><a class="partnership-link" href="{{path('partnershipIP')}}">{%trans%}introducing_broker{%endtrans%}</a></div>
+						<div class="partnership-butt col-lg-3 col-md-6 col-sm-6 col-xs-6"><a class="partnership-link" href="{{path('PartnershipWL')}}">{%trans%}white_label{%endtrans%}</a></div>
+						<div class="partnership-butt col-lg-3 col-md-6 col-sm-6 col-xs-6"><a class="partnership-link" href="{{path('PartnershipRegionalRepresentatives')}}">{%trans%}regional_representatives{%endtrans%}</a></div>
+						<div class="partnership-butt col-lg-3 col-md-6 col-sm-6 col-xs-6"><a class="partnership-link" href="{{path('PartnershipCapitalIntroduction')}}">{%trans%}capital_introduction{%endtrans%}</a></div>
+
+					</div><!-- Partnership-buttons -->
+				</div><!-- baxiaPartnership-Cont -->
+		</div><!-- baxiaPartnership-block -->
+	</div><!-- container -->
+</section>
+
+<section class="trading-Platforms">
+	<div class="container">
+		<div class="tradingPlatforms-block">
+			<div class="tradingPlatforms-Cont col-lg-9 col-md-9">
+				<div class="title">Trading Platforms</div>
+				<div class="yellow-line"></div>
+				<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+				<div class="tradingPlatforms-butt">
+					<a class="btn-on-yellow-dark" href="{{path('realRegistration')}}">{%trans%}live_account{%endtrans%}</a>
+					<a class="btn-on-purple-dark" href="{{path('demo_registration')}}">{%trans%}demo_account{%endtrans%}</a>
+				</div>
+			</div><!-- tradingPlatforms- -->
+			<div class="tradingPlatforms-img">
+				<img class="img-responsive" src="/bundles/webitforexsite/images//Trading-Platforms.jpg">
+			</div><!-- tradingPlatforms-img -->
+			<div class="rightSide-Bar-Platforms col-lg-3 col-md-3">
+				<div class="list-platforms">
+					<ul>
+						<li class="windows">
+							<a target="_blank" href="{%if settings['windows_link'] is defined %}{{settings['windows_link']['value']}}{%else%}javascript:void(0){%endif%}">{%trans%}windows_platform{%endtrans%}</a>
+						</li>
+						<li class="mac">
+							<a target="_blank" href="{%if settings['mac_link'] is defined %}{{settings['mac_link']['value']}}{%else%}javascript:void(0){%endif%}">{%trans%}mac_platform{%endtrans%}</a>
+						</li>
+						<li class="webtrader">
+							<a target="_blank" href="{%if settings['webtrader_link'] is defined %}{{settings['webtrader_link']['value']}}{%else%}javascript:void(0){%endif%}">{%trans%}webtrader_platform{%endtrans%}</a>
+						</li>
+						<li class="android">
+							<a target="_blank" href="{%if settings['android_link'] is defined %}{{settings['android_link']['value']}}{%else%}javascript:void(0){%endif%}">{%trans%}android_platform{%endtrans%}</a>
+						</li>
+						<li class="iPhone">
+							<a target="_blank" href="{%if settings['iphone_link'] is defined %}{{settings['iphone_link']['value']}}{%else%}javascript:void(0){%endif%}">{%trans%}iphone_platform{%endtrans%}</a>
+						</li>
+					</ul>
+				</div><!-- list-platforms -->
+			</div>
+		</div><!-- tradingPlatforms-block -->
+
+	</div><!-- container -->
+</section>
+
+{% include 'WebitForexSiteBundle::Default/footer.html.twig' %}  
+
+ {%block js %}
+ {%endblock js %} 
+</body>
+</html>

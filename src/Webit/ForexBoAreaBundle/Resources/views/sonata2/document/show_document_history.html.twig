@@ -1,0 +1,23 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <th>Updated At</th>
+            <th>Documents</th>
+            {#<th>Approved</th>#}
+            <th>File Path</th>
+        </tr>
+        {%for data in object.getDocumentHistoryLogs()%}
+            <tr class="sonata-ba-view-container">
+                <th>{{data.updatedAt |date('Y-m-d H:i')}}</th>
+                <td>{{data.getDocumentType}}</td>
+                {#<td></td>#}
+                <td>                    
+                    <a target="_blank" href="{{ data.getDocumentPathFull() }}">
+                        {{data.getDocumentName}}
+                    </a>
+                </td>
+            </tr>
+        {%endfor%} 
+    </tbody>
+
+</table>

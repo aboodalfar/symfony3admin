@@ -1,0 +1,18 @@
+{% block form_row %}
+    {% spaceless %}
+        {% if form.vars.label %}
+            
+            <label class='label_form' for='{{ form.vars.id }}'>
+                {{ form.vars.label|raw|trans }}
+            </label>
+        {% endif %} 
+        {% if attr.class is defined %}
+            {{ form_widget(form, {'attr': {'class':attr.class }}) }}
+        {%else%}
+            {{ form_widget(form, {'attr': {'class':'form-control'}}) }}
+        {%endif%}
+        {% if form_errors(form)|length > 0 %}
+            <span class="error_massage">{{ form_errors(form) }}</span>
+        {%endif%}
+    {% endspaceless %}
+{% endblock form_row %}

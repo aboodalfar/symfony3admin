@@ -1,0 +1,50 @@
+<table class="table table-bordered">
+    <tbody>
+    {%for data in object.getPortalUser().getDocumentsTranslations()%}
+            <tr class="sonata-ba-view-container">
+                <th>{{"Document Type"|trans}}</th>
+                <td>{{data.documentTypeLabel}}</td>
+            </tr>        
+            <tr class="sonata-ba-view-container">
+                <th>{{"First Name"|trans}}</th>
+                <td>{{data.firstName}}</td>
+            </tr>
+            <tr class="sonata-ba-view-container">
+                <th>{{"Last Name"|trans}}</th>
+                <td>{{data.lastName}}</td>
+            </tr>
+            <tr class="sonata-ba-view-container">
+                <th>{{"Reference ID"|trans}}</th>
+                <td>{{data.referenceId}}</td>
+            </tr>
+            <tr class="sonata-ba-view-container">
+                <th>{{"City"|trans}}</th>
+                <td>{{data.city}}</td>
+            </tr>
+            <tr class="sonata-ba-view-container">
+                <th>{{"Country"|trans}}</th>
+                <td>{{data.country}}</td>
+            </tr>
+            <tr class="sonata-ba-view-container">
+                <th>{{"Nationality"|trans}}</th>
+                <td>{{data.nationality}}</td>
+            </tr>
+            <tr class="sonata-ba-view-container">
+                <th>{{"Nationality"|trans}}</th>
+                <td>{{data.nationality}}</td>
+            </tr>
+            <tr class="sonata-ba-view-container">
+                <th>{{"Date of Issue"|trans}}</th>
+                <td>{{data.dateOfIssue|date('Y-m-d')}}</td>
+            </tr>
+            <tr class="sonata-ba-view-container">
+                <th>{{"Date of Expiry"|trans}}</th>
+                <td>{{data.dateOfExpiry|date('Y-m-d')}}</td>
+            </tr>
+            
+            <tr>
+                <th colspan="2"><hr/></th>
+            </tr>
+    {%endfor%}
+    </tbody>
+</table>

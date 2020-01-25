@@ -1,0 +1,62 @@
+{% if success %}
+    <div class="message-successfully">
+        {{"PARTNERSHIP_ACTIVATION_SUCCESSFULLY_MSG"|trans}}
+    </div>     
+{%else%}        
+    <form id="part" action="{{path('partnershipIP')}}" method="post" novalidate onsubmit="submitAjaxRealForm('part', 'form_container');
+            return false;">
+        <div class="form-group">
+
+            {% form_theme form 'WebitForexSiteBundle:Form:form_ib.html.twig' %}
+            {{form_errors(form)}}
+            {{ form_widget(form._token) }}
+            {{form_row(form.firstName)}}
+            {{form_row(form.lastName)}}
+            {{form_row(form.email)}}
+            {{form_row(form.phone_code)}}
+            {{form_row(form.phoneNumber)}}
+            {{form_row(form.company)}}
+            {{form_row(form.numberClients)}}
+            {{form_row(form.funds)}}
+            {{form_row(form.website)}}
+            {{form_row(form.skype)}}
+            {{form_row(form.type)}}
+
+        </div>
+
+<div class="open-DemoAccount col-md-6" style="    margin-right: 3px;"> {#frotnend to amend later#}
+<a href="#part" onclick="$('#part').submit();">{%trans%}Submit Application{%endtrans%}</a>
+</div>
+      {#  <button type="submit" class="btn btn-primary">
+            {%trans%}continue{%endtrans%}
+        </button> #}
+        <br/><br/>
+        <div class="clear">&nbsp;</div>
+    </form>         
+{%endif%}
+<script>
+    function js_call() {
+        $("input#partnership_phoneNumber").intlTelInput({
+            nationalMode: true,
+            preventInvalidDialCodes: true,
+            separateDialCode: true,
+            autoPlaceholder: 'off',
+            formatOnDisplay: false
+
+        });
+
+        telInput = $("input#partnership_phoneNumber"),
+                telInput.on("countrychange", function (e, countryData) {
+                    if(!jQuery.isEmptyObject(countryData)){
+                        $('input[name="partnership[phone_code]"]').val(countryData.dialCode);
+                    }
+                    
+                });
+    }
+
+</script>
+{% if app.request.isXmlHttpRequest()%}                                    
+    <script>
+        js_call();
+    </script> 
+{%endif%}

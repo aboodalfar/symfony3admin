@@ -1,0 +1,81 @@
+homepage:
+    path:  /
+    defaults: { _controller: WebitForexSiteBundle:Homepage:index }
+
+system_message:
+    path:  /message/{message_type}/{message}
+    defaults: { _controller: WebitForexSiteBundle:Default:systemMessage }
+    
+demo_registration:
+    path: /free-demo-account
+    defaults: { _controller: WebitForexSiteBundle:DemoRegistration:registration }    
+    
+activate_demo:
+    path: /activate-demo-account/{md5_key}
+    defaults: { _controller: WebitForexSiteBundle:DemoRegistration:activateDemo }
+    
+realRegistration:
+    path: /open-real-account/{step}
+    defaults: { _controller: WebitForexSiteBundle:RealRegistration:showRegisterForm,step: 1}    
+    
+realRegistrations1:
+    path: /real-account/1
+    defaults: { _controller: WebitForexSiteBundle:RealRegistration:step1} 
+    
+realRegistrations2:
+    path: /real-account/2
+    defaults: { _controller: WebitForexSiteBundle:RealRegistration:step2}   
+
+realRegistrations3:
+    path: /real-account/3
+    defaults: { _controller: WebitForexSiteBundle:RealRegistration:step3}  
+    
+realRegistrations4:
+    path: /real-account/4
+    defaults: { _controller: WebitForexSiteBundle:RealRegistration:step4}
+    
+realRegistrations5:
+    path: /real-account/5
+    defaults: { _controller: WebitForexSiteBundle:RealRegistration:step5}    
+
+activate_real:
+    path: /activate-real-account/{md5_key}
+    defaults: { _controller: WebitForexSiteBundle:RealRegistration:activateAccount }
+
+switch_lang:
+    path: /switch-lang
+    defaults: { _controller: WebitForexSiteBundle:Default:switchLang }
+    
+
+# start of Partnership
+
+partnershipIP:
+    path: /partnership/introducing-broker
+    defaults: { _controller: WebitForexSiteBundle:Partnership:registration, type: 1 }
+
+PartnershipWL:
+    path: /partnership/white-label
+    defaults: { _controller: WebitForexSiteBundle:Partnership:registration, type: 2 }
+
+PartnershipRegionalRepresentatives:
+    path: /partnership/regional-representatives
+    defaults: { _controller: WebitForexSiteBundle:Partnership:registration , type: 3} 
+    
+PartnershipCapitalIntroduction:
+    path: /partnership/capital-introduction
+    defaults: { _controller: WebitForexSiteBundle:Partnership:registration , type: 4}
+    
+realRegistration2:
+    path: /real2
+    defaults: { _controller: WebitForexSiteBundle:RealRegistration:showRegisterForm2}  
+    
+showLoginPage:
+    path: /traders/login
+    defaults: { _controller: WebitForexSiteBundle:RealRegistration:showLoginPage}      
+
+# end of Partnership
+
+
+
+    
+    

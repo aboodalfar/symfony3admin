@@ -1,0 +1,31 @@
+{% extends 'WebitForexCoreBundle::inner.html.twig'%}
+
+
+{% block page_title %}
+           {%trans%}SITE_NAME{%endtrans%} - {{cat.getTitle()|trans}}
+{% endblock page_title %}
+
+
+
+ {%block left_content %}
+
+
+<h1>{{cat.getTitle()|trans}}</h1>
+<div class="cms-content-right">
+ 	<ul class="new-item-list-style">
+ 		{%for page in pages%}
+ 			<li>
+ 				<a href="{{path('showPage', {'id':page.id, 'slug':page.slug} )}}">
+ 					{{page.getTranslationByLang(app.request.locale).getTitle()}}
+ 				</a>
+ 				<p class="content-descrption">{{page.getTranslationByLang(app.request.locale).getBody()|striptags|truncate(150)}}<a href="{{path('showPage', {'id':page.id, 'slug':page.slug} )}}" class="read-more">{%trans%}read more{%endtrans%}</a></p>
+
+ 			</li>
+ 		{%endfor%}
+ 	</ul>
+</div>
+
+
+
+
+{%endblock%}

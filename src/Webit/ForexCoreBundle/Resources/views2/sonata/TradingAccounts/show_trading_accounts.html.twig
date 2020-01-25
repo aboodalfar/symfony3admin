@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+    <tbody>
+    <th>Login no.</th>
+    <th>Group</th>
+    <th>Actions</th>
+    {%for account in object.getPortalUser.getTradingAccounts() %}
+        <tr class="sonata-ba-view-container">
+            <th>{{account.login}}</th>
+            <td>{{account.codeTradingGroup}}</td>
+            <td>
+                <a href="{{admin.generateObjectUrl('trading_accounts', account) }}">
+                    Edit
+                </a>
+            </td>
+        </tr>
+    {%endfor%}
+    </tbody>
+</table>

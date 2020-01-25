@@ -1,0 +1,33 @@
+{% if object.getRealProfileCorporation() %}
+{%  set BeneficialOwners  =object.getRealProfileCorporation().getBeneficialOwners2() %}
+{% if BeneficialOwners|length %}
+<tr>
+    <th colspan="3">inatural person who ultimately owns the company -beneficiary owner 20% or above</th>
+    
+</tr>
+<tr>
+    <th>full name</th>
+    <th>Nationality</th>
+    <th>ID</th>
+    <th>Date Of Birth</th>
+    <th>Email</th>
+    <th>Tel</th>
+</tr>    
+    {%for data in BeneficialOwners%}
+            <tr class="sonata-ba-view-container">
+
+                <td>{{data.getFullName()}}</td>
+                <td>{{data.getCountry()}}</td>
+                <td>{{data.getIdNumber()}}</td>
+                <td>
+                    {%  if data.getDateOfBirth() is not null %}
+                     {{data.getDateOfBirth()|date('Y-m-d')}}
+                    {%endif%}
+                </td>
+                <td>{{data.getEmail()}}</td>
+                <td>{{data.getMobileNumber()}}</td>
+            </tr> 
+    {%endfor%}
+    
+{%endif%}
+{%endif%}

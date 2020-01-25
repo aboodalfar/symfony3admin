@@ -1,0 +1,13 @@
+<div class="technologyBlock">
+   {{page.getTranslationByLang(_locale).getBody()|raw}}
+</div>
+<div class="technologyBoxs">
+    {% for content in page.getContentsTemplate() %}
+            <a href="{{content.getLink()}}">
+                <div class="technologyGray_block col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="title">{{content.getTitle()}}</div>						
+                    <div class="image_block"><img class="img-responsive" src="/{{content.getIcon()}}"></div>
+                </div><!-- technologyGray_block -->
+            </a>  
+    {%endfor%}   
+</div>

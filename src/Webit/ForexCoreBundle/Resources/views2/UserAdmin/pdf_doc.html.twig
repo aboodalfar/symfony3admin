@@ -1,0 +1,10 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+{% block field %}
+    <div>
+        {% if object.getPortalUser.getPdfDoc %}
+            <a href="{{ asset(object.getPortalUser.getPdfDoc()) }}" target="_blank">{% trans %}PDF FILE{% endtrans %}</a>
+        {% else %}
+            {% trans %}N.A{% endtrans %}
+        {% endif %}
+    </div>
+{% endblock %}

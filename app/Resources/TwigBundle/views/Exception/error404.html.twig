@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ {% include 'WebitForexSiteBundle::Default/head.html.twig' %}
+  <!-- only for inner page -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('bundles/webitforexsite/css/accordion-style.css') }}"/>
+  <!-- end -->
+ {%block css %}
+ {%endblock css %} 
+  <!-- add by abd -->
+  <title>404 page</title>
+  <!-- end -->
+</head>
+<body>
+{% include 'WebitForexSiteBundle::Default/header.html.twig' %}
+<div class="mainHeader">
+    <!-- start menus -->
+	 {{ render(controller('WebitForexSiteBundle:Homepage:menus'))}} 
+    <!--  end menus -->
+	<div class="mainSlider innerPages">
+		<div class="baxiaMain-slider">
+			<div class="sliderBlock">
+                          {#  {% if  page['image'] is not empty %}
+                                {% set image ='/'~page['image'] %}
+                            {%else%} 
+                                {% set image = asset('bundles/webitforexsite/images/main-img.png') %}
+                            {%endif%}    #}
+				<img src="{{asset('bundles/webitforexsite/images/main-img.png')}}">
+				<div class="container">
+                                    <div class="descriptionBlock">
+                                        <div class="mainTitle-block">   
+                                            404 page
+                                        </div>
+                                                <div class="yellow-line"></div>
+                                    </div><!-- descriptionBlock -->
+
+				</div><!-- container -->
+			</div>
+		</div>
+	</div><!-- mainSlider -->
+</div><!-- mainHeader -->
+
+<div class="container">
+	<div class="mainInner-pageCont">
+		<div class="Content-404">
+			<div class="title">
+				<span>404 </span>
+				<p>
+					<span class="not-Found">Not Found</span>
+					<br>
+					sorry an error has occurred requested page not found!
+
+				</p>
+			</div>
+
+	
+		</div>
+
+
+	</div><!-- mainInner-pageCont -->
+	
+</div><!-- container -->
+
+{% include 'WebitForexSiteBundle::Default/footer.html.twig' %} 
+  
+</body>
+</html>

@@ -1,0 +1,48 @@
+parameters:
+    loggable_models: #TODO: deep amendments
+      - { name: \Webit\Bundle\RegistrationBundle\Entity\PortalUsers, owner_method: "" }      
+      - { name: \Webit\Bundle\RegistrationBundle\Entity\TradingAccounts, owner_method: getPortalUsers }
+
+services:
+    webit.admin.userlog:
+        class: Webit\UserLogBundle\Admin\UserLogAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: webit.admin.group.monitoring_logs, label: Application User Log }
+        arguments: [null, Webit\UserLogBundle\Entity\UserLog, WebitUserLogBundle:UserLog]
+
+    webit.admin.batchlog:
+        class: Webit\UserLogBundle\Admin\BatchActivityLogAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: webit.admin.group.monitoring_logs, label: Batch User Log }
+        arguments: [null, Webit\UserLogBundle\Entity\BatchActivityLog, WebitUserLogBundle:BatchActivityLogAdmin]
+
+    webit.admin.loginlog:
+        class: Webit\UserLogBundle\Admin\LoginLogAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm,group: webit.admin.group.monitoring_logs, label: User Login Log }
+        arguments: [null, Webit\UserLogBundle\Entity\LoginLog, WebitUserLogBundle:LoginLogAdmin]
+
+    #Listeners
+    webit.listener.userlog:
+        class: Webit\UserLogBundle\EventListener\UserLogListener
+        tags:
+            - { name: kernel.event_listener, event: user.log, method: recordLog }
+        arguments: [ '@service_container' ]
+        
+    webit.listener.batchlog:
+        class: Webit\UserLogBundle\EventListener\BatchActivityLogListener
+        tags:
+            - { name: kernel.event_listener, event: batch.log, method: recordLog }
+        arguments: [ '@service_container' ]
+        
+    doctrine.listener:
+        class: Webit\UserLogBundle\EventListener\ChangeLogListener
+        arguments: ['@service_container']
+        tags:
+            - { name: doctrine.event_listener, event: preUpdate, method: preUpdate }
+
+#    app.loglogin_listener:
+#        class: Webit\UserLogBundle\EventListener\LogLoginListener
+#        arguments: ['@security.context', '@doctrine']
+#        tags:
+#            - { name: kernel.event_listener, event: 'security.interactive_login' }

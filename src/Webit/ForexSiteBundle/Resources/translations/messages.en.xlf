@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="c33277903282de42c0ad3cb8826c0d55" resname="read_more">
+        <source>read_more</source>
+        <target>Read More</target>
+      </trans-unit>
+      <trans-unit id="7d68d57f75382047c10b9140d626a834" resname="ultra_low_spreeds">
+        <source>ultra_low_spreeds</source>
+        <target>Ultra low Spreeds</target>
+      </trans-unit>
+      <trans-unit id="00c4c2c959af272b29f8ccb0179affa3" resname="leverage_up_to">
+        <source>leverage_up_to</source>
+        <target>Leverage Up to</target>
+      </trans-unit>
+      <trans-unit id="0510dbf2e87d61eafa291190e28d928c" resname="minimum_deposit">
+        <source>minimum_deposit</source>
+        <target>Minimum Deposit</target>
+      </trans-unit>
+      <trans-unit id="59ec7e7210b049c65dda402aadfc5daf" resname="tradable_instruments">
+        <source>tradable_instruments</source>
+        <target>Tradable Instruments</target>
+      </trans-unit>
+      <trans-unit id="d97dfe96adc0c62cb3c10f49829efe62" resname="ultra_low_latency">
+        <source>ultra_low_latency</source>
+        <target>Ultra low Latency</target>
+      </trans-unit>
+      <trans-unit id="653360fa1e6c460f874bee12b0f2d9e1" resname="funding_methods">
+        <source>funding_methods</source>
+        <target>Funding Methods</target>
+      </trans-unit>
+      <trans-unit id="f60300930463d8a69f2a69ee1e58d0d9" resname="trade_with_us">
+        <source>trade_with_us</source>
+        <target>Trade with us</target>
+      </trans-unit>
+      <trans-unit id="0b736ae62c54bdc9530805fdb93339ad" resname="Experience_our_products_and_understand_the_difference!">
+        <source>Experience_our_products_and_understand_the_difference!</source>
+        <target>Experience our products and understand the difference!</target>
+      </trans-unit>
+      <trans-unit id="c036eda0db9afe4b71f6258ac2e72216" resname="Open_a_live_trading_account">
+        <source>Open_a_live_trading_account</source>
+        <target>Open a live trading account</target>
+      </trans-unit>
+      <trans-unit id="434a568203226c1e156d7b77b9314794" resname="Try_a_trading_account">
+        <source>Try_a_trading_account</source>
+        <target>Try a trading account</target>
+      </trans-unit>
+      <trans-unit id="2a034e9d9e2601c21191cca53760eaaf" resname="first_name">
+        <source>first_name</source>
+        <target>First Name</target>
+      </trans-unit>
+      <trans-unit id="7d4553c09a59578c8addc8c617a76ca1" resname="last_name">
+        <source>last_name</source>
+        <target>Last Name</target>
+      </trans-unit>
+      <trans-unit id="0c83f57c786a0b4a39efab23731c7ebc" resname="email">
+        <source>email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="e909c2d7067ea37437cf97fe11d91bd0" resname="country">
+        <source>country</source>
+        <target>Country</target>
+      </trans-unit>
+      <trans-unit id="0c9f706bd0d41e13da127c3316547d1c" resname="mobile_number">
+        <source>mobile_number</source>
+        <target>Mobile Number</target>
+      </trans-unit>
+      <trans-unit id="c1007e8ab1238e90f79100fbfff39635" resname="company_name">
+        <source>company_name</source>
+        <target>Baxia</target>
+      </trans-unit>
+      <trans-unit id="f4850f05cd2f4110e033d0438b431d17" resname="introducing_broker">
+        <source>introducing_broker</source>
+        <target>Introducing Broker</target>
+      </trans-unit>
+      <trans-unit id="c455257db69589fc81f1f238a92dc13e" resname="white_label">
+        <source>white_label</source>
+        <target>White Label</target>
+      </trans-unit>
+      <trans-unit id="77f8a8656a0a88ae64cc5fe8063a3999" resname="regional_representatives">
+        <source>regional_representatives</source>
+        <target>Regional Representatives</target>
+      </trans-unit>
+      <trans-unit id="982d0dbaf27e35d8cd751817dae6f8d0" resname="capital_introduction">
+        <source>capital_introduction</source>
+        <target>Capital Introduction</target>
+      </trans-unit>
+      <trans-unit id="4ab24107255f2a6d1a5af355acd14ad5" resname="I agree to terms &amp; conditions">
+        <source>I agree to terms &amp; conditions</source>
+        <target><![CDATA[I agree to terms & conditions]]></target>
+      </trans-unit>
+      <trans-unit id="7aa28ed115707345d0274032757e8991" resname="continue">
+        <source>continue</source>
+        <target>Continue</target>
+      </trans-unit>
+      <trans-unit id="a098d9ece9d055ebb24f5399a71b7214" resname="date_of_birth">
+        <source>date_of_birth</source>
+        <target>Date of Birth</target>
+      </trans-unit>
+      <trans-unit id="884d9804999fc47a3c2694e49ad2536a" resname="address">
+        <source>address</source>
+        <target>Address</target>
+      </trans-unit>
+      <trans-unit id="4ed5d2eaed1a1fadcc41ad1d58ed603e" resname="city">
+        <source>city</source>
+        <target>City</target>
+      </trans-unit>
+      <trans-unit id="0c0ae4041da1ad3614c90905c0f2dc26" resname="zip_code">
+        <source>zip_code</source>
+        <target>Zip Code</target>
+      </trans-unit>
+      <trans-unit id="9ed39e2ea931586b6a985a6942ef573e" resname="state">
+        <source>state</source>
+        <target>State</target>
+      </trans-unit>
+      <trans-unit id="5f4dcc3b5aa765d61d8327deb882cf99" resname="password">
+        <source>password</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="045ffb58bfe21ee42fc6c8896ffd8557" resname="secret_question">
+        <source>secret_question</source>
+        <target>Secret Question</target>
+      </trans-unit>
+      <trans-unit id="a363b8d13575101a0226e8d0d054f2e7" resname="answer">
+        <source>answer</source>
+        <target>Answer</target>
+      </trans-unit>
+      <trans-unit id="f39a261d778860139304566fe4afa2fa" resname="terms_1">
+        <source>terms_1</source>
+        <target>I have read and understood the Financial Services Guide.</target>
+      </trans-unit>
+      <trans-unit id="75f43676633b56c428b6e5b74357120f" resname="terms_2">
+        <source>terms_2</source>
+        <target>I have read and understood the Product Disclosure Statement.</target>
+      </trans-unit>
+      <trans-unit id="9926cf9b37ca5055a5fda1bc25a85939" resname="terms_3">
+        <source>terms_3</source>
+        <target>I understand and agree to the Baxia FX Terms and Conditions.</target>
+      </trans-unit>
+      <trans-unit id="fdd12fa299ef705168328cf42142ab5f" resname="terms_4">
+        <source>terms_4</source>
+        <target>I understand the nature and risks of margined products.</target>
+      </trans-unit>
+      <trans-unit id="3775a8328ad81a5af3edcbad4383af95" resname="leverage">
+        <source>leverage</source>
+        <target>leverage</target>
+      </trans-unit>
+      <trans-unit id="1af0389838508d7016a9841eb6273962" resname="currency">
+        <source>currency</source>
+        <target>currency</target>
+      </trans-unit>
+      <trans-unit id="94c9e4c4b1ef12f976e640a5b7f2d0f4" resname="account_type">
+        <source>account_type</source>
+        <target>Account Type</target>
+      </trans-unit>
+      <trans-unit id="707cbbbd5b072d9ea2cc5711f8c5696b" resname="form_how_know">
+        <source>form_how_know</source>
+        <target>Where did you hear of Baxia Capital? </target>
+      </trans-unit>
+      <trans-unit id="d056025fbea3c4700729c5b96b0ff97b" resname="passport">
+        <source>passport</source>
+        <target>Passport</target>
+      </trans-unit>
+      <trans-unit id="3fb2609ba8df97e721ee031432eb5c0f" resname="driver's_license">
+        <source>driver's_license</source>
+        <target>Driver's License</target>
+      </trans-unit>
+      <trans-unit id="e4f6f7722b18e93867c19027586af751" resname="national_id">
+        <source>national_id</source>
+        <target>National ID</target>
+      </trans-unit>
+      <trans-unit id="559bcc1efed93af2564297a5c03db4cd" resname="windows_platform">
+        <source>windows_platform</source>
+        <target>Windows</target>
+      </trans-unit>
+      <trans-unit id="1fc68ae12d8ab8c8c4ca5b952507e95d" resname="mac_platform">
+        <source>mac_platform</source>
+        <target>Mac</target>
+      </trans-unit>
+      <trans-unit id="9e05024cdf4d3413bc2048e32ca383f5" resname="webtrader_platform">
+        <source>webtrader_platform</source>
+        <target>Webtrader</target>
+      </trans-unit>
+      <trans-unit id="3d4e1dfd370905ec772dd4631a576b84" resname="android_platform">
+        <source>android_platform</source>
+        <target>Android</target>
+      </trans-unit>
+      <trans-unit id="e4fd994e80b6d02eeb3db9fb246e704b" resname="iphone_platform">
+        <source>iphone_platform</source>
+        <target>IPhone</target>
+      </trans-unit>
+      <trans-unit id="6374d97d01872dcbf3a2326264b706e7" resname="live_account">
+        <source>live_account</source>
+        <target>Live Account</target>
+      </trans-unit>
+      <trans-unit id="e6891c34c808de2b846cb3290338a2a0" resname="demo_account">
+        <source>demo_account</source>
+        <target>Demo Account</target>
+      </trans-unit>
+      <trans-unit id="1228a871ee59b9f01ad3ea5297420822" resname="open_real_account">
+        <source>open_real_account</source>
+        <target>Open Real Account</target>
+      </trans-unit>
+      <trans-unit id="b439d207e2f94f61aef1a66e14971d76" resname="I have read and understood the Financial Services Guide.">
+        <source>I have read and understood the Financial Services Guide.</source>
+        <target>I have read and understood the Financial Services Guide.</target>
+      </trans-unit>
+      <trans-unit id="fdc02e4bdf40934dbe584ecf674d0a15" resname="I have read and understood the Product Disclosure Statement.">
+        <source>I have read and understood the Product Disclosure Statement.</source>
+        <target>I have read and understood the Product Disclosure Statement.</target>
+      </trans-unit>
+      <trans-unit id="597ba06ea645527d81ceeace75358aeb" resname="I understand and agree to the Baxia FX Terms and Conditions.">
+        <source>I understand and agree to the Baxia FX Terms and Conditions.</source>
+        <target>I understand and agree to the Baxia FX Terms and Conditions.</target>
+      </trans-unit>
+      <trans-unit id="d316f9e63da05ed143d68fd3eaa5a61a" resname="I understand the nature and risks of margined products.">
+        <source>I understand the nature and risks of margined products.</source>
+        <target>I understand the nature and risks of margined products.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

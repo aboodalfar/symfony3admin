@@ -1,0 +1,18 @@
+webit_mailtemplate:
+    sender_email:         %mailtemplate_sender_email% # Required
+    sender_name:          %mailtemplate_sender_name% # Required
+    # Default reply-to email
+    reply_email:          null
+    # Default email receiver in case "TO" field is not set
+    default_receiver:     zaid@wewebit.com
+    # Default email to BCC in all message, like: monitoring@example.com
+    bcc:  ['jumana@wewebit.com']
+       
+    #['monitoring@wewebit.com', 'zrashwani@gmail.com']
+    # Template for rendering email, default: WebitMailtemplateBundle:Email:template.html.twig
+    mail_layout:          'WebitMailtemplateBundle:Email:template.html.twig'
+
+    # information about mail queue if defined, currently not implemented
+    queue:
+        enabled:              false
+        type:                 rabbitMQ

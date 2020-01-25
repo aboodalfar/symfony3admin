@@ -1,0 +1,13 @@
+{% extends 'WebitForexSiteBundle::Homepage/home_page.html.twig'%}
+
+{% block content%}
+
+	{{ render(controller('WebitForexSiteBundle:Homepage:slider')) }} 
+        {{ render(controller('WebitForexSiteBundle:ResearchAnalysis:currency'))}} 
+	{#{% include 'AppBundle::ForexSite/Homepage/marquee_currency.html.twig' %}#}
+	{% include 'AppBundle::ForexSite/Homepage/accounts.html.twig' %}
+	{% include 'AppBundle::ForexSite/Homepage/downloads.html.twig' %}
+		
+{% endblock content %}
+ 
+ 

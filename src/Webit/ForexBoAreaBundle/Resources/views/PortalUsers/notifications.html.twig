@@ -1,0 +1,64 @@
+{%  set notifications  =object.getPortalUser().getNotification() %}
+{% if notifications|length %}
+<tr>
+    <th>sender</th>
+    <th>date</th>
+    <th>message</th>
+</tr>    
+    {%for data in notifications%}
+            <tr class="sonata-ba-view-container notification" data-id="{{data.getId()}}">
+
+                <td>{{data.getSender()}}</td>
+                <td>{{data.getCreatedAt().format('Y-m-d')}}</td>
+                <td>{{data.getBody()|raw}}
+                  {%  if data.getSender() == 'traders' %}  
+                    <br/>
+                    <textarea name="reply"></textarea>
+                     <input type="hidden" name="user_id" value="{{object.getPortalUser().getId()}}" /> 
+                     <input type="hidden" name="conversion_id" value="{{data.getConversionId()}}" /> 
+                     <br/>
+                    <button data-id="{{data.getId()}}" type="button" class="btn btn-info btn-small" id="submit_reply">Reply</button>
+                   {% endif %}   
+                </td>
+            </tr> 
+    {%endfor%}
+    
+{%endif%}
+<script>
+    
+    $('button#submit_reply').click(function(event) {
+                    event.preventDefault();
+                    var $this = $(this);
+                    $this.prop('disabled', true);
+                    var id=$this.attr('data-id');
+                    var user_id = $("tr.notification[data-id='"+id+"'] input[name='user_id']").val();
+                    var reply = $("tr.notification[data-id='"+id+"'] textarea[name='reply']").val();
+                    if(reply ==''){
+                        alert('please fill reply');
+                        $this.prop('disabled', false);
+                        return false;
+                    }
+                    
+                    var conversion_id = $("tr.notification[data-id='"+id+"'] input[name='conversion_id']").val();
+                    var url = "{{path('adminReplayNotification')}}?user_id="+user_id+'&reply='+reply+'&conversion_id='+conversion_id;
+                    $.ajax(url, {
+                    success: function(data) {
+                        var old_count = $('div.notification-counter span').html();
+                        var new_count = Number(old_count)-1;
+                        if(new_count == 0){
+                            new_count = '';
+                        }
+                        $('div.notification-counter span').html(Number(old_count)-1);
+                        $('b.mark-as-unread[data-id="'+$this.attr('data-id')+'"]').remove();
+                        $this.prop('disabled', false);;
+                        var d = "{{"now"|date("Y-m-d")}}";
+                        $("<tr class='sonata-ba-view-container notification'><td>admin</td><td>"+d+"</td><td>"+reply+"</td></tr>").insertAfter('tr.notification:last');
+                        $("html,body").animate({scrollTop:$('tr.notification:last').offset().top-80}, 'fast');
+                    },
+                    error: function() {
+                       alert('error');
+                       $this.prop('disabled', false);
+                    }
+                 });
+                });
+</script>

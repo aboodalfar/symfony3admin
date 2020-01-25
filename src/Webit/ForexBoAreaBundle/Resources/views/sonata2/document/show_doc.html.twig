@@ -1,0 +1,14 @@
+<table class="table table-bordered">
+    <tbody>
+    {%for data in object.getUserCustomDocuments%}
+            <tr class="sonata-ba-view-container">
+                <th>{{data.getDocumentName}}</th>
+                <td>
+                    <a target="_blank" href="{{ asset(data.getDocumentPathFull)|nl2br }}">
+                        Download File
+                    </a>
+                </td>
+            </tr>
+    {%endfor%}
+    </tbody>
+</table>

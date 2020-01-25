@@ -1,0 +1,35 @@
+{% extends 'WebitForexSiteBundle::Extends/inner_page.html.twig'%}
+{%block upper_content %}
+    {% if page.template == 'partnership_template' %}
+        <div class="container-fluid noPadding Partnerships">
+            <div class="container">
+                {{page.getTranslationByLang(_locale).getUpperContent()|raw}}
+            </div>
+        </div>       
+    {%endif%} 
+{%endblock upper_content %} 
+{%block page_body %}
+    {% if page.template == 'default' %}
+        {% include 'WebitCMSBundle::CMSFront/default_template.html.twig' %}
+    {% elseif page.template == 'box_template' %}
+        {% include 'WebitCMSBundle::CMSFront/box_template.html.twig' %}
+    {% elseif page.template == 'icon_template' %}
+        {% include 'WebitCMSBundle::CMSFront/icon_template.html.twig' %}   
+    {% elseif page.template == 'icon_template2' %}
+        {% include 'WebitCMSBundle::CMSFront/icon2_template.html.twig' %}   
+    {% elseif page.template == 'partnership_template' %}
+        {% include 'WebitCMSBundle::CMSFront/partnership_template.html.twig' %}        
+    {%endif%}    
+{%endblock page_body %}
+{%block footer_content %}
+    {% if page.template == 'partnership_template' %}
+        <div class="container-fluid noPadding messageBlock">
+	<div class="container">
+		<div class="baxiaPartner-message">
+			<div class="messageCont">Interested in partnering with Baxia?</div>
+                <a class="btn-on-purple-dark" href="{{path('showPage',{'id':2, 'slug':'contact-us'})}}">Contact Us</a>         
+		</div><!-- baxiaPartner-message -->
+	</div><!-- container -->
+        </div>
+    {%endif%}    
+{%endblock footer_content %}

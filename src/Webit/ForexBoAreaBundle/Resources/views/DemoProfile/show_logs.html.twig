@@ -1,0 +1,17 @@
+<table class="table table-bordered">
+    <tbody>
+    <tr>
+        <th>Created At</th>
+        <th>Subject</th>
+        <th>Body</th>
+    </tr>
+{%for log in object.getUserLogs() %}
+        <tr class="sonata-ba-view-container">
+            <td>{{log.createdAt|date('Y-m-d H:i')}}</td>
+            <td><b>{{log.subject}}</b></td>
+            <td>{{log.body|raw}}</td>
+        </tr>
+{%endfor%}
+</tbody>
+
+</table>

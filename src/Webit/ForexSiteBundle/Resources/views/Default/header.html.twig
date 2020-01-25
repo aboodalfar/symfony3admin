@@ -1,0 +1,51 @@
+<header>
+	<div class="topHeader">
+		<div class="container">
+			<div class="leftSide-part">
+				<div class="listItems">
+					<ul>
+						<li><a class="liveChat" href="#">live chat</a></li>
+						<li><a class="loginIcon" href="{{path('showLoginPage')}}">login</a></li>
+						<li><a class="callUs" href="{{path('showPage',{'id':2, 'slug':'contact-us'})}}">call us</a></li>
+					</ul>
+				</div><!-- listItems -->
+			</div><!-- leftSide-part -->
+			<div class="rightSide-part">
+				<div class="serchBlock">
+
+						<div class="outer-search-box">
+							<div class="seach-toggle"></div>
+							<ul class="search-box">
+								<li>
+									<form method="post" action="{{path('search')}}">
+										<div class="form-group">
+											<input type="search" name="search" placeholder="Search Here" required>
+											<button type="submit"><i class="fa fa-search"></i></button>
+										</div>
+									</form>
+								</li>
+							</ul>
+						</div>
+
+
+				</div><!-- searchBlock -->
+
+				<div class="languageBlock">
+
+					<div id="navbar" class="navbar-collapse collapse navbar-right">
+						<ul class="nav navbar-nav">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img id="imgNavSel xxx" src="{{ asset('bundles/webitforexsite/images/en.png') }}" alt="..." class="icon-small">  <span id="lanNavSel">{{app.request.getLocale()}}</span> <span class="caret"></span></a>
+                                                                
+                                                                
+								<ul class="dropdown-menu" role="menu">
+									<li><a id="navEng" href="{{path('switch_lang',{'lang':'en'})}}" class="language"><img id="imgNavEng"  class="img-thumbnail icon-small">  <span id="lanNavEng">English</span></a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div><!-- rightSide-part -->
+		</div><!-- container -->
+	</div><!-- topHeader -->
+</header>

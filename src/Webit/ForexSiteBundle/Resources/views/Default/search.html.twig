@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ {% include 'WebitForexSiteBundle::Default/head.html.twig' %}
+  <!-- add by abd -->
+  <title>Search | {%trans%}company_name{%endtrans%}</title>
+
+  <!-- end -->
+</head>
+<body>
+{% include 'WebitForexSiteBundle::Default/header.html.twig' %}
+<div class="mainHeader">
+    <!-- start menus -->
+	 {{ render(controller('WebitForexSiteBundle:Homepage:menus'))}} 
+    <!--  end menus -->
+	<div class="mainSlider innerPages">
+		<div class="baxiaMain-slider">
+			<div class="sliderBlock">
+				<img src="{{ asset('bundles/webitforexsite/images/main-img.png') }}">
+				<div class="container">
+					<div class="descriptionBlock">
+						<div class="mainTitle-block">Search</div>
+						<div class="yellow-line"></div>
+					</div><!-- descriptionBlock -->
+
+				</div><!-- container -->
+			</div>
+		</div>
+	</div><!-- mainSlider -->
+</div><!-- mainHeader -->
+<div class="container">
+	<div class="mainInner-pageCont">
+		<div class="rightSide-bar col-lg-3 col-md-3">
+			<div class="tradeWith-Us-inner">
+				<div class="title">{%trans%}trade_with_us{%endtrans%}</div>
+				<div class="description">{%trans%}Experience_our_products_and_understand_the_difference!{%endtrans%}</div>
+
+				<a class="liveAccount-link" href="{{path('realRegistration')}}" tabindex="0">
+					<div class="liveAccount">
+						<div class="liveAccount-title">{%trans%}live_account{%endtrans%}</div>
+						<div class="liveAccount-description">{%trans%}Open_a_live_trading_account{%endtrans%}</div>
+					</div><!-- liveAccount -->
+				</a>
+
+
+				<a class="demoAccount-link" href="{{path('demo_registration')}}" tabindex="0">
+					<div class="demoAccount">
+						<div class="demoAccount-title">{%trans%}demo_account{%endtrans%}</div>
+						<div class="demoAccount-description">{%trans%}Try_a_trading_account{%endtrans%}</div>
+					</div><!-- demoAccount -->
+				</a>
+			</div><!-- TradeWith-Us-inner -->
+		</div>
+
+		<div class="leftSide-bar col-lg-9 col-md-9">
+                            {%block page_body %}
+                                 {%if data|length %}
+                                     <ul>
+                                        {%for item in data%}
+        <li class="result-rows">
+            <div>
+                <h3>{{item.getTranslationByLang(_locale).getTitle()}}</h3>
+                <span>{{item.getTranslationByLang(_locale).getBody()|truncate(300)|striptags}}</span>
+                <br/>
+                <a target="_blank" href="{{path('showPage',{'id':item.getId(),'slug':item.getSlug()})}}">
+                    show more
+                </a>
+            </div>
+        </li>
+        
+
+    {%endfor%}
+    <div class="pagination">
+                {{ knp_pagination_render(data) }}
+            </div>
+
+    
+    
+    
+                                     </ul>
+            {%else%}
+                <h3>no result found</h3>
+                                 {%endif%}    
+                            {%endblock page_body %}    
+		</div><!-- leftSide-bar -->
+
+	</div><!-- mainInner-pageCont -->
+	
+</div><!-- container -->
+
+{% include 'WebitForexSiteBundle::Default/footer.html.twig' %} 
+{%block js %}
+        <!-- only for inner pages -->
+  <script type="text/javascript" src="{{ asset('bundles/webitforexsite/js/accordion.js') }}"></script>
+  <!-- end -->
+ {%endblock js %} 
+  
+</body>
+</html>
